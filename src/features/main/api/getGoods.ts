@@ -19,7 +19,7 @@ export type GetGoodsResponse = {
   totalResults: number;
 };
 
-const getGoodsURL = `${API_BASE_URL}/api/goods`;
+export const getGoodsURL = `${API_BASE_URL}/api/goods`;
 
 export const getGoods = async (
   params: GetGoodsRequestParams

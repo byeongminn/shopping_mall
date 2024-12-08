@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/shared/styles";
+import { QueryProvider } from "@/shared/components/QueryProvider";
 
 export const metadata: Metadata = {
   title: "쇼핑을 쉽게, 스타일링은 즐겁게! 오늘의집 쇼핑",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
