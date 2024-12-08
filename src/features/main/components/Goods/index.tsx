@@ -3,6 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import { useGetGoods } from "../../hooks/useGetGoods";
 import { Order } from "../../api/getGoods";
+import { GoodItem } from "./GoodItem";
+import * as s from "./style.css";
 
 export const Goods = () => {
   const searchParams = useSearchParams();
@@ -15,11 +17,10 @@ export const Goods = () => {
   const flatData = data.pages.map((page) => page.goods ?? []).flat();
 
   return (
-    <section>
-      <h3>상품 목록</h3>
-      <div>
+    <section className={s.container}>
+      <div className={s.wrapper}>
         {flatData.map((data) => (
-          <div key={data.id}>{data.name}</div>
+          <GoodItem key={data.id} good={data} />
         ))}
       </div>
       {hasNextPage && <button onClick={() => fetchNextPage()}>More</button>}

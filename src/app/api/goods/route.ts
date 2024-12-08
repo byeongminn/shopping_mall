@@ -1013,7 +1013,7 @@ const mappingResposne = (data: { goods: rawGood }[]): GetGoodsResponse => {
           Number(item.goods.price.originalPrice) ?? "0"
         ),
         sellingPriceDisplayText: formatNumberWithCommas(
-          Number(item.goods.price.discountRate) ?? "0"
+          Number(item.goods.price.sellingPrice) ?? "0"
         ),
       },
       reviewStatistic: {
