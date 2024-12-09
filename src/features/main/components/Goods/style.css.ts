@@ -5,15 +5,16 @@ import { style } from "@vanilla-extract/css";
 export const container = style([
   {
     margin: "0 auto",
+    paddingBlock: "60px",
     width: "100%",
     maxWidth: "1256px",
   },
   responsiveStyle({
     md: {
-      padding: "0px 40px",
+      paddingInline: "40px",
     },
     sm: {
-      padding: "0px 15px",
+      paddingInline: "15px",
     },
   }),
 ]);
