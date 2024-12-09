@@ -2,8 +2,6 @@ import { HttpHandler, HttpResponse, http } from "msw";
 import { getGoodsURL } from "./getGoods";
 
 export const getMockGoods: HttpHandler = http.get(getGoodsURL, () => {
-  console.log("여기서 데이터를 가져오고 있어요.");
-
   return HttpResponse.json(GET_MOCK_GOODS.success);
 });
 
