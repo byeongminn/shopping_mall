@@ -35,10 +35,31 @@ export const GoodItem = ({ good }: Props) => {
               리뷰 {reviewStatistic.reviewCountDisplayText}
             </span>
           </div>
+          {badgeProperties.departureToday && (
+            <div className={s.departureTodayWrapper}>
+              <h5 className={s.departureToday}>오늘출발</h5>
+              <p className={s.departureTodayDescription}>
+                {badgeProperties.departureToday.description.replace(
+                  "%s",
+                  badgeProperties.departureToday.orderDeadline
+                )}
+              </p>
+            </div>
+          )}
           <div className={s.badgePropertiesWrapper}>
             {badgeProperties.isFreeDelivery && <FreeDelivery />}
             {badgeProperties.isSpecialPrice && <SpecialPrice />}
           </div>
+          {badgeProperties.couponBadge && (
+            <div className={s.couponBadgeWrapper}>
+              <img
+                className={s.couponBadgeImage}
+                src={badgeProperties.couponBadge.imageUrl}
+                alt="coupon"
+              />
+              <p>{badgeProperties.couponBadge.displayText}</p>
+            </div>
+          )}
         </div>
       </div>
     </Link>

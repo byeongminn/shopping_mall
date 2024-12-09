@@ -12,7 +12,13 @@ export const link = style([
 
 export const wrapper = style([f.wFull]);
 
-export const thumbnailWrapper = style([f.wFull, { overflow: "hidden" }]);
+export const thumbnailWrapper = style([
+  f.wFull,
+  {
+    overflow: "hidden",
+    borderRadius: "4px",
+  },
+]);
 
 export const image = style([
   f.wFull,
@@ -106,11 +112,62 @@ export const reviewCount = style([
   },
 ]);
 
+export const departureTodayWrapper = style([
+  {
+    marginTop: "4px",
+  },
+]);
+
+export const departureToday = style([
+  {
+    fontStyle: "italic",
+    fontWeight: 600,
+    fontSize: "14px",
+    lineHeight: "16px",
+    color: "#663fff",
+  },
+]);
+
+export const departureTodayDescription = style([
+  {
+    marginTop: "4px",
+    fontSize: "12px",
+    lineHeight: "16px",
+    color: "rgb(99, 145, 230)",
+  },
+]);
+
 export const badgePropertiesWrapper = style([
   f.flex,
   {
     flexWrap: "wrap",
     gap: "4px",
     marginTop: "8px",
+  },
+]);
+
+export const couponBadgeWrapper = style([
+  f.flex,
+  f.alignCenter,
+  {
+    marginTop: "6px",
+    padding: "2px 5px",
+    maxWidth: "100%",
+    width: "fit-content",
+    border: "1px solid rgb(234, 237, 239)",
+    borderRadius: "4px",
+    fontWeight: 700,
+    fontSize: "10px",
+    lineHeight: "14px",
+    color: "rgb(47, 52, 56)",
+    letterSpacing: "-0.3px",
+  },
+]);
+
+export const couponBadgeImage = style([
+  {
+    marginRight: "5px",
+    width: "11px",
+    display: "block",
   },
 ]);
