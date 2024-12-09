@@ -933,7 +933,7 @@ export const GET = async (request: NextRequest) => {
       },
     ];
 
-    const mappedData = mappingResposne(data);
+    const mappedData = mappingResponse(data);
 
     if (order === "priceAsc") {
       // 가격 오름차순 정렬
@@ -1003,7 +1003,7 @@ const parseSearchParams = (params: URLSearchParams): GetGoodsRequestParams => {
   };
 };
 
-const mappingResposne = (data: { goods: rawGood }[]): GetGoodsResponse => {
+const mappingResponse = (data: { goods: rawGood }[]): GetGoodsResponse => {
   const goods = data?.map((item) => {
     return {
       ...item.goods,

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:mocking": "NEXT_PUBLIC_MOCKING=true next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,6 +28,12 @@
     "@vanilla-extract/next-plugin": "^2.4.7",
     "eslint": "^8",
     "eslint-config-next": "15.0.4",
+    "msw": "^2.6.8",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
