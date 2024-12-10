@@ -1,11 +1,18 @@
 import { Order } from "@/features/main/api/getGoods";
 import queryString from "query-string";
 
-export const getSearchPageLink = (params: { q: string; order?: Order }) => {
+export const getPageLink = (params: {
+  seg?: string;
+  q?: string;
+  order?: Order;
+}) => {
   const parsedParams = queryString.parse(location.search);
 
   if (params.q) parsedParams.q = params.q;
   if (params.order) parsedParams.order = params.order;
 
-  return `/search?${queryString.stringify(parsedParams)}`;
+  return `${params.seg ?? "/"}?${queryString.stringify(parsedParams)}`;
 };
+
+export const getSearchPageLink = (params: { q: string; order?: Order }) =>
+  getPageLink({ seg: "/search", q: params.q, order: params.order });
