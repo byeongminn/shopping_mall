@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     <nav className={s.container}>
       <div className={s.wrapper}>
         <div className={s.startWrapper}>
-          <Link href="/">
+          <Link href="/" className={s.link}>
             <div className={s.logo}>
               <Logo />
             </div>

@@ -37,6 +37,12 @@ export const wrapper = style([
   }),
 ]);
 
+export const link = style([
+  {
+    display: "inline-block",
+  },
+]);
+
 export const logo = style([
   {
     width: "71px",
