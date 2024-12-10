@@ -1,20 +1,20 @@
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
+import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
 import { style } from "@vanilla-extract/css";
 
 export const container = style([
   {
     margin: "0 auto",
-    paddingBlock: "60px",
     width: "100%",
-    maxWidth: "1256px",
+    maxWidth: CONTENT_WIDTH,
   },
   responsiveStyle({
     md: {
-      paddingInline: "40px",
+      padding: "40px",
     },
     sm: {
-      paddingInline: "15px",
+      padding: "15px",
     },
   }),
 ]);
