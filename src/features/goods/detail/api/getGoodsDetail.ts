@@ -1,3 +1,9 @@
+import { API_BASE_URL } from "@/shared/api/constants";
+
+export type GetGoodsDetailRequestParams = {
+  goodId: string;
+};
+
 export type GoodsDetailOption = {
   id: number;
   is_main: boolean;
@@ -61,4 +67,16 @@ export type GetGoodsDetailResponse = {
   review_avg: number;
   review_count: number;
   sub_images: GoodsDetailImage[];
+};
+
+export const GetGoodsDetailURL = `${API_BASE_URL}/api/goods/detail/:goodId`;
+
+export const getGoodsDetail = async (
+  params: GetGoodsDetailRequestParams
+): Promise<GetGoodsDetailResponse> => {
+  const url = GetGoodsDetailURL.replace(":goodId", params.goodId);
+
+  const response = await fetch(url);
+
+  return await response.json();
 };
