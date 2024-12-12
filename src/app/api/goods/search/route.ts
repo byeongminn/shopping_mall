@@ -1,18 +1,12 @@
-import {
-  GetGoodsRequestParams,
-  GetGoodsResponse,
-  Order,
-} from "@/features/main/api/getGoods";
-import { rawGood } from "@/shared/api/house/types/item";
-import { numberRounded } from "@/shared/utils/data";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { Order } from "@/features/main/api/getGoods";
 import { NextRequest } from "next/server";
+import { mappingResponse, orderingData } from "../route";
+import { rawGood } from "@/shared/api/house/types/item";
 
 export const GET = async (request: NextRequest) => {
   try {
     const searchParams = parseSearchParams(request.nextUrl.searchParams);
-
-    const { order } = searchParams;
+    const { q, order } = searchParams;
 
     const data = [
       {
@@ -933,12 +927,13 @@ export const GET = async (request: NextRequest) => {
       },
     ];
 
-    const mappedData = mappingResponse(data);
+    const foundData = findingData(data, q);
 
-    const orderedData = orderingData(mappedData, order as Order);
+    const mappedData = mappingResponse(foundData);
 
-    // return Response.json(orderedData);
-    return Response.json({ ...orderedData, totalResults: 200 });
+    const orderedData = orderingData(mappedData, order);
+
+    return Response.json(orderedData);
   } catch {
     return new Response(JSON.stringify({ message: "Internal Server Error" }), {
       status: 500,
@@ -946,99 +941,13 @@ export const GET = async (request: NextRequest) => {
   }
 };
 
-const parseSearchParams = (params: URLSearchParams): GetGoodsRequestParams => {
+const parseSearchParams = (params: URLSearchParams) => {
   return {
+    q: params.get("q") ?? "",
     order: (params.get("order") ?? "recommended") as Order,
   };
 };
 
-export const mappingResponse = (
-  data: { goods: rawGood }[]
-): GetGoodsResponse => {
-  const goods = data?.map((item) => {
-    return {
-      ...item.goods,
-      price: {
-        ...item.goods.price,
-        originalPriceDisplayText: formatNumberWithCommas(
-          Number(item.goods.price.originalPrice) ?? "0"
-        ),
-        sellingPriceDisplayText: formatNumberWithCommas(
-          Number(item.goods.price.sellingPrice) ?? "0"
-        ),
-      },
-      reviewStatistic: {
-        ...item.goods.reviewStatistic,
-        reviewCountDisplayText:
-          formatNumberWithCommas(item.goods.reviewStatistic.reviewCount) ?? "0",
-        reviewAverageDisplayText:
-          numberRounded(item.goods.reviewStatistic.reviewAverage) ?? 0,
-      },
-    };
-  });
-
-  return {
-    goods,
-    totalResults: goods.length,
-  };
-};
-
-export const orderingData = (
-  data: GetGoodsResponse,
-  order: Order
-): GetGoodsResponse => {
-  if (order === "priceAsc") {
-    // 가격 오름차순 정렬
-    const sortedData = {
-      goods: data.goods.sort(
-        (a, b) => Number(a.price.sellingPrice) - Number(b.price.sellingPrice)
-      ),
-      totalResults: data.totalResults,
-    };
-
-    return sortedData;
-  } else if (order === "priceDesc") {
-    // 가격 내림차순 정렬
-    const sortedData = {
-      goods: data.goods.sort(
-        (a, b) => Number(b.price.sellingPrice) - Number(a.price.sellingPrice)
-      ),
-      totalResults: data.totalResults,
-    };
-
-    return sortedData;
-  } else if (order === "discountRate") {
-    // 할인율 내림차순 정렬
-    const sortedData = {
-      goods: data.goods.sort(
-        (a, b) => Number(b.price.discountRate) - Number(a.price.discountRate)
-      ),
-      totalResults: data.totalResults,
-    };
-
-    return sortedData;
-  } else if (order === "reviewAverage") {
-    // 평점 내림차순 정렬
-    const sortedData = {
-      goods: data.goods.sort(
-        (a, b) =>
-          b.reviewStatistic.reviewAverage - a.reviewStatistic.reviewAverage
-      ),
-      totalResults: data.totalResults,
-    };
-
-    return sortedData;
-  } else if (order === "reviewCount") {
-    // 리뷰 수 내림차수 정렬
-    const sortedData = {
-      goods: data.goods.sort(
-        (a, b) => b.reviewStatistic.reviewCount - a.reviewStatistic.reviewCount
-      ),
-      totalResults: data.totalResults,
-    };
-
-    return sortedData;
-  } else {
-    return data;
-  }
+const findingData = (data: { goods: rawGood }[], q: string) => {
+  return data.filter((good) => good?.goods?.name?.includes(q));
 };

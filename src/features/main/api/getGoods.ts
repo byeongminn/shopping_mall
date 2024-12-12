@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "@/shared/api/constants";
 import { Good } from "@/shared/api/house/types/item";
+import { ListResponse } from "@/shared/api/house/types/list";
 import queryString from "query-string";
 
 export type Order =
@@ -14,10 +15,7 @@ export type GetGoodsRequestParams = {
   order?: Order;
 };
 
-export type GetGoodsResponse = {
-  goods: Good[];
-  totalResults: number;
-};
+export type GetGoodsResponse = ListResponse<Good>;
 
 export const getGoodsURL = `${API_BASE_URL}/api/goods`;
 
