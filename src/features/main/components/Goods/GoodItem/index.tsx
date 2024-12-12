@@ -13,7 +13,7 @@ export const GoodItem = ({ good }: Props) => {
     good;
 
   return (
-    <Link href={`/productions/${id}`} className={s.link}>
+    <Link href={`/goods/${id}`} className={s.link}>
       <div className={s.wrapper}>
         <div className={s.thumbnailWrapper}>
           <img className={s.image} src={imageUrl} alt={name} />
