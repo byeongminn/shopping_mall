@@ -28,6 +28,9 @@ export const wrapper = style([
     height: `${NAVIGATION_BAR_HEIGHT}px`,
   },
   responsiveStyle({
+    lg: {
+      paddingInline: "60px",
+    },
     md: {
       paddingInline: "40px",
     },

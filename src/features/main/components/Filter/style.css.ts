@@ -28,6 +28,9 @@ export const wrapper = style([
     gap: "4px",
   },
   responsiveStyle({
+    lg: {
+      paddingInline: "60px",
+    },
     md: {
       paddingInline: "40px",
     },

@@ -11,7 +11,9 @@ export const getPageLink = (params: {
   if (params.q) parsedParams.q = params.q;
   if (params.order) parsedParams.order = params.order;
 
-  return `${params.seg ?? "/"}?${queryString.stringify(parsedParams)}`;
+  return `${params.seg ?? location.pathname}?${queryString.stringify(
+    parsedParams
+  )}`;
 };
 
 export const getSearchPageLink = (params: { q: string; order?: Order }) =>
