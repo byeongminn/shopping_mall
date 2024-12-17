@@ -118,16 +118,6 @@ export const departureTodayWrapper = style([
   },
 ]);
 
-export const departureToday = style([
-  {
-    fontStyle: "italic",
-    fontWeight: 600,
-    fontSize: "14px",
-    lineHeight: "16px",
-    color: "#663fff",
-  },
-]);
-
 export const departureTodayDescription = style([
   {
     marginTop: "4px",

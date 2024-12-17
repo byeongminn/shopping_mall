@@ -1,3 +1,4 @@
+import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
 import { NextRequest } from "next/server";
 
 export const GET = async (request: NextRequest) => {
@@ -12,12 +13,17 @@ export const GET = async (request: NextRequest) => {
         is_departure_today: true,
         delivery_start_at: {
           template: {
-            text: "지금 주문시 %s",
-            values: "내일 출발",
+            text: "12:00 까지 결제 시 %s",
+            values: "오늘 출발",
           },
         },
-        fee: 0,
-        restrict: "제주 추가 3,000원 / 제주 외 도서지역 추가 8,000원",
+        fee: {
+          fee: 3000,
+          backwoods_fee: 5000,
+          free_threshold: 50000,
+          is_regional_delivery_fee: true,
+          type: 1,
+        },
       },
       description:
         '<div style="text-align: center;">\n <img src="https://prs.ohou.se/apne2/any/uploads/productions/descriptions/url/v1-313338879692864.jpg" alt="" width="860" height="3000">\n</div>\n<div style="text-align: center;">\n &nbsp;\n</div>\n<div style="text-align: center;">\n &nbsp;\n</div>\n<div style="text-align: center;">\n &nbsp;\n</div>\n<div style="text-align: center;">\n &nbsp;\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472296075128098.jpg" alt="">\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472297413085376.jpg" alt="">\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472298436088292.jpg" alt="">\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472300076100012.jpg" alt="">\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472301034339747.jpg" alt="" width="860" height="4150">\n</div>\n<div style="text-align: center;">\n <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168472301844947540.jpg" alt="" width="860" height="4002">\n</div>\n<div style="text-align: center;">\n <img src="https://prs.ohou.se/apne2/any/uploads/productions/descriptions/url/v1-205401249591424.jpg" alt="">\n</div>\n<div style="text-align: center;">\n &nbsp;\n</div>\n<div>\n <img style="display: block; margin-left: auto; margin-right: auto;" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164084742688832878.jpg" alt="상품의 상세 설명 이미지" width="860" height="3840">\n</div>\n<div>\n &nbsp;\n</div>',
@@ -260,10 +266,31 @@ export const GET = async (request: NextRequest) => {
       ],
     };
 
-    return Response.json(data);
+    const mappedData = mappingResponse(data);
+
+    return Response.json(mappedData);
   } catch {
     return new Response(JSON.stringify({ message: "Internal Server Error" }), {
       status: 500,
     });
   }
+};
+
+const mappingResponse = (
+  data: GetGoodsDetailResponse
+): GetGoodsDetailResponse => {
+  return {
+    ...data,
+    sub_images: [
+      {
+        original_image_url: data?.original_image_url,
+        resized_image_url: data?.image_url,
+        resized_thumbnail_image_url: data?.image_url.replace(
+          "2560/2560",
+          "160/160"
+        ),
+      },
+      ...data?.sub_images,
+    ],
+  };
 };

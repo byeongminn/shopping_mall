@@ -1,8 +1,9 @@
 import { Good } from "@/shared/api/house/types/item";
 import Link from "next/link";
-import FreeDelivery from "./freeDelivery.svg";
-import SpecialPrice from "./specialPrice.svg";
+import FreeDelivery from "@/shared/components/base/icons/freeDelivery.svg";
+import SpecialPrice from "@/shared/components/base/icons/specialPrice.svg";
 import * as s from "./style.css";
+import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
 
 type Props = {
   good: Good;
@@ -37,7 +38,7 @@ export const GoodItem = ({ good }: Props) => {
           </div>
           {badgeProperties.departureToday && (
             <div className={s.departureTodayWrapper}>
-              <h5 className={s.departureToday}>오늘출발</h5>
+              <DepartureToday />
               <p className={s.departureTodayDescription}>
                 {badgeProperties.departureToday.description.replace(
                   "%s",

@@ -42,8 +42,13 @@ export type GetGoodsDetailResponse = {
         values: string;
       };
     };
-    fee: number;
-    restrict: string;
+    fee: {
+      fee: number;
+      backwoods_fee: number;
+      free_threshold: number;
+      is_regional_delivery_fee: boolean;
+      type: number;
+    };
   };
   description: string;
   extra_options: GoodsDetailOption[];
