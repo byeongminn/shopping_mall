@@ -28,6 +28,9 @@ export const GoodDetail = ({ goodId }: Props) => {
           <GoodDescription good={data} />
         </div>
       </div>
+      <div className={s.descriptionWrapper}>
+        <div dangerouslySetInnerHTML={{ __html: data.description }} />
+      </div>
     </section>
   );
 };

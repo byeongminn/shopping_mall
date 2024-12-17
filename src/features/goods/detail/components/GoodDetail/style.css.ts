@@ -50,17 +50,16 @@ export const overviewWrapper = style([
   f.flex,
   responsiveStyle({
     lg: {
-      marginBlock: "40px",
+      marginTop: "40px",
       gap: "50px",
       flexDirection: "row",
     },
     md: {
-      marginBlock: "20px",
+      marginTop: "20px",
       gap: "30px",
       flexDirection: "row",
     },
     sm: {
-      marginBottom: "20px",
       gap: "20px",
       flexDirection: "column",
     },
@@ -87,4 +86,12 @@ export const contentWrapper = style([
       width: "100%",
     },
   }),
+]);
+
+export const descriptionWrapper = style([
+  {
+    marginTop: "50px",
+    paddingBlock: "50px",
+    borderTop: "10px solid #ededed;",
+  },
 ]);
