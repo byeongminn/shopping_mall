@@ -1,4 +1,4 @@
-# 오늘의집
+# 쇼핑몰 프로젝트
 
 ![Npm](https://img.shields.io/badge/npm-10.7.0-orange?style=flat-square)
 ![Node.js](https://img.shields.io/badge/node.js-20.14.0-blue?style=flat-square)
@@ -28,19 +28,23 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 ## Getting Started
 
-1. Clone the repo
+1. <b>Clone the repo</b>
    ```
    git clone https://github.com/byeongminn/shopping_mall.git
    ```
-2. Change to the folder created by the clone command
+2. <b>Change to the folder created by the clone command</b>
    ```
    cd shopping_mall
    ```
-3. Install packages
+3. <b>Install packages</b>
    ```
    yarn
    ```
-5. Start the project
+4. <b>Create an environment variable file.</b> Create a .env file in the root directory of the project and define the required environment variables.
+   ```
+   NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+   ```
+5. <b>Start the project</b>
    ```
    yarn dev
    ```
