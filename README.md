@@ -51,6 +51,40 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 <br />
 
+## Usage
+### [메인페이지 - 상품 목록]
+- 무한 스크롤: 사용자가 스크롤할 때마다 맛집 목록이 연속적으로 표시되어 사용자 경험을 향상시킵니다.
+- 상품 상세 정보 페이지 이동: 사용자가 상품을 클릭하면 해당 상품의 상세 정보 페이지로 이동할 수 있습니다.
+- 정렬 기능: 사용자가 상품을 원하는 순서로 정렬할 수 있으며, 정렬 정보는 URL의 searchParams에 저장되어 새로고침 후에도 정렬 상태가 유지됩니다.
+
+|상품 목록|
+|--------|
+|<img width="600" alt="goods" src="https://github.com/user-attachments/assets/d6b8ef9b-aefe-4cd9-b1ac-8c14280ddfcd">|
+
+<br />
+
+### [상품 검색]
+- 검색 기능: 검색 정보는 URL의 searchParams에 저장되어 새로고침 후에도 검색 상태가 유지됩니다.
+
+|상품 검색 목록|
+|--------|
+|<img width="600" alt="search" src="https://github.com/user-attachments/assets/fd56418e-d9dc-4081-9b67-7a89c4af9ccb">|
+|<img width="600" alt="search" src="https://github.com/user-attachments/assets/8613290c-396f-445d-a4c7-2a118c018146">|
+
+<br />
+
+### [상품 상세]
+- 상품 이미지: Swiper를 이용해 여러 각도의 상품 이미지를 슬라이드 형식으로 제공합니다. 사용자는 상품 이미지를 스와이프하여 직관적으로 확인할 수 있습니다.
+- 상품 옵션 선택: 색상 및 추가 상품을 옵션으로 선택할 수 있습니다.
+- 가격 및 배송 정보: 상품의 할인된 가격과 배송비 정보를 표시합니다. 결제 시간에 따른 오늘 출발 여부도 확인할 수 있습니다.
+- 수량 조절: 수량을 선택하여 총 주문 금액을 확인할 수 있습니다.
+
+|상품 상세|
+|--------|
+|<img width="600" alt="detail" src="https://github.com/user-attachments/assets/1d95009d-cb3b-4d27-aa7e-25f5cd333698">|
+
+<br />
+
 ## Release History
 
 - 1.0.0
