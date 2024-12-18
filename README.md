@@ -85,9 +85,34 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 <br />
 
+## Performance Improvements
+
+이 프로젝트에서는 **Lighthouse 기준으로 성능을 개선**하여 웹 페이지의 로딩 속도와 사용자 경험(UX)을 크게 향상시켰습니다. 주요 성능 개선 사항과 개선 전후의 스코어는 아래에 명시되어 있습니다.
+
+| 개선 전  | 개선 후  |
+|----------|----------|
+| ![Before](https://github.com/user-attachments/assets/f59df43d-dd9d-4373-9c84-8354b5cd891b) | ![After](https://github.com/user-attachments/assets/781c952b-5da1-4f19-b45a-75389ef851c7) |
+
+### **🔍 주요 개선 사항**
+
+### 1️⃣ **이미지 최적화**
+- **`next/image` 도입**: 기존 `<img>` 태그를 **`next/image`**로 변경하여 이미지 최적화를 수행했습니다.
+- **`sizes` 속성 활용**: 뷰포트에 맞는 적절한 이미지 크기를 제공해 불필요한 리소스 로드를 방지했습니다.
+- **Lazy Loading**: 화면에 보이는 이미지부터 로드하여 **LCP (Largest Contentful Paint)** 시간을 단축했습니다.
+
+<br />
+
 ## Release History
 
+- 1.0.1
+  - **Lighthouse 성능 개선**
+    - 이미지 최적화: **next/image** 도입, `sizes` 속성 추가
+    - 레이아웃 시프트(CLS) 해결: **width/height 명시적 설정**
+  - **성능 지표 개선**
+    - Performance: 76 → 99
+    - Best Practices: 78 → 100
 - 1.0.0
   - The first release
-- 0.0.1 \* Work in progress
+- 0.0.1
+  - Work in progress
   <br />
