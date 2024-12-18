@@ -59,7 +59,7 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 |상품 목록|
 |--------|
-|<img width="600" alt="goods" src="https://github.com/user-attachments/assets/d6b8ef9b-aefe-4cd9-b1ac-8c14280ddfcd">|
+| ![goods](https://github.com/user-attachments/assets/d6b8ef9b-aefe-4cd9-b1ac-8c14280ddfcd) |
 
 <br />
 
@@ -68,8 +68,8 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 |상품 검색 목록|
 |--------|
-|<img width="600" alt="search" src="https://github.com/user-attachments/assets/fd56418e-d9dc-4081-9b67-7a89c4af9ccb">|
-|<img width="600" alt="search" src="https://github.com/user-attachments/assets/8613290c-396f-445d-a4c7-2a118c018146">|
+| ![Search](https://github.com/user-attachments/assets/fd56418e-d9dc-4081-9b67-7a89c4af9ccb) |
+| ![Search2](https://github.com/user-attachments/assets/8613290c-396f-445d-a4c7-2a118c018146) |
 
 <br />
 
@@ -81,7 +81,7 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 |상품 상세|
 |--------|
-|<img width="600" alt="detail" src="https://github.com/user-attachments/assets/1d95009d-cb3b-4d27-aa7e-25f5cd333698">|
+| ![good](https://github.com/user-attachments/assets/1d95009d-cb3b-4d27-aa7e-25f5cd333698) |
 
 <br />
 
