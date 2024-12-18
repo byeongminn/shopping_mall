@@ -67,6 +67,7 @@ export const GoodItem = ({ good }: Props) => {
                 alt="coupon"
                 width={11}
                 height={11}
+                priority
               />
               <p>{badgeProperties.couponBadge.displayText}</p>
             </div>

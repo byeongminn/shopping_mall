@@ -7,6 +7,7 @@ export const DepartureToday = () => {
       alt="오늘출발"
       width={60}
       height={15}
+      priority
     />
   );
 };
