@@ -1,7 +1,7 @@
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { GOOD_DETAIL_WIDTH } from "@/shared/styles/globals.css";
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const container = style([
   {
@@ -40,10 +40,17 @@ export const breadcrumbWrapper = style([
 
 export const breadcrumb = style([
   {
-    fontSize: "15px",
     color: "#757575",
     lineHeight: 1.2,
   },
+  responsiveStyle({
+    md: {
+      fontSize: "15px",
+    },
+    sm: {
+      fontSize: "13px",
+    },
+  }),
 ]);
 
 export const overviewWrapper = style([
@@ -95,3 +102,8 @@ export const descriptionWrapper = style([
     borderTop: "10px solid #ededed;",
   },
 ]);
+
+globalStyle(`${descriptionWrapper} img`, {
+  maxWidth: "100%",
+  height: "auto",
+});

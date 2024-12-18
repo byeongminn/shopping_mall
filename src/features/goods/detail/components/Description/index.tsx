@@ -28,8 +28,6 @@ export const GoodDescription = ({ good }: Props) => {
     review_count,
   } = good;
 
-  console.log(good);
-
   return (
     <div>
       {/* 브랜드명 & 상품명 */}
