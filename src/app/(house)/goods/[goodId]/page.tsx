@@ -3,14 +3,16 @@ import { GoodDetail } from "@/features/goods/detail/components/GoodDetail";
 import { Suspense } from "react";
 
 export type GoodDetailPageParams = {
-  params: GetGoodsDetailRequestParams;
+  params: Promise<GetGoodsDetailRequestParams>;
 };
 
-export default function GoodDetailPage({ params }: GoodDetailPageParams) {
+export default async function GoodDetailPage({ params }: GoodDetailPageParams) {
+  const goodId = (await params).goodId;
+
   return (
     <main>
       <Suspense fallback={<></>}>
-        <GoodDetail goodId={params.goodId} />
+        <GoodDetail goodId={goodId} />
       </Suspense>
     </main>
   );

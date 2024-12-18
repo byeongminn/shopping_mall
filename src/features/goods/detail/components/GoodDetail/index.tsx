@@ -1,12 +1,12 @@
 "use client";
 
-import { GoodDetailPageParams } from "@/app/(house)/goods/[goodId]/page";
+import { GetGoodsDetailRequestParams } from "../../api/getGoodsDetail";
 import { useGetGoodsDetail } from "../../hooks/useGetGoodsDetail";
 import { ThumbnailSwiper } from "../ThumbnailSwiper";
 import { GoodDescription } from "../Description";
 import * as s from "./style.css";
 
-type Props = GoodDetailPageParams["params"];
+type Props = GetGoodsDetailRequestParams;
 
 export const GoodDetail = ({ goodId }: Props) => {
   const { data } = useGetGoodsDetail({ goodId });

@@ -5,8 +5,8 @@ import { Suspense } from "react";
 export default function Search() {
   return (
     <main>
-      <Filter />
       <Suspense fallback={<></>}>
+        <Filter />
         <SearchResultList />
       </Suspense>
     </main>

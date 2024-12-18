@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Order } from "../../api/getGoods";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getPageLink } from "@/shared/utils/link/page";

@@ -1,7 +1,6 @@
 import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
-import { NextRequest } from "next/server";
 
-export const GET = async (request: NextRequest) => {
+export const GET = async () => {
   try {
     const data = {
       id: 1181383,
