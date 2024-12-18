@@ -73,6 +73,13 @@ export const swiperWrapper = style([
   }),
 ]);
 
+export const swiperSlide = style([
+  f.pRelative,
+  {
+    aspectRatio: "1 / 1",
+  },
+]);
+
 export const swiperImage = style([
   f.wFull,
   {
