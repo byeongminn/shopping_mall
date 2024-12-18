@@ -2,7 +2,7 @@ import { getSalePercent } from "@/shared/utils/data";
 import { GetGoodsDetailResponse } from "../../api/getGoodsDetail";
 import { ReviewStatistics } from "../ReviewStatistics";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import SpecialPrice from "@/shared/components/base/icons/specialPrice.svg";
+import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
 import Check from "./check.svg";
 import ArrowRight from "./arrowRight.svg";

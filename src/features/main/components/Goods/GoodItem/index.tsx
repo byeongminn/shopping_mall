@@ -1,7 +1,7 @@
 import { Good } from "@/shared/api/house/types/item";
 import Link from "next/link";
-import FreeDelivery from "@/shared/components/base/icons/freeDelivery.svg";
-import SpecialPrice from "@/shared/components/base/icons/specialPrice.svg";
+import FreeDelivery from "@/shared/components/base/Icons/freeDelivery.svg";
+import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import * as s from "./style.css";
 import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
 
