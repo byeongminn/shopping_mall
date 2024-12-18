@@ -4,6 +4,7 @@ import FreeDelivery from "@/shared/components/base/Icons/freeDelivery.svg";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import * as s from "./style.css";
 import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
+import Image from "next/image";
 
 type Props = {
   good: Good;
@@ -17,7 +18,14 @@ export const GoodItem = ({ good }: Props) => {
     <Link href={`/goods/${id}`} className={s.link}>
       <div className={s.wrapper}>
         <div className={s.thumbnailWrapper}>
-          <img className={s.image} src={imageUrl} alt={name} />
+          <Image
+            className={s.image}
+            src={imageUrl}
+            alt={name}
+            fill
+            sizes="(max-width: 767px) 50vw, 25vw"
+            priority
+          />
         </div>
         <div className={s.contentsWrapper}>
           <h6 className={s.brandName}>{brand.name}</h6>
@@ -53,10 +61,12 @@ export const GoodItem = ({ good }: Props) => {
           </div>
           {badgeProperties.couponBadge && (
             <div className={s.couponBadgeWrapper}>
-              <img
+              <Image
                 className={s.couponBadgeImage}
                 src={badgeProperties.couponBadge.imageUrl}
                 alt="coupon"
+                width={11}
+                height={11}
               />
               <p>{badgeProperties.couponBadge.displayText}</p>
             </div>

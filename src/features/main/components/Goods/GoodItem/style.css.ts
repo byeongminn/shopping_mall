@@ -14,9 +14,11 @@ export const wrapper = style([f.wFull]);
 
 export const thumbnailWrapper = style([
   f.wFull,
+  f.pRelative,
   {
-    overflow: "hidden",
+    aspectRatio: "1 / 1",
     borderRadius: "4px",
+    overflow: "hidden",
   },
 ]);
 
@@ -157,7 +159,6 @@ export const couponBadgeWrapper = style([
 export const couponBadgeImage = style([
   {
     marginRight: "5px",
-    width: "11px",
     display: "block",
   },
 ]);
