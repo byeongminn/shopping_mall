@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "assets.ohou.se",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "image.ohou.se",
         port: "",
         pathname: "/**",
