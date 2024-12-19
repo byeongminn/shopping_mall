@@ -34,8 +34,9 @@ export const ThumbnailSwiper = ({ images }: Props) => {
             alt={`썸네일 이미지 ${idx + 1}`}
             width={56}
             height={56}
-            onPointerEnter={() => goToSlide(idx)}
+            sizes="(max-width: 767px) 0px, 56px"
             priority
+            onPointerEnter={() => goToSlide(idx)}
           />
         ))}
       </div>
@@ -57,7 +58,7 @@ export const ThumbnailSwiper = ({ images }: Props) => {
               alt={`썸네일 이미지 ${idx + 1}`}
               fill
               sizes="(max-width: 767px) 100vw, 50vw"
-              priority
+              priority={idx === 0}
             />
           </SwiperSlide>
         ))}
