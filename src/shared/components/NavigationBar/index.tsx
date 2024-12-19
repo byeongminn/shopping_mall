@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     <nav className={s.container}>
       <div className={s.wrapper}>
         <div className={s.startWrapper}>
-          <Link href="/" className={s.link}>
+          <Link href="/" className={s.link} aria-label="홈으로 이동">
             <div className={s.logo}>
               <Logo />
             </div>
