@@ -99,13 +99,23 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 - **`next/image` 도입**: 기존 `<img>` 태그를 **`next/image`**로 변경하여 이미지 최적화를 수행했습니다.
 - **`sizes` 속성 활용**: 뷰포트에 맞는 적절한 이미지 크기를 제공해 불필요한 리소스 로드를 방지했습니다.
 - **Lazy Loading**: 화면에 보이는 이미지부터 로드하여 **LCP (Largest Contentful Paint)** 시간을 단축했습니다.
+- **상품 상세페이지 썸네일 최적화**: 작은 썸네일과 큰 썸네일의 priority 조건을 수정하여 LCP 시간을 개선했습니다.
 ### 2️⃣ **접근성 개선**
 - **Links do not have a discernible name 문제 해결**: 클릭 가능한 링크에 **`aria-label`**을 추가하여 링크의 의미를 명확히 전달했습니다. 이를 통해 Lighthouse의 **"Links do not have a discernible name"** 오류를 해결하고, 웹 접근성을 개선했습니다.
+- **상품 상세페이지 접근성 개선**: 상품 상세페이지의 select 태그에 aria-label 속성을 추가하여 접근성을 개선했습니다.
 
 
 <br />
 
 ## Release History
+- 1.0.3
+  - **상세페이지 Lighthouse 성능 개선**
+    - 상품 상세페이지 접근성 개선: 상품 상세페이지의 select 태그에 aria-label 속성 추가
+    - 상품 상세페이지 썸네일 최적화: 작은 썸네일과 큰 썸네일의 priority 조건 수정
+    - Swiper 최적화: Swiper에 initialSlide 속성 추가 및 Image에 loading 속성 추가
+  - **성능 지표 개선**
+    - Performance: 83 → 100
+    - Accessibility: 87 → 95
 - 1.0.2
   - **메인페이지 Lighthouse 성능 개선**
     - 접근성 개선: aria-label 추가로 링크 명확성 향상
