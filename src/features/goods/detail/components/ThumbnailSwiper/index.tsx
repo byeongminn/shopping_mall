@@ -49,7 +49,6 @@ export const ThumbnailSwiper = ({ images }: Props) => {
         modules={[Pagination]}
         slidesPerView={1}
         initialSlide={0}
-        lazyPreloadPrevNext={1}
         onSlideChange={(image) => setActiveIndex(image.activeIndex)}
       >
         {images?.map((image, idx) => (
@@ -60,7 +59,7 @@ export const ThumbnailSwiper = ({ images }: Props) => {
               alt={`썸네일 이미지 ${idx + 1}`}
               fill
               sizes="(max-width: 767px) 100vw, 50vw"
-              priority={idx === 0}
+              loading={idx === 0 ? "eager" : "lazy"}
             />
           </SwiperSlide>
         ))}
