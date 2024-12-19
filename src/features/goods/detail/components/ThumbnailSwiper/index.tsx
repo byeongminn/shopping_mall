@@ -48,6 +48,8 @@ export const ThumbnailSwiper = ({ images }: Props) => {
         }}
         modules={[Pagination]}
         slidesPerView={1}
+        initialSlide={0}
+        lazyPreloadPrevNext={1}
         onSlideChange={(image) => setActiveIndex(image.activeIndex)}
       >
         {images?.map((image, idx) => (
