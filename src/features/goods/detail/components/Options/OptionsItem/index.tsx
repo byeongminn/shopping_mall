@@ -45,6 +45,7 @@ export const GoodOptionsItem = ({
         className={s.selectWrapper({ isFirst })}
         value={-1}
         onChange={handleSelectChange}
+        aria-label={firstDepthName}
       >
         <option value={-1} disabled>
           {firstDepthName}
