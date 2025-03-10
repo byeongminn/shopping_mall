@@ -8,24 +8,11 @@ export type GoodsDetailOption = {
   id: number;
   is_main: boolean;
   explain: string;
-  explain2: string;
-  stock: number;
-  position: number;
-  selling_cost: number;
-  undiscounted_cost: number;
-  price: {
-    goods_option_id: number;
-    reference_price: number;
-    regular_price: number;
-    sale_price: number;
-    selling_price: number;
-  };
+  price: number;
 };
 
 export type GoodsDetailImage = {
-  original_image_url: string;
-  resized_image_url: string;
-  resized_thumbnail_image_url: string;
+  image_url: string;
 };
 
 export type GetGoodsDetailResponse = {
@@ -65,10 +52,7 @@ export type GetGoodsDetailResponse = {
     goods_id: number;
     selling_price: number;
     regular_price: number;
-    sale_price: number;
-    reference_price: number;
   };
-  qa_count: number;
   review_avg: number;
   review_count: number;
   sub_images: GoodsDetailImage[];

@@ -25,10 +25,7 @@ export const GoodOptions = ({
 
   const totalPrice = useMemo(
     () =>
-      selectedOptions.reduce(
-        (acc, curr) => acc + curr.selling_cost * curr.value,
-        0
-      ),
+      selectedOptions.reduce((acc, curr) => acc + curr.price * curr.value, 0),
     [selectedOptions]
   );
 

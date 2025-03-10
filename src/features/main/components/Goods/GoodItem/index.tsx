@@ -1,10 +1,12 @@
-import { Good } from "@/shared/api/house/types/item";
+import Image from "next/image";
 import Link from "next/link";
+import { Good } from "@/shared/api/house/types/item";
 import FreeDelivery from "@/shared/components/base/Icons/freeDelivery.svg";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
+import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
+import Coupon from "@/shared/components/base/Icons/coupon.svg";
 import * as s from "./style.css";
-import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
-import Image from "next/image";
+import { IMAGE_URL } from "@/shared/constants";
 
 type Props = {
   good: Good;
@@ -20,7 +22,7 @@ export const GoodItem = ({ good }: Props) => {
         <div className={s.thumbnailWrapper}>
           <Image
             className={s.image}
-            src={imageUrl}
+            src={`${IMAGE_URL}/${imageUrl}`}
             alt={name}
             fill
             sizes="(max-width: 767px) 50vw, 25vw"
@@ -61,14 +63,7 @@ export const GoodItem = ({ good }: Props) => {
           </div>
           {badgeProperties.couponBadge && (
             <div className={s.couponBadgeWrapper}>
-              <Image
-                className={s.couponBadgeImage}
-                src={badgeProperties.couponBadge.imageUrl}
-                alt="coupon"
-                width={11}
-                height={11}
-                priority
-              />
+              <Coupon />
               <p>{badgeProperties.couponBadge.displayText}</p>
             </div>
           )}

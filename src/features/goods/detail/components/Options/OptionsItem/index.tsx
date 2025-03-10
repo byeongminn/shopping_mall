@@ -52,7 +52,7 @@ export const GoodOptionsItem = ({
         </option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
-            {option.explain}({formatNumberWithCommas(option.selling_cost)}
+            {option.explain}({formatNumberWithCommas(option.price)}
             원)
           </option>
         ))}

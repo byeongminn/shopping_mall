@@ -142,6 +142,7 @@ export const couponBadgeWrapper = style([
   f.flex,
   f.alignCenter,
   {
+    gap: "4px",
     marginTop: "6px",
     padding: "2px 5px",
     maxWidth: "100%",

@@ -7,6 +7,7 @@ import * as s from "./style.css";
 import { Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { IMAGE_URL } from "@/shared/constants";
 
 type Props = {
   images: GoodsDetailImage[];
@@ -30,7 +31,7 @@ export const ThumbnailSwiper = ({ images }: Props) => {
           <Image
             key={idx}
             className={s.image({ isActive: activeIndex === idx })}
-            src={image?.resized_thumbnail_image_url}
+            src={`${IMAGE_URL}/${image?.image_url}`}
             alt={`썸네일 이미지 ${idx + 1}`}
             width={56}
             height={56}
@@ -55,7 +56,7 @@ export const ThumbnailSwiper = ({ images }: Props) => {
           <SwiperSlide key={idx} className={s.swiperSlide}>
             <Image
               className={s.swiperImage}
-              src={image?.resized_image_url}
+              src={`${IMAGE_URL}/${image?.image_url}`}
               alt={`썸네일 이미지 ${idx + 1}`}
               fill
               sizes="(max-width: 767px) 100vw, 50vw"

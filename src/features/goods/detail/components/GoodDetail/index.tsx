@@ -16,9 +16,7 @@ export const GoodDetail = ({ goodId }: Props) => {
   return (
     <section className={s.container}>
       <div className={s.breadcrumbWrapper}>
-        <p className={s.breadcrumb}>
-          {"주방용품 > 수저·커트러리 > 수저·커트러리세트 > 한식수저세트"}
-        </p>
+        <p className={s.breadcrumb}>{"패브릭 > 베개·베개커버 > 베개솜"}</p>
       </div>
       <div className={s.overviewWrapper}>
         <div className={s.thumbnailWrapper}>

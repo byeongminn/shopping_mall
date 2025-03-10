@@ -3,7 +3,7 @@ import { GetGoodsDetailResponse } from "../../api/getGoodsDetail";
 import { ReviewStatistics } from "../ReviewStatistics";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
-import { DepartureToday } from "@/shared/components/base/Icons/DepartureToday";
+import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
 import Check from "./check.svg";
 import ArrowRight from "./arrowRight.svg";
 import * as s from "./style.css";

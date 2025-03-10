@@ -1,8 +1,3 @@
-export type ThumbnailBadge = {
-  position: number;
-  imageUrl: string;
-};
-
 export type rawGood = {
   id: string;
   name: string;
@@ -25,7 +20,6 @@ export type rawGood = {
     isOverseasPurchase: boolean;
     isRetailDelivery: boolean;
     isThirdPartyLogistic: boolean;
-    thumbnailBadges: ThumbnailBadge[];
     departureToday?: {
       orderDeadline: string;
       description: string;
@@ -33,7 +27,6 @@ export type rawGood = {
     };
     couponBadge?: {
       displayText: string;
-      imageUrl: string;
       discountRatio: string;
       couponAppliedPrice: string;
     };

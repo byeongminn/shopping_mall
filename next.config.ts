@@ -8,33 +8,9 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "assets.ohou.se",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "image.ohou.se",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "prs.ohou.se",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "bucketplace-v2-development.s3.amazonaws.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "bucketplace-v2-development.s3.ap-northeast-1.amazonaws.com",
-        port: "",
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
         pathname: "/**",
       },
     ],

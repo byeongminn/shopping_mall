@@ -26,7 +26,7 @@ export const GoodSelectedOptionsItem = ({
   handleIncreaseClick,
   handleRemoveClick,
 }: Props) => {
-  const { explain, value, selling_cost } = option;
+  const { explain, value, price } = option;
 
   return (
     <div className={s.container}>
@@ -53,7 +53,7 @@ export const GoodSelectedOptionsItem = ({
           </span>
         </div>
         <span className={s.price}>
-          {formatNumberWithCommas(selling_cost * value)}원
+          {formatNumberWithCommas(price * value)}원
         </span>
       </div>
     </div>
