@@ -49,6 +49,7 @@
     "eslint-plugin-storybook": "^0.12.0",
     "mini-css-extract-plugin": "^2.9.2",
     "msw": "^2.6.8",
+    "msw-storybook-addon": "^2.0.4",
     "playwright": "^1.51.1",
     "storybook": "^8.6.11",
     "typescript": "^5",
