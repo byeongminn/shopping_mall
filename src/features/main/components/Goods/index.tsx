@@ -10,7 +10,7 @@ import * as s from "./style.css";
 export const Goods = () => {
   const searchParams = useSearchParams();
   const searchQuery = {
-    order: (searchParams.get("order") ?? "recommended") as Order,
+    order: (searchParams?.get("order") ?? "recommended") as Order,
   };
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
