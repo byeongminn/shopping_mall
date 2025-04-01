@@ -1,4 +1,4 @@
-import { ORDER_FILTER_HEIGHT } from "@/features/main/components/Filter/style.css";
+import { ORDER_FILTER_HEIGHT } from "@/features/main/components/Filters/style.css";
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { CONTENT_WIDTH } from "@/shared/styles/globals.css";

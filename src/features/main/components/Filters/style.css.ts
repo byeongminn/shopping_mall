@@ -5,17 +5,6 @@ import { style } from "@vanilla-extract/css";
 
 export const ORDER_FILTER_HEIGHT = 70;
 
-export const container = style([
-  f.wFull,
-  f.pFixed,
-  {
-    top: "81px",
-    left: 0,
-    backgroundColor: "#ffffff",
-    zIndex: 8000,
-  },
-]);
-
 export const wrapper = style([
   f.flex,
   f.alignCenter,
@@ -25,6 +14,8 @@ export const wrapper = style([
     maxWidth: CONTENT_WIDTH,
     height: `${ORDER_FILTER_HEIGHT}px`,
     gap: "4px",
+    overflowX: "auto",
+    scrollbarWidth: "none",
   },
   responsiveStyle({
     lg: {

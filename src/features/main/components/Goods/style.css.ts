@@ -2,7 +2,7 @@ import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
 import { style } from "@vanilla-extract/css";
-import { ORDER_FILTER_HEIGHT } from "../Filter/style.css";
+import { ORDER_FILTER_HEIGHT } from "../Filters/style.css";
 
 export const container = style([
   {
