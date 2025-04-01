@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { Order } from "@/features/main/api/getGoods";
-import { FilterItem } from "@/features/main/components/Filter/FilterItem";
+import { FilterItem } from "@/features/main/components/Filters/FilterItem";
 import { getPageLink } from "@/shared/utils/link/page";
 import * as s from "./style.css";
 
@@ -15,7 +15,7 @@ const ORDER_TYPO: Record<Order, string> = {
   reviewAverage: "평점 높은순",
 };
 
-export const Filter = () => {
+export const Filters = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const orderParam: Order = (searchParams.get("order") ??

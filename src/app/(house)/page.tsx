@@ -1,10 +1,10 @@
-import { Filter } from "@/features/main/components/Filter";
+import { Filters } from "@/features/main/components/Filters";
 import { Goods } from "@/features/main/components/Goods";
 
 export default function Home() {
   return (
     <main>
-      <Filter />
+      <Filters />
       <Goods />
     </main>
   );
