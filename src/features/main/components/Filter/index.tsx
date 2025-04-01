@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
-import { Order } from "../../api/getGoods";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Order } from "@/features/main/api/getGoods";
+import { FilterItem } from "@/features/main/components/Filter/FilterItem";
 import { getPageLink } from "@/shared/utils/link/page";
 import * as s from "./style.css";
 
@@ -16,36 +16,29 @@ const ORDER_TYPO: Record<Order, string> = {
 };
 
 export const Filter = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const orderParam: Order = (searchParams.get("order") ??
     "recommended") as Order;
-  const router = useRouter();
-
-  const order: Order = useMemo(() => {
-    return orderParam;
-  }, [orderParam]);
 
   const filterItems = Object.entries(ORDER_TYPO);
 
   const handleClick = (order: Order) => {
-    router.push(getPageLink({ order }));
+    if (order !== orderParam) {
+      router.push(getPageLink({ order }));
+    }
   };
 
   return (
     <section className={s.container}>
       <div className={s.wrapper}>
-        {filterItems.map(([key, value]) => (
-          <div
-            className={s.chip({ active: key === order })}
-            key={key}
-            onClick={() => {
-              if (key !== order) {
-                handleClick(key as Order);
-              }
-            }}
-          >
-            {value}
-          </div>
+        {filterItems.map(([order, text]) => (
+          <FilterItem
+            key={order}
+            text={text}
+            isActive={order === orderParam}
+            onFilterClick={() => handleClick(order as Order)}
+          />
         ))}
       </div>
     </section>
