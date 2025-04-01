@@ -6,7 +6,18 @@ export default function Search() {
   return (
     <main>
       <Suspense fallback={<></>}>
-        <Filters />
+        <div
+          style={{
+            position: "fixed",
+            top: 81,
+            left: 0,
+            zIndex: 8000,
+            width: "100%",
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <Filters />
+        </div>
         <SearchResultList />
       </Suspense>
     </main>

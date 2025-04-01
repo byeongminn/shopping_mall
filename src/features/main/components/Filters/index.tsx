@@ -30,17 +30,15 @@ export const Filters = () => {
   };
 
   return (
-    <section className={s.container}>
-      <div className={s.wrapper}>
-        {filterItems.map(([order, text]) => (
-          <FilterItem
-            key={order}
-            text={text}
-            isActive={order === orderParam}
-            onFilterClick={() => handleClick(order as Order)}
-          />
-        ))}
-      </div>
-    </section>
+    <div className={s.wrapper}>
+      {filterItems.map(([order, text]) => (
+        <FilterItem
+          key={order}
+          text={text}
+          isActive={order === orderParam}
+          onFilterClick={() => handleClick(order as Order)}
+        />
+      ))}
+    </div>
   );
 };

@@ -10,13 +10,6 @@ const meta: Meta<typeof Filters> = {
       appDirectory: true,
     },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ position: "relative", height: 200 }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
