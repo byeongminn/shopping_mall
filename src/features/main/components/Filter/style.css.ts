@@ -2,7 +2,6 @@ import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 export const ORDER_FILTER_HEIGHT = 70;
 
