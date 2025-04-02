@@ -88,6 +88,6 @@ const GET_MOCK_SEARCH_GOODS = {
         },
       },
     ],
-    totalResults: 3,
+    totalResults: 2,
   },
 };
