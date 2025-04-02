@@ -5,7 +5,7 @@ export const getMockGoods: HttpHandler = http.get(getGoodsURL, () => {
   return HttpResponse.json(GET_MOCK_GOODS.success);
 });
 
-const GET_MOCK_GOODS = {
+export const GET_MOCK_GOODS = {
   success: {
     goods: [
       {
@@ -19,6 +19,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "256700",
           sellingPrice: "154000",
           discountRate: "40",
+          originalPriceDisplayText: "256,700",
+          sellingPriceDisplayText: "154,000",
         },
         imageUrl: "cloud-sofa.png",
         isSoldOut: false,
@@ -40,6 +42,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 9405,
           reviewAverage: 4.79,
+          reviewCountDisplayText: "9,405",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -57,6 +61,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "174100",
           sellingPrice: "155000",
           discountRate: "11",
+          originalPriceDisplayText: "174,100",
+          sellingPriceDisplayText: "155,000",
         },
         imageUrl: "bookshelf.png",
         isSoldOut: false,
@@ -78,6 +84,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 33889,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "33,889",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -95,6 +103,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "81200",
           sellingPrice: "40600",
           discountRate: "50",
+          originalPriceDisplayText: "81,200",
+          sellingPriceDisplayText: "40,600",
         },
         imageUrl: "pendant-lights.png",
         isSoldOut: false,
@@ -116,6 +126,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 15116,
           reviewAverage: 4.78,
+          reviewCountDisplayText: "15,116",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -133,6 +145,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "270800",
           sellingPrice: "146200",
           discountRate: "46",
+          originalPriceDisplayText: "270,800",
+          sellingPriceDisplayText: "146,200",
         },
         imageUrl: "wood-table.png",
         isSoldOut: false,
@@ -154,6 +168,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 20126,
           reviewAverage: 4.71,
+          reviewCountDisplayText: "20,126",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
@@ -171,6 +187,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "170600",
           sellingPrice: "112600",
           discountRate: "34",
+          originalPriceDisplayText: "170,600",
+          sellingPriceDisplayText: "112,600",
         },
         imageUrl: "meditation-chair.png",
         isSoldOut: false,
@@ -192,6 +210,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 5896,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "5,896",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -209,6 +229,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "362000",
           sellingPrice: "202700",
           discountRate: "44",
+          originalPriceDisplayText: "362,000",
+          sellingPriceDisplayText: "202,700",
         },
         imageUrl: "mood-light.png",
         isSoldOut: false,
@@ -230,6 +252,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 23967,
           reviewAverage: 4.63,
+          reviewCountDisplayText: "23,967",
+          reviewAverageDisplayText: 4.6,
         },
         scrapInfo: {
           isScrap: false,
@@ -247,6 +271,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "150600",
           sellingPrice: "81300",
           discountRate: "46",
+          originalPriceDisplayText: "150,600",
+          sellingPriceDisplayText: "81,300",
         },
         imageUrl: "coffee-table.png",
         isSoldOut: false,
@@ -273,6 +299,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 9393,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "9,393",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -290,6 +318,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "140400",
           sellingPrice: "106700",
           discountRate: "24",
+          originalPriceDisplayText: "140,400",
+          sellingPriceDisplayText: "106,700",
         },
         imageUrl: "shelf.png",
         isSoldOut: false,
@@ -311,6 +341,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 16552,
           reviewAverage: 4.64,
+          reviewCountDisplayText: "16,552",
+          reviewAverageDisplayText: 4.6,
         },
         scrapInfo: {
           isScrap: false,
@@ -328,6 +360,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "204700",
           sellingPrice: "174000",
           discountRate: "15",
+          originalPriceDisplayText: "204,700",
+          sellingPriceDisplayText: "174,000",
         },
         imageUrl: "rug.png",
         isSoldOut: false,
@@ -349,6 +383,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 12428,
           reviewAverage: 4.82,
+          reviewCountDisplayText: "12,428",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -366,6 +402,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "428000",
           sellingPrice: "273900",
           discountRate: "36",
+          originalPriceDisplayText: "428,000",
+          sellingPriceDisplayText: "273,900",
         },
         imageUrl: "bed-frame.png",
         isSoldOut: false,
@@ -392,6 +430,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 6937,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "6,937",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -409,6 +449,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "331700",
           sellingPrice: "218900",
           discountRate: "34",
+          originalPriceDisplayText: "331,700",
+          sellingPriceDisplayText: "218,900",
         },
         imageUrl: "pop-art.png",
         isSoldOut: false,
@@ -430,6 +472,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 11643,
           reviewAverage: 4.73,
+          reviewCountDisplayText: "11,643",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
@@ -447,6 +491,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "200400",
           sellingPrice: "134300",
           discountRate: "33",
+          originalPriceDisplayText: "200,400",
+          sellingPriceDisplayText: "134,300",
         },
         imageUrl: "hammock.png",
         isSoldOut: false,
@@ -473,6 +519,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 12887,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "12,887",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -490,6 +538,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "230900",
           sellingPrice: "184700",
           discountRate: "20",
+          originalPriceDisplayText: "230,900",
+          sellingPriceDisplayText: "184,700",
         },
         imageUrl: "dining-table.png",
         isSoldOut: false,
@@ -511,6 +561,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 10623,
           reviewAverage: 4.76,
+          reviewCountDisplayText: "10,623",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -528,6 +580,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "264600",
           sellingPrice: "238200",
           discountRate: "10",
+          originalPriceDisplayText: "264,600",
+          sellingPriceDisplayText: "238,200",
         },
         imageUrl: "wood-lamp.png",
         isSoldOut: false,
@@ -549,6 +603,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 8945,
           reviewAverage: 4.82,
+          reviewCountDisplayText: "8,945",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -566,6 +622,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "309300",
           sellingPrice: "185600",
           discountRate: "40",
+          originalPriceDisplayText: "309,300",
+          sellingPriceDisplayText: "185,600",
         },
         imageUrl: "wall-clock.png",
         isSoldOut: false,
@@ -582,6 +640,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 9898,
           reviewAverage: 4.66,
+          reviewCountDisplayText: "9,898",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
@@ -599,6 +659,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "52000",
           sellingPrice: "44700",
           discountRate: "14",
+          originalPriceDisplayText: "52,000",
+          sellingPriceDisplayText: "44,700",
         },
         imageUrl: "bed.png",
         isSoldOut: false,
@@ -615,6 +677,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 14995,
           reviewAverage: 4.78,
+          reviewCountDisplayText: "14,995",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -632,6 +696,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "286900",
           sellingPrice: "200800",
           discountRate: "30",
+          originalPriceDisplayText: "286,900",
+          sellingPriceDisplayText: "200,800",
         },
         imageUrl: "mirror.png",
         isSoldOut: false,
@@ -653,6 +719,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 8456,
           reviewAverage: 4.73,
+          reviewCountDisplayText: "8,456",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
@@ -670,6 +738,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "193600",
           sellingPrice: "133600",
           discountRate: "31",
+          originalPriceDisplayText: "193,600",
+          sellingPriceDisplayText: "133,600",
         },
         imageUrl: "single-sofa.png",
         isSoldOut: false,
@@ -691,6 +761,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 40924,
           reviewAverage: 4.74,
+          reviewCountDisplayText: "40,924",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
@@ -708,6 +780,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "26500",
           sellingPrice: "9900",
           discountRate: "62",
+          originalPriceDisplayText: "26,500",
+          sellingPriceDisplayText: "9,900",
         },
         imageUrl: "cutlery-set.png",
         isSoldOut: false,
@@ -734,6 +808,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 7189,
           reviewAverage: 4.77,
+          reviewCountDisplayText: "7,189",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -751,6 +827,8 @@ const GET_MOCK_GOODS = {
           originalPrice: "89400",
           sellingPrice: "62600",
           discountRate: "30",
+          originalPriceDisplayText: "89,400",
+          sellingPriceDisplayText: "62,600",
         },
         imageUrl: "pillow.png",
         isSoldOut: false,
@@ -772,6 +850,8 @@ const GET_MOCK_GOODS = {
         reviewStatistic: {
           reviewCount: 8289,
           reviewAverage: 4.77,
+          reviewCountDisplayText: "8,289",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,

@@ -10,7 +10,12 @@ export const link = style([
   },
 ]);
 
-export const wrapper = style([f.wFull]);
+export const wrapper = style([
+  f.wFull,
+  {
+    position: "relative",
+  },
+]);
 
 export const thumbnailWrapper = style([
   f.wFull,
