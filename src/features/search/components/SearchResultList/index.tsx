@@ -12,8 +12,8 @@ import { formatNumberWithCommas } from "@/shared/utils/format/number";
 export const SearchResultList = () => {
   const searchParams = useSearchParams();
   const searchQuery = {
-    q: searchParams.get("q") ?? "",
-    order: (searchParams.get("order") ?? "recommended") as Order,
+    q: searchParams?.get("q") ?? "",
+    order: (searchParams?.get("order") ?? "recommended") as Order,
   };
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
