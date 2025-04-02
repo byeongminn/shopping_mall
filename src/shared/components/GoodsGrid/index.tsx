@@ -4,7 +4,7 @@ import {
   InfiniteQueryObserverResult,
 } from "@tanstack/react-query";
 import { GetGoodsResponse } from "@/features/main/api/getGoods";
-import { GoodItem } from "@/features/main/components/MainGoods/GoodItem";
+import { GoodItem } from "@/shared/components/GoodItem";
 import { Good } from "@/shared/api/house/types/item";
 import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
 import * as s from "@/shared/components/GoodsGrid/style.css";
