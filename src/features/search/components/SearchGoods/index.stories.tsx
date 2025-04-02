@@ -6,14 +6,14 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { HttpResponse, http } from "msw";
-import { SearchResultList } from "@/features/search/components/SearchResultList";
+import { SearchGoods } from "@/features/search/components/SearchGoods";
 import { getMockSearchGoods } from "@/features/search/api/getMockSearchGoods";
 import { getSearchGoodsURL } from "@/features/search/api/getSearchGoods";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
-const meta: Meta<typeof SearchResultList> = {
-  component: SearchResultList,
-  title: "SearchResultList",
+const meta: Meta<typeof SearchGoods> = {
+  component: SearchGoods,
+  title: "SearchGoods",
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -44,7 +44,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => (
 
 export default meta;
 
-type Story = StoryObj<typeof SearchResultList>;
+type Story = StoryObj<typeof SearchGoods>;
 
 export const Default: Story = {
   parameters: {

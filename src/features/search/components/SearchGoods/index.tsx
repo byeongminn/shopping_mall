@@ -9,7 +9,7 @@ import Empty from "./empty.svg";
 import * as s from "./style.css";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 
-export const SearchResultList = () => {
+export const SearchGoods = () => {
   const searchParams = useSearchParams();
   const searchQuery = {
     q: searchParams?.get("q") ?? "",

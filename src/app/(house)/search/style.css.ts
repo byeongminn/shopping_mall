@@ -4,7 +4,7 @@ import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
 
-export const searchResultListSection = style([
+export const searchGoodsSection = style([
   f.wFull,
   {
     margin: "0 auto",
