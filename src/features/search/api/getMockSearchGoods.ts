@@ -22,6 +22,8 @@ const GET_MOCK_SEARCH_GOODS = {
           originalPrice: "256700",
           sellingPrice: "154000",
           discountRate: "40",
+          originalPriceDisplayText: "256,700",
+          sellingPriceDisplayText: "154,000",
         },
         imageUrl: "cloud-sofa.png",
         isSoldOut: false,
@@ -43,6 +45,8 @@ const GET_MOCK_SEARCH_GOODS = {
         reviewStatistic: {
           reviewCount: 9405,
           reviewAverage: 4.79,
+          reviewCountDisplayText: "9,405",
+          reviewAverageDisplayText: 4.8,
         },
         scrapInfo: {
           isScrap: false,
@@ -60,6 +64,8 @@ const GET_MOCK_SEARCH_GOODS = {
           originalPrice: "193600",
           sellingPrice: "133600",
           discountRate: "31",
+          originalPriceDisplayText: "193,600",
+          sellingPriceDisplayText: "133,600",
         },
         imageUrl: "single-sofa.png",
         isSoldOut: false,
@@ -81,6 +87,8 @@ const GET_MOCK_SEARCH_GOODS = {
         reviewStatistic: {
           reviewCount: 40924,
           reviewAverage: 4.74,
+          reviewCountDisplayText: "40,924",
+          reviewAverageDisplayText: 4.7,
         },
         scrapInfo: {
           isScrap: false,
