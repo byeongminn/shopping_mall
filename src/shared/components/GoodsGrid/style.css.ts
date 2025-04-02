@@ -1,22 +1,11 @@
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 
-export const totalWrapper = style([f.wFull]);
-
-export const total = style([
-  {
-    fontSize: "14px",
-    color: "#424242",
-  },
-]);
-
-export const dataWrapper = recipe({
+export const wrapper = recipe({
   base: [
     f.wFull,
     {
-      marginTop: "20px",
       display: "grid",
     },
   ],
@@ -45,13 +34,3 @@ export const dataWrapper = recipe({
     isEmpty: false,
   },
 });
-
-export const emptyWrapper = style([
-  f.flex,
-  f.directionColumn,
-  f.alignCenter,
-  {
-    paddingBlock: "130px",
-    gap: "30px",
-  },
-]);

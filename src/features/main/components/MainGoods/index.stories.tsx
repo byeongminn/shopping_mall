@@ -5,15 +5,13 @@ import {
   QueryClientProvider,
   dehydrate,
 } from "@tanstack/react-query";
-import { HttpResponse, http } from "msw";
-import { SearchResultList } from "@/features/search/components/SearchResultList";
-import { getMockSearchGoods } from "@/features/search/api/getMockSearchGoods";
-import { getSearchGoodsURL } from "@/features/search/api/getSearchGoods";
+import { MainGoods } from "@/features/main/components/MainGoods";
+import { getMockGoods } from "@/features/main/api/getGoods.mock";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
-const meta: Meta<typeof SearchResultList> = {
-  component: SearchResultList,
-  title: "SearchResultList",
+const meta: Meta<typeof MainGoods> = {
+  component: MainGoods,
+  title: "MainGoods",
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -44,24 +42,12 @@ const Provider = ({ children }: { children: React.ReactNode }) => (
 
 export default meta;
 
-type Story = StoryObj<typeof SearchResultList>;
+type Story = StoryObj<typeof MainGoods>;
 
 export const Default: Story = {
   parameters: {
     msw: {
-      handlers: [getMockSearchGoods],
-    },
-  },
-};
-
-export const Empty: Story = {
-  parameters: {
-    msw: {
-      handlers: [
-        http.get(getSearchGoodsURL, () => {
-          return HttpResponse.json({ goods: [], totalResults: 0 });
-        }),
-      ],
+      handlers: [getMockGoods],
     },
   },
 };

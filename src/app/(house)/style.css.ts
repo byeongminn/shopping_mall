@@ -1,14 +1,14 @@
+import { style } from "@vanilla-extract/css";
+import { ORDER_FILTER_HEIGHT } from "@/features/main/components/Filters/style.css";
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
-import { style } from "@vanilla-extract/css";
-import { ORDER_FILTER_HEIGHT } from "../Filters/style.css";
 
-export const container = style([
+export const mainGoodsSection = style([
+  f.wFull,
   {
     margin: "0 auto",
     paddingTop: `${ORDER_FILTER_HEIGHT}px`,
-    width: "100%",
     maxWidth: CONTENT_WIDTH,
   },
   responsiveStyle({
@@ -20,23 +20,6 @@ export const container = style([
     },
     sm: {
       padding: `${ORDER_FILTER_HEIGHT}px 15px 15px`,
-    },
-  }),
-]);
-
-export const wrapper = style([
-  f.wFull,
-  {
-    display: "grid",
-  },
-  responsiveStyle({
-    md: {
-      gridTemplateColumns: "repeat(4, 1fr)",
-      gap: "20px",
-    },
-    sm: {
-      gridTemplateColumns: "repeat(2, 1fr)",
-      gap: "12px 20px",
     },
   }),
 ]);

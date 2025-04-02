@@ -1,5 +1,6 @@
 import { Filters } from "@/features/main/components/Filters";
-import { Goods } from "@/features/main/components/Goods";
+import { MainGoods } from "@/features/main/components/MainGoods";
+import * as s from "@/app/(house)/style.css";
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
       >
         <Filters />
       </div>
-      <Goods />
+      <section className={s.mainGoodsSection}>
+        <MainGoods />
+      </section>
     </main>
   );
 }
