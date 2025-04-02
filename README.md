@@ -28,7 +28,7 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 - ![React-Query](https://img.shields.io/badge/React_query-FF4154?style=for-the-badge&logo=reactquery&logoColor=ffffff)
 - ![MSW](https://img.shields.io/badge/MSW-FF6A33?style=for-the-badge&logo=mockserviceworker&logoColor=ffffff)
 - ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=ffffff)
-- ![Vercel](https://img.shields.io/badge/Storybook-FF4685?style=for-the-badge&logo=Storybook&logoColor=ffffff)
+- ![Storybook](https://img.shields.io/badge/Storybook-FF4685?style=for-the-badge&logo=Storybook&logoColor=ffffff)
 
 <br />
 
