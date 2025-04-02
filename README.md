@@ -13,6 +13,8 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 <br />
 프로젝트의 범위는 쇼핑몰의 주요 기능을 중심으로 메인 페이지, 검색 페이지, 상세 페이지의 세 가지 주요 화면을 구현하는 것이었습니다. 이를 통해 쇼핑몰 서비스의 기본적인 사용자 경험(UX)을 구축하고, 실제 애플리케이션 개발에 필요한 핵심 기능을 실습할 수 있었습니다. 모든 화면은 다양한 디바이스 환경에서도 최적의 사용자 경험을 제공할 수 있도록 반응형으로 작업하였습니다.
 <br />
+추가로, 이번 프로젝트에서는 Storybook을 처음 도입하여 컴포넌트 단위의 개발과 문서화 방식을 실습해 보았습니다. 컴포넌트를 독립적으로 시각화하고 테스트하는 환경을 구성함으로써, UI 개발의 효율성과 유지보수성을 높이는 방법을 학습할 수 있었습니다. 또한, Storybook 작성을 통해 Container와 Presentational 컴포넌트의 구분을 명확히 하고, 중복되는 로직은 별도 컴포넌트로 분리하여 코드의 재사용성과 가독성도 함께 개선하였습니다.
+<br />
 <br />
 <strong>해당 데이터는 오늘의집 데이터와 전혀 무관합니다.</strong>
 
@@ -26,6 +28,7 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 - ![React-Query](https://img.shields.io/badge/React_query-FF4154?style=for-the-badge&logo=reactquery&logoColor=ffffff)
 - ![MSW](https://img.shields.io/badge/MSW-FF6A33?style=for-the-badge&logo=mockserviceworker&logoColor=ffffff)
 - ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=ffffff)
+- ![Vercel](https://img.shields.io/badge/Storybook-FF4685?style=for-the-badge&logo=Storybook&logoColor=ffffff)
 
 <br />
 
@@ -111,6 +114,14 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 <br />
 
 ## Release History
+- 1.1.0
+  - **Storybook 도입**
+    - 컴포넌트 개발 및 문서화를 위한 Storybook 설정 추가
+    - 주요 UI 컴포넌트별 `.stories.tsx` 파일 작성
+    - 개발 환경에서 `yarn storybook`으로 실행 가능
+  - **리팩토링**
+    - 스토리북 작성 과정에서 컨테이너 컴포넌트와 프레젠테이셔널 컴포넌트를 명확히 분리
+    - 중복되는 로직을 별도 컴포넌트로 추출하여 코드 중복 최소화
 - 1.0.3
   - **상세페이지 Lighthouse 성능 개선**
     - 상품 상세페이지 접근성 개선: 상품 상세페이지의 select 태그에 aria-label 속성 추가
