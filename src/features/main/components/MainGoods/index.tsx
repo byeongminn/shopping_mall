@@ -1,11 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useGetGoods } from "../../hooks/useGetGoods";
-import { Order } from "../../api/getGoods";
-import { GoodItem } from "./GoodItem";
-import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
-import * as s from "./style.css";
+import { useGetGoods } from "@/features/main/hooks/useGetGoods";
+import { Order } from "@/features/main/api/getGoods";
+import { GoodsGrid } from "@/shared/components/GoodsGrid";
 
 export const MainGoods = () => {
   const searchParams = useSearchParams();
@@ -19,17 +17,11 @@ export const MainGoods = () => {
   const flatData = data.pages.map((page) => page.goods ?? []).flat();
 
   return (
-    <>
-      <div className={s.wrapper}>
-        {flatData.map((data, idx) => (
-          <GoodItem key={idx} good={data} />
-        ))}
-      </div>
-      {hasNextPage && !isFetchingNextPage && (
-        <VisibilityLoader
-          callback={() => !isFetchingNextPage && fetchNextPage()}
-        />
-      )}
-    </>
+    <GoodsGrid
+      goods={flatData}
+      hasNextPage={hasNextPage}
+      isFetchingNextPage={isFetchingNextPage}
+      fetchNextPage={fetchNextPage}
+    />
   );
 };
