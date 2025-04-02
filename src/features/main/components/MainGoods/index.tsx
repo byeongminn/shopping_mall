@@ -20,13 +20,11 @@ export const MainGoods = () => {
 
   return (
     <>
-      <section className={s.container}>
-        <div className={s.wrapper}>
-          {flatData.map((data, idx) => (
-            <GoodItem key={idx} good={data} />
-          ))}
-        </div>
-      </section>
+      <div className={s.wrapper}>
+        {flatData.map((data, idx) => (
+          <GoodItem key={idx} good={data} />
+        ))}
+      </div>
       {hasNextPage && !isFetchingNextPage && (
         <VisibilityLoader
           callback={() => !isFetchingNextPage && fetchNextPage()}
