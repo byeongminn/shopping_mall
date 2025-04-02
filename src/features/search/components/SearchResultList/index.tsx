@@ -23,23 +23,21 @@ export const SearchResultList = () => {
 
   return (
     <>
-      <section className={s.container}>
-        <div className={s.totalWrapper}>
-          <h6 className={s.total}>
-            전체 {formatNumberWithCommas(data?.pages?.[0]?.totalResults)}
-          </h6>
-        </div>
-        <div className={s.dataWrapper({ isEmpty: !(flatData.length > 0) })}>
-          {flatData.length > 0 ? (
-            flatData.map((data) => <GoodItem key={data?.id} good={data} />)
-          ) : (
-            <div className={s.emptyWrapper}>
-              <Empty />
-              <p>앗! 찾으시는 결과가 없네요.</p>
-            </div>
-          )}
-        </div>
-      </section>
+      <div className={s.totalWrapper}>
+        <h6 className={s.total}>
+          전체 {formatNumberWithCommas(data?.pages?.[0]?.totalResults)}
+        </h6>
+      </div>
+      <div className={s.dataWrapper({ isEmpty: !(flatData.length > 0) })}>
+        {flatData.length > 0 ? (
+          flatData.map((data) => <GoodItem key={data?.id} good={data} />)
+        ) : (
+          <div className={s.emptyWrapper}>
+            <Empty />
+            <p>앗! 찾으시는 결과가 없네요.</p>
+          </div>
+        )}
+      </div>
       {hasNextPage && !isFetchingNextPage && (
         <VisibilityLoader
           callback={() => !isFetchingNextPage && fetchNextPage()}

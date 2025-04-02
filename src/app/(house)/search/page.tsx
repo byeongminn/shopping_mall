@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import { Filters } from "@/features/main/components/Filters";
 import { SearchResultList } from "@/features/search/components/SearchResultList";
-import { Suspense } from "react";
+import * as s from "@/app/(house)/search/style.css";
 
 export default function Search() {
   return (
@@ -18,7 +19,9 @@ export default function Search() {
         >
           <Filters />
         </div>
-        <SearchResultList />
+        <section className={s.searchResultListSection}>
+          <SearchResultList />
+        </section>
       </Suspense>
     </main>
   );
