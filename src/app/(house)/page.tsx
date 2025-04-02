@@ -1,5 +1,5 @@
 import { Filters } from "@/features/main/components/Filters";
-import { Goods } from "@/features/main/components/Goods";
+import { MainGoods } from "@/features/main/components/MainGoods";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       >
         <Filters />
       </div>
-      <Goods />
+      <MainGoods />
     </main>
   );
 }

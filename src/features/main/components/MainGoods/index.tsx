@@ -7,7 +7,7 @@ import { GoodItem } from "./GoodItem";
 import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
 import * as s from "./style.css";
 
-export const Goods = () => {
+export const MainGoods = () => {
   const searchParams = useSearchParams();
   const searchQuery = {
     order: (searchParams?.get("order") ?? "recommended") as Order,

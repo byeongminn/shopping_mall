@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useGetSearchGoods } from "../../hooks/useGetSearchGoods";
 import { Order } from "@/features/main/api/getGoods";
 import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
-import { GoodItem } from "@/features/main/components/Goods/GoodItem";
+import { GoodItem } from "@/features/main/components/MainGoods/GoodItem";
 import Empty from "./empty.svg";
 import * as s from "./style.css";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
