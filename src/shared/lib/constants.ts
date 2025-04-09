@@ -13,3 +13,9 @@ export const SECRET = new TextEncoder().encode(getJwtSecret());
 export const ACCESS_TOKEN = "accessToken";
 
 export const REFRESH_TOKEN = "refreshToken";
+
+export const GUEST_PATHS = ["/login"];
+
+export const PROTECTED_PATHS = ["/cart"];
+
+export const MATCHER_PATHS = [...GUEST_PATHS, ...PROTECTED_PATHS];
