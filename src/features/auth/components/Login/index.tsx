@@ -1,22 +1,36 @@
 "use client";
 
 import { usePostLogin } from "@/features/auth/hooks/usePostLogin";
+import { LoginForm } from "@/features/auth/components/Login/LoginForm";
+import { useState } from "react";
+import { PostLoginRequest } from "@/features/auth/api/postLogin";
 
 export const Login = () => {
   const { mutate: login } = usePostLogin();
 
+  const [email, setEmail] = useState<PostLoginRequest["email"]>("");
+  const [password, setPassword] = useState<PostLoginRequest["password"]>("");
+
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login({ email: "test@example.com", password: "1234" });
+    login({ email, password });
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="이메일" />
-        <input type="password" placeholder="비밀번호" />
-        <button type="submit">로그인</button>
-      </form>
-    </section>
+    <LoginForm
+      email={email}
+      password={password}
+      onChangeEmail={handleChangeEmail}
+      onChangePassword={handleChangePassword}
+      onLogin={handleSubmit}
+    />
   );
 };
