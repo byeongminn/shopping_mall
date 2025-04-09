@@ -1,11 +1,13 @@
 "use client";
 
-import { postLogin } from "@/features/auth/api/postLogin";
+import { usePostLogin } from "@/features/auth/hooks/usePostLogin";
 
 export const Login = () => {
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const { mutate: login } = usePostLogin();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await postLogin({ email: "test@example.com", password: "1234" });
+    login({ email: "test@example.com", password: "1234" });
   };
 
   return (
