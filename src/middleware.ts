@@ -1,14 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { verifyAuth } from "@/shared/lib/auth";
-import { ACCESS_TOKEN } from "@/shared/lib/constants";
+import { reissueAccessToken, verifyAuth } from "@/shared/lib/auth";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/lib/constants";
+
+const redirectToLogin = (request: NextRequest) => {
+  const loginUrl = new URL("/login", request.url);
+  loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
+  return NextResponse.redirect(loginUrl);
+};
 
 export const middleware = async (request: NextRequest) => {
   const accessToken = request.cookies.get(ACCESS_TOKEN)?.value;
+  const refreshToken = request.cookies.get(REFRESH_TOKEN)?.value;
 
   if (!accessToken) {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
-    return NextResponse.redirect(loginUrl);
+    return redirectToLogin(request);
   }
 
   try {
@@ -17,9 +22,26 @@ export const middleware = async (request: NextRequest) => {
   } catch (error) {
     console.error(error);
 
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
-    return NextResponse.redirect(loginUrl);
+    if (!refreshToken) {
+      return redirectToLogin(request);
+    }
+
+    try {
+      const newAccessToken = await reissueAccessToken(request);
+
+      const response = NextResponse.next();
+
+      response.cookies.set(ACCESS_TOKEN, newAccessToken, {
+        httpOnly: true,
+        path: "/",
+      });
+
+      return response;
+    } catch (error) {
+      console.error(error);
+
+      return redirectToLogin(request);
+    }
   }
 };
 
