@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { JWTPayload, SignJWT, jwtVerify } from "jose";
-import { ACCESS_TOKEN, SECRET } from "@/shared/lib/constants";
+import { ACCESS_TOKEN, REFRESH_TOKEN, SECRET } from "@/shared/lib/constants";
 
 export const signToken = async (payload: JWTPayload, expiresIn: string) => {
   return await new SignJWT(payload)
@@ -21,5 +21,19 @@ export const verifyAuth = async (request: NextRequest) => {
     return verified.payload;
   } catch {
     throw new Error("accessToken 값이 만료되었습니다.");
+  }
+};
+
+export const reissueAccessToken = async (request: NextRequest) => {
+  const refreshToken = request.cookies.get(REFRESH_TOKEN)?.value;
+
+  if (!refreshToken) throw new Error("refreshToken 값이 존재하지 않습니다.");
+
+  try {
+    const { payload } = await jwtVerify(refreshToken, SECRET);
+
+    return await signToken({ email: payload.email }, "15m");
+  } catch {
+    throw new Error("refreshToken 값이 만료되었습니다.");
   }
 };
