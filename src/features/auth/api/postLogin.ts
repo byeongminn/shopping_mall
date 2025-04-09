@@ -1,3 +1,4 @@
+import { api } from "@/shared/lib/axios";
 import { API_BASE_URL } from "@/shared/api/constants";
 
 export type PostLoginRequest = {
@@ -14,14 +15,7 @@ const postLoginURL = `${API_BASE_URL}/api/auth/login`;
 export const postLogin = async (
   payload: PostLoginRequest
 ): Promise<PostLoginResponse> => {
-  const response = await fetch(postLoginURL, {
-    method: "post",
-    body: JSON.stringify(payload),
-  });
+  const { data } = await api.post(postLoginURL, payload);
 
-  if (!response.ok) {
-    throw new Error("Login failed");
-  }
-
-  return await response.json();
+  return data;
 };

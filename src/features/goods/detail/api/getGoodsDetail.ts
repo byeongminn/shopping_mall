@@ -1,3 +1,4 @@
+import { api } from "@/shared/lib/axios";
 import { API_BASE_URL } from "@/shared/api/constants";
 
 export type GetGoodsDetailRequestParams = {
@@ -65,7 +66,7 @@ export const getGoodsDetail = async (
 ): Promise<GetGoodsDetailResponse> => {
   const url = GetGoodsDetailURL.replace(":goodId", params.goodId);
 
-  const response = await fetch(url);
+  const { data } = await api.get(url);
 
-  return await response.json();
+  return data;
 };
