@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",
+    "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.11",
     "@storybook/addon-onboarding": "^8.6.11",
     "@storybook/addon-styling-webpack": "^1.0.1",
