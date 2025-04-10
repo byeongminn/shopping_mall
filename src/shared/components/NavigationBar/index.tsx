@@ -17,7 +17,22 @@ export const NavigationBar = () => {
         <div className={s.centerWrapper}>
           <SearchForm />
         </div>
-        <div className={s.endWrapper}></div>
+        <div className={s.endWrapper}>
+          <Link
+            href="/cart"
+            className={s.pageLink}
+            aria-label="장바구니 페이지로 이동"
+          >
+            장바구니
+          </Link>
+          <Link
+            href="/login"
+            className={s.pageLink}
+            aria-label="로그인 페이지로 이동"
+          >
+            로그인
+          </Link>
+        </div>
       </div>
     </nav>
   );
