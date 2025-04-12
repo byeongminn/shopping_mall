@@ -9,7 +9,6 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/experimental-addon-test",
     "@storybook/addon-styling-webpack",
-    "@storybook/addon-actions",
   ],
   framework: {
     name: "@storybook/nextjs",
