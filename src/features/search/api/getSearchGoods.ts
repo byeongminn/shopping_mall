@@ -1,6 +1,7 @@
+import queryString from "query-string";
 import { GetGoodsResponse, Order } from "@/features/main/api/getGoods";
 import { API_BASE_URL } from "@/shared/api/constants";
-import queryString from "query-string";
+import { api } from "@/shared/lib/axios";
 
 export type GetSearchGoodsRequestParams = {
   q: string;
@@ -18,7 +19,7 @@ export const getSearchGoods = async (
 
   const url = `${getSearchGoodsURL}?${searchParams}`;
 
-  const response = await fetch(url);
+  const { data } = await api.get(url);
 
-  return await response.json();
+  return data;
 };
