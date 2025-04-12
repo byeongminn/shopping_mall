@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       setIsLoggedIn(data.isLoggedIn);
     };
     checkLoginStatus();
-  }, []);
+  }, [setIsLoggedIn]);
 
   return (
     <Suspense fallback={<></>}>
