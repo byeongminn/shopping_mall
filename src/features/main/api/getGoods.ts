@@ -1,8 +1,7 @@
-import queryString from "query-string";
 import { API_BASE_URL } from "@/shared/api/constants";
 import { Good } from "@/shared/api/house/types/item";
 import { ListResponse } from "@/shared/api/house/types/list";
-import { api } from "@/shared/lib/axios";
+import queryString from "query-string";
 
 export type Order =
   | "recommended"
@@ -27,7 +26,7 @@ export const getGoods = async (
 
   const url = `${getGoodsURL}?${searchParams}`;
 
-  const { data } = await api.get(url);
+  const response = await fetch(url);
 
-  return data;
+  return await response.json();
 };
