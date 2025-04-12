@@ -1,12 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { reissueAccessToken, verifyAuth } from "@/shared/lib/auth";
-import {
-  ACCESS_TOKEN,
-  GUEST_PATHS,
-  MATCHER_PATHS,
-  PROTECTED_PATHS,
-  REFRESH_TOKEN,
-} from "@/shared/lib/constants";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/lib/constants";
 
 const redirectToLogin = (request: NextRequest) => {
   const loginUrl = new URL("/login", request.url);
@@ -93,6 +87,10 @@ export const middleware = async (request: NextRequest) => {
   return NextResponse.next();
 };
 
+const GUEST_PATHS = ["/login"];
+
+const PROTECTED_PATHS = ["/cart"];
+
 export const config = {
-  matcher: MATCHER_PATHS,
+  matcher: ["/login", "/cart"],
 };
