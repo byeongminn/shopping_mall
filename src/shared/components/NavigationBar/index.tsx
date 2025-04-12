@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import Logo from "./logo.svg";
+import Logo from "@/shared/components/NavigationBar/logo.svg";
+import { SearchForm } from "@/shared/components/NavigationBar/SearchForm";
+import { useLoginStore } from "@/shared/store/login";
 import * as s from "./style.css";
-import { SearchForm } from "./SearchForm";
+import { Logout } from "@/features/auth/components/Logout";
 
 export const NavigationBar = () => {
+  const { isLoggedIn } = useLoginStore();
+
   return (
     <nav className={s.container}>
       <div className={s.wrapper}>
@@ -25,13 +31,17 @@ export const NavigationBar = () => {
           >
             장바구니
           </Link>
-          <Link
-            href="/login"
-            className={s.pageLink}
-            aria-label="로그인 페이지로 이동"
-          >
-            로그인
-          </Link>
+          {isLoggedIn ? (
+            <Logout />
+          ) : (
+            <Link
+              href="/login"
+              className={s.pageLink}
+              aria-label="로그인 페이지로 이동"
+            >
+              로그인
+            </Link>
+          )}
         </div>
       </div>
     </nav>
