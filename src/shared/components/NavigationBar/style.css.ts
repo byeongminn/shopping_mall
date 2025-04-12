@@ -43,13 +43,14 @@ export const wrapper = style([
 export const link = style([
   {
     display: "inline-block",
+    paddingRight: "10px",
   },
 ]);
 
 export const logo = style([
   {
-    width: "71px",
-    height: "28px",
+    width: "75px",
+    height: "29px",
   },
 ]);
 
@@ -66,12 +67,27 @@ export const centerWrapper = style([
 ]);
 
 export const endWrapper = style([
-  responsiveStyle({
-    md: {
-      flex: 1,
+  f.flex,
+  {
+    flex: 1,
+    justifyContent: "right",
+  },
+]);
+
+export const pageLink = style([
+  {
+    padding: "0 10px",
+    display: "inline-block",
+    fontSize: "14px",
+    color: "#2F3438",
+    textDecoration: "none",
+    wordBreak: "keep-all",
+  },
+  {
+    selectors: {
+      "&:not(:first-child)": {
+        borderLeft: "1px solid #EAEDEF",
+      },
     },
-    sm: {
-      flex: 0,
-    },
-  }),
+  },
 ]);
