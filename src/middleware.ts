@@ -92,5 +92,5 @@ const GUEST_PATHS = ["/login"];
 const PROTECTED_PATHS = ["/cart"];
 
 export const config = {
-  matcher: ["/login", "/cart"],
+  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)"],
 };
