@@ -1,10 +1,10 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { reissueAccessToken } from "@/shared/lib/auth";
 import { ACCESS_TOKEN } from "@/shared/lib/constants";
 
-export const POST = async (request: NextRequest) => {
+export const POST = async () => {
   try {
-    const newAccessToken = await reissueAccessToken(request);
+    const newAccessToken = await reissueAccessToken();
 
     const response = NextResponse.json({ success: true });
 
@@ -15,7 +15,9 @@ export const POST = async (request: NextRequest) => {
 
     return response;
   } catch (error) {
-    console.error(error);
+    // refreshToken 값이 존재하지 않습니다.
+    // refreshToken 값이 만료되었습니다.
+    console.error((error as Error).message);
 
     return NextResponse.json(
       { success: false, message: (error as Error).message },

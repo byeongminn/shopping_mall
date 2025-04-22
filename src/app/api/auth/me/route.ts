@@ -1,15 +1,29 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { verifyAuth } from "@/shared/lib/auth";
+import { NextResponse } from "next/server";
+import { getSession } from "@/shared/lib/session";
+import { ACCESS_TOKEN } from "@/shared/lib/constants";
 
-export const GET = async (request: NextRequest) => {
+export const GET = async () => {
   try {
-    const { email } = await verifyAuth(request);
+    const session = await getSession();
 
-    return NextResponse.json({ isLoggedIn: true, email: email });
+    if (!session) return NextResponse.json({ isLoggedIn: false });
+
+    const response = NextResponse.json({
+      isLoggedIn: true,
+      user: session.user,
+    });
+
+    if (session.newAccessToken) {
+      response.cookies.set(ACCESS_TOKEN, session.newAccessToken, {
+        httpOnly: true,
+        path: "/",
+      });
+    }
+
+    return response;
   } catch (error) {
     // accessToken 값이 존재하지 않습니다.
-    // accessToken 값이 만료되었습니다.
-    console.error(error);
+    console.error((error as Error).message);
 
     return NextResponse.json({ isLoggedIn: false });
   }
