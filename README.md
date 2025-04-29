@@ -3,20 +3,23 @@
 ![Npm](https://img.shields.io/badge/npm-10.7.0-orange?style=flat-square)
 ![Node.js](https://img.shields.io/badge/node.js-20.14.0-blue?style=flat-square)
 
-이 프로젝트는 Next.js의 App Router 버전을 활용하여 featured 기반의 디렉토리 구조에 익숙해지는 것을 주요 목표로 삼고 있습니다. 이를 통해 최신 Next.js 구조의 효율적인 사용법을 학습하고, 프로젝트 관리와 유지보수의 편의성을 높이고자 하였습니다.
-<br />
-또한, TypeScript와 @tanstack/react-query의 활용 능력을 향상시키는 것도 중요한 목표 중 하나였습니다. 이를 통해 정적 타입의 장점을 살려 코드의 안정성을 높이고, 비동기 데이터 관리를 더욱 효율적으로 처리할 수 있는 능력을 키우고자 하였습니다.
-<br />
-특히, 이번 프로젝트에서는 처음으로 MSW(Mock Service Worker) 라이브러리를 도입하여 백엔드 API에 대한 의존성을 줄이는 개발 방식을 연습하였습니다. 이를 통해 프론트엔드 개발 단계에서도 독립적으로 기능을 구현하고 테스트할 수 있는 환경을 조성하였습니다.
-<br />
-API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여 API 엔드포인트를 정의하였습니다. 이를 통해 Next.js의 서버리스 기능을 활용한 간단한 API 서버를 구축하고, 클라이언트와의 데이터 통신을 실습하였습니다.
-<br />
-프로젝트의 범위는 쇼핑몰의 주요 기능을 중심으로 메인 페이지, 검색 페이지, 상세 페이지의 세 가지 주요 화면을 구현하는 것이었습니다. 이를 통해 쇼핑몰 서비스의 기본적인 사용자 경험(UX)을 구축하고, 실제 애플리케이션 개발에 필요한 핵심 기능을 실습할 수 있었습니다. 모든 화면은 다양한 디바이스 환경에서도 최적의 사용자 경험을 제공할 수 있도록 반응형으로 작업하였습니다.
-<br />
-추가로, 이번 프로젝트에서는 Storybook을 처음 도입하여 컴포넌트 단위의 개발과 문서화 방식을 실습해 보았습니다. 컴포넌트를 독립적으로 시각화하고 테스트하는 환경을 구성함으로써, UI 개발의 효율성과 유지보수성을 높이는 방법을 학습할 수 있었습니다. 또한, Storybook 작성을 통해 Container와 Presentational 컴포넌트의 구분을 명확히 하고, 중복되는 로직은 별도 컴포넌트로 분리하여 코드의 재사용성과 가독성도 함께 개선하였습니다.
-<br />
-<br />
-<strong>해당 데이터는 오늘의집 데이터와 전혀 무관합니다.</strong>
+## 프로젝트 개요
+
+본 프로젝트는 **Next.js 기반 1인 쇼핑몰**을 직접 설계하고 개발함으로써, 프론트엔드 개발 역량을 종합적으로 확장하는 것을 목표로 진행되었습니다.
+
+주요 학습 목표는 다음과 같습니다.
+
+- **Next.js FSD(Feature-Sliced Design) 구조**를 적용하여 효율적인 프로젝트 아키텍처를 구성
+- **MSW(Mock Service Worker)** 를 활용해 백엔드 API 의존도를 낮추고, 독립적인 프론트엔드 개발 환경 구축
+- **Storybook**을 도입하여 컴포넌트 단위 개발 및 문서화 방식 실습
+- **JWT 기반 인증 및 Refresh Token 패턴**을 통한 인증 시스템 구현
+- **Protected Route**를 위한 미들웨어, 클라이언트, 서버 측 보호 로직 추가
+
+또한, 모든 화면은 반응형으로 구현하여 다양한 디바이스에서 최적의 사용자 경험(UX)을 제공하였으며,  
+정적 타입(**TypeScript**)과 **@tanstack/react-query**를 적극 활용하여 코드 안정성과 비동기 데이터 관리 효율성을 높였습니다.
+
+
+***해당 데이터는 오늘의집 데이터와 전혀 무관합니다.**
 
 
 
@@ -49,10 +52,12 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 4. <b>Create an environment variable file.</b> Create a .env file in the root directory of the project and define the required environment variables.
    ```
    NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+   JWT_SECRET="..."
    ```
 5. <b>Start the project</b>
    ```
-   yarn dev
+   yarn build
+   yarn start
    ```
 
 <br />
@@ -91,6 +96,18 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 
 <br />
 
+### [로그인]
+- 고정된 테스트 계정(이메일/비밀번호)을 사용하여 로그인할 수 있도록 구성하였습니다.
+- 로그인 성공 시 JWT 기반으로 Access Token과 Refresh Token을 발급받아 세션을 관리합니다.
+- 로그인하지 않은 사용자가 보호된 페이지에 접근할 경우, 자동으로 로그인 페이지로 리다이렉트되도록 구현하였습니다.
+- 로그인한 사용자가 로그인 페이지에 접근할 경우, 자동으로 홈 페이지로 리다이렉트되도록 구현하였습니다.
+
+|로그인|
+|--------|
+| ![login](https://github.com/user-attachments/assets/6cc7b20d-89cb-44ba-b81b-e6981a70eac4) |
+
+<br />
+
 ## Performance Improvements
 
 이 프로젝트에서는 **Lighthouse 기준으로 성능을 개선**하여 웹 페이지의 로딩 속도와 사용자 경험(UX)을 크게 향상시켰습니다. 주요 성능 개선 사항과 개선 전후의 스코어는 아래에 명시되어 있습니다.
@@ -114,6 +131,14 @@ API 개발 측면에서는 src/app/api 하위에 route.ts 파일을 생성하여
 <br />
 
 ## Release History
+- 1.2.0
+  - **JWT 기반 인증 추가**
+    - 고정된 테스트 계정(이메일/비밀번호)을 통한 로그인 구성
+    - 로그인 성공 시 Access Token과 Refresh Token을 발급하여 세션 관리
+  - **Protected Route 적용**
+    - 인증 상태에 따라 보호된 페이지 접근 시 로그인 페이지로, 로그인 페이지 접근 시 홈 페이지로 리다이렉트 처리
+    - 서버, 클라이언트 양쪽에서 인증 상태 검증
+    - 미들웨어를 통한 경로 보호 로직 적용
 - 1.1.0
   - **Storybook 도입**
     - 컴포넌트 개발 및 문서화를 위한 Storybook 설정 추가
