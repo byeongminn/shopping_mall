@@ -20,7 +20,7 @@ export const usePostLogin = () => {
     mutationFn: postLogin,
     onSuccess: async () => {
       setIsLoggedIn(true);
-      await queryClient.invalidateQueries({ queryKey: ["getMe", getMeURL] });
+      await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
       window.location.assign(searchParams.get("redirect") || "/");
     },
   });

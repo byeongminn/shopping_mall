@@ -13,7 +13,7 @@ export const usePostLogout = () => {
     mutationFn: postLogout,
     onSuccess: async () => {
       setIsLoggedIn(false);
-      await queryClient.invalidateQueries({ queryKey: ["getMe", getMeURL] });
+      await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
       window.location.assign("/login");
     },
   });
