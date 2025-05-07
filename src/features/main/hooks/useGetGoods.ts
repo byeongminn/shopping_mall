@@ -7,21 +7,17 @@ import {
   GetGoodsRequestParams,
   GetGoodsResponse,
   getGoods,
-  getGoodsURL,
-} from "../api/getGoods";
+} from "@/features/main/api/getGoods";
 
-type Params = GetGoodsRequestParams;
+type Params = GetGoodsRequestParams["order"];
 
-export const useGetGoods = ({
-  order,
-}: Params): UseSuspenseInfiniteQueryResult<
-  InfiniteData<GetGoodsResponse>,
-  Error
-> => {
+export const useGetGoods = (
+  order: Params
+): UseSuspenseInfiniteQueryResult<InfiniteData<GetGoodsResponse>, Error> => {
   return useSuspenseInfiniteQuery({
-    queryKey: ["goods", getGoodsURL, order],
-    queryFn: async () => {
-      return await getGoods({ order });
+    queryKey: ["goods", order],
+    queryFn: async ({ pageParam = 1 }) => {
+      return await getGoods({ order, page: pageParam });
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {

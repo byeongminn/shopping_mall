@@ -14,6 +14,7 @@ export type Order =
 
 export type GetGoodsRequestParams = {
   order?: Order;
+  page: number;
 };
 
 export type GetGoodsResponse = ListResponse<Good>;
