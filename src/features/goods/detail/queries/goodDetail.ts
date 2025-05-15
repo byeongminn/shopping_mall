@@ -4,9 +4,9 @@ import {
   getGoodsDetail,
 } from "@/features/goods/detail/api/getGoodsDetail";
 
-export const goodDetailQueryOptions = (
-  goodId: GetGoodsDetailRequestParams["goodId"]
-) =>
+type Params = Pick<GetGoodsDetailRequestParams, "goodId">;
+
+export const goodDetailQueryOptions = ({ goodId }: Params) =>
   queryOptions({
     queryKey: ["goodDetail", goodId],
     queryFn: async () => await getGoodsDetail(goodId),

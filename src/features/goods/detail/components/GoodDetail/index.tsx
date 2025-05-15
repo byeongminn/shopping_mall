@@ -6,10 +6,10 @@ import { ThumbnailSwiper } from "@/features/goods/detail/components/ThumbnailSwi
 import { GoodDescription } from "@/features/goods/detail/components/Description";
 import * as s from "./style.css";
 
-type Props = GetGoodsDetailRequestParams;
+type Props = Pick<GetGoodsDetailRequestParams, "goodId">;
 
 export const GoodDetail = ({ goodId }: Props) => {
-  const { data } = useGetGoodsDetail(goodId);
+  const { data } = useGetGoodsDetail({ goodId });
 
   if (!data) {
     return;

@@ -4,16 +4,16 @@ import { GoodDetail } from "@/features/goods/detail/components/GoodDetail";
 import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 import { getQueryClient } from "@/shared/lib/react-query";
 
-export type GoodDetailPageParams = {
-  params: Promise<GetGoodsDetailRequestParams>;
+type Props = {
+  params: Promise<Pick<GetGoodsDetailRequestParams, "goodId">>;
 };
 
-export default async function GoodDetailPage({ params }: GoodDetailPageParams) {
-  const goodId = (await params).goodId;
+export default async function GoodDetailPage({ params }: Props) {
+  const { goodId } = await params;
 
   const queryClient = getQueryClient();
 
-  await queryClient.prefetchQuery(goodDetailQueryOptions(goodId));
+  await queryClient.prefetchQuery(goodDetailQueryOptions({ goodId }));
 
   return (
     <main>

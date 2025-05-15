@@ -5,7 +5,9 @@ import {
 } from "@/features/goods/detail/api/getGoodsDetail";
 import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 
-export const useGetGoodsDetail = (
-  goodId: GetGoodsDetailRequestParams["goodId"]
-): UseQueryResult<GetGoodsDetailResponse, Error> =>
-  useQuery(goodDetailQueryOptions(goodId));
+type Params = Pick<GetGoodsDetailRequestParams, "goodId">;
+
+export const useGetGoodsDetail = ({
+  goodId,
+}: Params): UseQueryResult<GetGoodsDetailResponse, Error> =>
+  useQuery(goodDetailQueryOptions({ goodId }));
