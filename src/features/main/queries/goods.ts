@@ -1,9 +1,9 @@
 import { infiniteQueryOptions } from "@tanstack/react-query";
 import { GetGoodsRequestParams, getGoods } from "@/features/main/api/getGoods";
 
-export const goodsInfiniteQueryOptions = (
-  order: GetGoodsRequestParams["order"]
-) =>
+type Params = Pick<GetGoodsRequestParams, "order">;
+
+export const goodsInfiniteQueryOptions = ({ order }: Params) =>
   infiniteQueryOptions({
     queryKey: ["goods", order],
     queryFn: async ({ pageParam = 1 }) => {

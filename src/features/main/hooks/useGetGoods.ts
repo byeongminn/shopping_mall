@@ -9,7 +9,9 @@ import {
 } from "@/features/main/api/getGoods";
 import { goodsInfiniteQueryOptions } from "@/features/main/queries/goods";
 
-export const useGetGoods = (
-  order: GetGoodsRequestParams["order"]
-): UseInfiniteQueryResult<InfiniteData<GetGoodsResponse>, Error> =>
-  useInfiniteQuery(goodsInfiniteQueryOptions(order));
+type Params = Pick<GetGoodsRequestParams, "order">;
+
+export const useGetGoods = ({
+  order,
+}: Params): UseInfiniteQueryResult<InfiniteData<GetGoodsResponse>, Error> =>
+  useInfiniteQuery(goodsInfiniteQueryOptions({ order }));
