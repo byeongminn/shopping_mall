@@ -11,7 +11,7 @@ export default async function Home({
 }: {
   searchParams: Promise<{ order?: Order }>;
 }) {
-  const { order } = await searchParams;
+  const { order = "recommended" } = await searchParams;
 
   const queryClient = getQueryClient();
 
@@ -33,7 +33,7 @@ export default async function Home({
       </div>
       <section className={s.mainGoodsSection}>
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <MainGoods />
+          <MainGoods order={order} />
         </HydrationBoundary>
       </section>
     </main>

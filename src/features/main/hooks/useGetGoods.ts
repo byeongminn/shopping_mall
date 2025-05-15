@@ -10,6 +10,6 @@ import {
 import { goodsInfiniteQueryOptions } from "@/features/main/queries/goods";
 
 export const useGetGoods = (
-  order: GetGoodsRequestParams["order"] = "recommended"
+  order: GetGoodsRequestParams["order"]
 ): UseInfiniteQueryResult<InfiniteData<GetGoodsResponse>, Error> =>
   useInfiniteQuery(goodsInfiniteQueryOptions(order));

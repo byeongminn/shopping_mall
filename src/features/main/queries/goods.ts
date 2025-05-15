@@ -2,7 +2,7 @@ import { infiniteQueryOptions } from "@tanstack/react-query";
 import { GetGoodsRequestParams, getGoods } from "@/features/main/api/getGoods";
 
 export const goodsInfiniteQueryOptions = (
-  order: GetGoodsRequestParams["order"] = "recommended"
+  order: GetGoodsRequestParams["order"]
 ) =>
   infiniteQueryOptions({
     queryKey: ["goods", order],
