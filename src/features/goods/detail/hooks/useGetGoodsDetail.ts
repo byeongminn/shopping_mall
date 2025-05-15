@@ -1,21 +1,13 @@
-import {
-  UseSuspenseQueryResult,
-  useSuspenseQuery,
-} from "@tanstack/react-query";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import {
   GetGoodsDetailRequestParams,
   GetGoodsDetailResponse,
-  GetGoodsDetailURL,
-  getGoodsDetail,
-} from "../api/getGoodsDetail";
+} from "@/features/goods/detail/api/getGoodsDetail";
+import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 
-type Params = GetGoodsDetailRequestParams;
+type Params = Pick<GetGoodsDetailRequestParams, "goodId">;
 
-export const useGetGoodsDetail = (
-  params: Params
-): UseSuspenseQueryResult<GetGoodsDetailResponse, Error> => {
-  return useSuspenseQuery({
-    queryKey: ["goodsDetail", GetGoodsDetailURL, params.goodId],
-    queryFn: async () => await getGoodsDetail(params),
-  });
-};
+export const useGetGoodsDetail = ({
+  goodId,
+}: Params): UseQueryResult<GetGoodsDetailResponse, Error> =>
+  useQuery(goodDetailQueryOptions({ goodId }));

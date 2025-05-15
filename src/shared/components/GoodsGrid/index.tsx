@@ -10,7 +10,7 @@ import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
 import * as s from "@/shared/components/GoodsGrid/style.css";
 
 type Props = {
-  goods: Good[];
+  goods: Good[] | undefined;
   hasNextPage: boolean;
   isFetchingNextPage: boolean;
   fetchNextPage: (
@@ -22,7 +22,7 @@ type Props = {
 };
 
 export const GoodsGrid = ({
-  goods,
+  goods = [],
   hasNextPage,
   isFetchingNextPage,
   fetchNextPage,

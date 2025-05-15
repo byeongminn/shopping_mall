@@ -62,9 +62,9 @@ export type GetGoodsDetailResponse = {
 export const GetGoodsDetailURL = `${API_BASE_URL}/api/goods/detail/:goodId`;
 
 export const getGoodsDetail = async (
-  params: GetGoodsDetailRequestParams
+  goodId: GetGoodsDetailRequestParams["goodId"]
 ): Promise<GetGoodsDetailResponse> => {
-  const url = GetGoodsDetailURL.replace(":goodId", params.goodId);
+  const url = GetGoodsDetailURL.replace(":goodId", goodId);
 
   const { data } = await api.get(url);
 

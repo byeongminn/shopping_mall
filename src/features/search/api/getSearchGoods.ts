@@ -6,6 +6,7 @@ import { api } from "@/shared/lib/axios";
 export type GetSearchGoodsRequestParams = {
   q: string;
   order: Order;
+  page: number;
 };
 
 export type GetSearchGoodsResponse = GetGoodsResponse;

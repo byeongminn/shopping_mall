@@ -6,7 +6,7 @@ import { rawGood } from "@/shared/api/house/types/item";
 export const GET = async (request: NextRequest) => {
   try {
     const searchParams = parseSearchParams(request.nextUrl.searchParams);
-    const { q, order } = searchParams;
+    const { q, order, page } = searchParams;
 
     const data = [
       {
@@ -827,7 +827,17 @@ export const GET = async (request: NextRequest) => {
 
     const orderedData = orderingData(mappedData, order);
 
-    return Response.json(orderedData);
+    const pageSize = 20;
+
+    const paginated = orderedData.goods.slice(
+      (page - 1) * pageSize,
+      page * pageSize
+    );
+
+    return Response.json({
+      goods: paginated,
+      totalResults: orderedData.totalResults,
+    });
   } catch {
     return new Response(JSON.stringify({ message: "Internal Server Error" }), {
       status: 500,
@@ -839,6 +849,7 @@ const parseSearchParams = (params: URLSearchParams) => {
   return {
     q: params.get("q") ?? "",
     order: (params.get("order") ?? "recommended") as Order,
+    page: Number(params.get("page") ?? "1"),
   };
 };
 
