@@ -1,17 +1,17 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useGetGoods } from "@/features/main/hooks/useGetGoods";
-import { Order } from "@/features/main/api/getGoods";
+import { GetGoodsRequestParams } from "@/features/main/api/getGoods";
 import { GoodsGrid } from "@/shared/components/GoodsGrid";
 
-export const MainGoods = () => {
-  const searchParams = useSearchParams();
-  const order = (searchParams?.get("order") ?? "recommended") as Order;
-  const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useGetGoods(order);
+type Props = Pick<GetGoodsRequestParams, "order">;
 
-  const flatData = data.pages.map((page) => page.goods ?? []).flat();
+export const MainGoods = ({ order }: Props) => {
+  const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useGetGoods({
+    order,
+  });
+
+  const flatData = data?.pages.map((page) => page.goods ?? []).flat();
 
   return (
     <GoodsGrid

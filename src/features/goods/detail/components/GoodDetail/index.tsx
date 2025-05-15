@@ -1,15 +1,19 @@
 "use client";
 
-import { GetGoodsDetailRequestParams } from "../../api/getGoodsDetail";
-import { useGetGoodsDetail } from "../../hooks/useGetGoodsDetail";
-import { ThumbnailSwiper } from "../ThumbnailSwiper";
-import { GoodDescription } from "../Description";
+import { GetGoodsDetailRequestParams } from "@/features/goods/detail/api/getGoodsDetail";
+import { useGetGoodsDetail } from "@/features/goods/detail/hooks/useGetGoodsDetail";
+import { ThumbnailSwiper } from "@/features/goods/detail/components/ThumbnailSwiper";
+import { GoodDescription } from "@/features/goods/detail/components/Description";
 import * as s from "./style.css";
 
-type Props = GetGoodsDetailRequestParams;
+type Props = Pick<GetGoodsDetailRequestParams, "goodId">;
 
 export const GoodDetail = ({ goodId }: Props) => {
   const { data } = useGetGoodsDetail({ goodId });
+
+  if (!data) {
+    return;
+  }
 
   const { sub_images } = data;
 
