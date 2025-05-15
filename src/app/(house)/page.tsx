@@ -1,5 +1,5 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
-import { goodsInfiniteQueryOptions } from "@/features/main/queries/goodsInfiniteQueryOptions";
+import { goodsInfiniteQueryOptions } from "@/features/main/queries/goods";
 import { Order } from "@/features/main/api/getGoods";
 import { Filters } from "@/features/main/components/Filters";
 import { MainGoods } from "@/features/main/components/MainGoods";
