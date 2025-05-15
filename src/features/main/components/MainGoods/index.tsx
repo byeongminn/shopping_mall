@@ -11,7 +11,7 @@ export const MainGoods = () => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
     useGetGoods(order);
 
-  const flatData = data.pages.map((page) => page.goods ?? []).flat();
+  const flatData = data?.pages.map((page) => page.goods ?? []).flat();
 
   return (
     <GoodsGrid

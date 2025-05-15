@@ -1,8 +1,22 @@
+import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { goodsInfiniteQueryOptions } from "@/features/main/queries/goodsInfiniteQueryOptions";
+import { Order } from "@/features/main/api/getGoods";
 import { Filters } from "@/features/main/components/Filters";
 import { MainGoods } from "@/features/main/components/MainGoods";
+import { getQueryClient } from "@/shared/lib/react-query";
 import * as s from "@/app/(house)/style.css";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ order?: Order }>;
+}) {
+  const { order } = await searchParams;
+
+  const queryClient = getQueryClient();
+
+  await queryClient.prefetchInfiniteQuery(goodsInfiniteQueryOptions(order));
+
   return (
     <main>
       <div
@@ -18,7 +32,9 @@ export default function Home() {
         <Filters />
       </div>
       <section className={s.mainGoodsSection}>
-        <MainGoods />
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <MainGoods />
+        </HydrationBoundary>
       </section>
     </main>
   );
