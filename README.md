@@ -131,6 +131,18 @@
 <br />
 
 ## Release History
+- 1.3.0
+  - **@tanstack/react-query 의 전략을 Streaming 에서 Prefetching 으로 전환**
+    - 첫 진입 시 완성된 UI 제공이 중요한 쇼핑몰 특성과 잘 맞음
+    - 검색 엔진 최적화(SEO)가 매출과 직접 연결됨 → SSR HTML에 데이터 포함 필요
+    - React Query 캐시 재사용으로 빠른 전환 가능
+  - **공통 쿼리 옵션 함수 분리**
+    - 중복 제거 및 일관성 유지를 위해 별도 옵션 생성 함수로 분리
+- 1.2.1
+  - **쿼리 갱신 방식 리팩토링**
+    - 로그인/로그아웃 시 사용자 상태가 즉시 반영되도록 invalidateQueries → refetchQueries로 전환
+  - **api/goods 로직 개선**
+    - 무한스크롤 대응을 위한 page, pageSize 기반 슬라이스 처리 적용
 - 1.2.0
   - **JWT 기반 인증 추가**
     - 고정된 테스트 계정(이메일/비밀번호)을 통한 로그인 구성
