@@ -9,8 +9,12 @@ import {
 } from "@/features/search/api/getSearchGoods";
 import { searchGoodsInfiniteQueryOptions } from "@/features/search/queries/searchGoods";
 
-export const useGetSearchGoods = (
-  q: GetSearchGoodsRequestParams["q"] = "",
-  order: GetSearchGoodsRequestParams["order"] = "recommended"
-): UseInfiniteQueryResult<InfiniteData<GetSearchGoodsResponse>, Error> =>
-  useInfiniteQuery(searchGoodsInfiniteQueryOptions(q, order));
+type Params = Pick<GetSearchGoodsRequestParams, "q" | "order">;
+
+export const useGetSearchGoods = ({
+  q,
+  order,
+}: Params): UseInfiniteQueryResult<
+  InfiniteData<GetSearchGoodsResponse>,
+  Error
+> => useInfiniteQuery(searchGoodsInfiniteQueryOptions({ q, order }));

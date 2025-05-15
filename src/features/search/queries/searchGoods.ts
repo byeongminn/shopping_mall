@@ -4,10 +4,9 @@ import {
   getSearchGoods,
 } from "@/features/search/api/getSearchGoods";
 
-export const searchGoodsInfiniteQueryOptions = (
-  q: GetSearchGoodsRequestParams["q"] = "",
-  order: GetSearchGoodsRequestParams["order"] = "recommended"
-) =>
+type Params = Pick<GetSearchGoodsRequestParams, "q" | "order">;
+
+export const searchGoodsInfiniteQueryOptions = ({ q, order }: Params) =>
   infiniteQueryOptions({
     queryKey: ["search", q, order],
     queryFn: async ({ pageParam }) =>
