@@ -16,15 +16,16 @@ export const SearchGoods = () => {
   };
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useGetSearchGoods(searchQuery);
+    useGetSearchGoods(searchQuery.q, searchQuery.order);
 
-  const flatData = data.pages.map((page) => page.goods ?? []).flat();
+  const flatData = data?.pages.map((page) => page.goods ?? []).flat();
 
   return (
     <>
       <div className={s.totalWrapper}>
         <h6 className={s.total}>
-          전체 {formatNumberWithCommas(data?.pages?.[0]?.totalResults)}
+          전체{" "}
+          {formatNumberWithCommas(data ? data?.pages?.[0]?.totalResults : 0)}
         </h6>
       </div>
       <GoodsGrid
