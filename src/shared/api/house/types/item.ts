@@ -1,8 +1,7 @@
-export type rawGood = {
+export type RawGoodDTO = {
   id: string;
   name: string;
   imageUrl: string;
-  isSoldOut: boolean;
   brand: {
     id: string;
     name: string;
@@ -15,11 +14,6 @@ export type rawGood = {
   badgeProperties: {
     isFreeDelivery: boolean;
     isSpecialPrice: boolean;
-    isDiscontinued: boolean;
-    isSelling: boolean;
-    isOverseasPurchase: boolean;
-    isRetailDelivery: boolean;
-    isThirdPartyLogistic: boolean;
     departureToday?: {
       orderDeadline: string;
       description: string;
@@ -30,24 +24,19 @@ export type rawGood = {
       discountRatio: string;
       couponAppliedPrice: string;
     };
-    deliveryServiceCode: string;
   };
   reviewStatistic: {
     reviewCount: number;
     reviewAverage: number;
   };
-  scrapInfo: {
-    isScrap: boolean;
-    scrapCount: number;
-  };
 };
 
-export type Good = rawGood & {
-  price: rawGood["price"] & {
+export type Good = RawGoodDTO & {
+  price: RawGoodDTO["price"] & {
     originalPriceDisplayText: string;
     sellingPriceDisplayText: string;
   };
-  reviewStatistic: rawGood["reviewStatistic"] & {
+  reviewStatistic: RawGoodDTO["reviewStatistic"] & {
     reviewCountDisplayText: string;
     reviewAverageDisplayText: number;
   };
