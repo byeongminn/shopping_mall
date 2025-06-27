@@ -12,16 +12,19 @@ export const GoodDetail = ({ goodId }: Props) => {
   const { data } = useGetGoodsDetail({ goodId });
 
   if (!data) {
-    return;
+    return (
+      <section className={s.container}>
+        <div className={s.overviewWrapper}>
+          <p>상품을 찾을 수 없습니다.</p>
+        </div>
+      </section>
+    );
   }
 
   const { subImages } = data;
 
   return (
     <section className={s.container}>
-      <div className={s.breadcrumbWrapper}>
-        <p className={s.breadcrumb}>{"패브릭 > 베개·베개커버 > 베개솜"}</p>
-      </div>
       <div className={s.overviewWrapper}>
         <div className={s.thumbnailWrapper}>
           <ThumbnailSwiper images={subImages} />
