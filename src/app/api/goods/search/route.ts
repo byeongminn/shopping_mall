@@ -43,6 +43,6 @@ const parseSearchParams = (params: URLSearchParams) => {
   };
 };
 
-export const findingData = (data: RawGoodDTO[], q: string) => {
+const findingData = (data: RawGoodDTO[], q: string) => {
   return data.filter((good) => good?.name?.includes(q));
 };
