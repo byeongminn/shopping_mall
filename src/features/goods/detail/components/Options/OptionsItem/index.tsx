@@ -1,8 +1,8 @@
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import { GoodsDetailOption } from "../../../api/getGoodsDetail";
-import ArrowBottom from "./arrowBottom.svg";
-import * as s from "./style.css";
 import { Dispatch, SetStateAction } from "react";
+import ArrowBottom from "@/features/goods/detail/components/Options/OptionsItem/arrowBottom.svg";
+import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import * as s from "@/features/goods/detail/components/Options/OptionsItem/style.css";
 
 type SelectedOption = {
   value: number;

@@ -1,10 +1,10 @@
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import { GoodsDetailOption } from "../../api/getGoodsDetail";
-import { GoodOptionsItem } from "./OptionsItem";
-import * as s from "./style.css";
-import { Button } from "@/shared/components/base/Button";
 import { useMemo, useState } from "react";
-import { GoodSelectedOptionsItem } from "./SelectedOptionsItem";
+import { GoodOptionsItem } from "@/features/goods/detail/components/Options/OptionsItem";
+import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
+import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { Button } from "@/shared/components/base/Button";
+import * as s from "@/features/goods/detail/components/Options/style.css";
 
 type Props = {
   firstDepthName?: string;

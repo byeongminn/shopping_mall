@@ -1,9 +1,9 @@
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import { GoodsDetailOption } from "../../../api/getGoodsDetail";
-import Remove from "./remove.svg";
-import Minus from "./minus.svg";
-import Plus from "./plus.svg";
-import * as s from "./style.css";
+import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
+import Minus from "@/features/goods/detail/components/Options/SelectedOptionsItem/minus.svg";
+import Plus from "@/features/goods/detail/components/Options/SelectedOptionsItem/plus.svg";
+import * as s from "@/features/goods/detail/components/Options/SelectedOptionsItem/style.css";
 
 type SelectedOption = {
   value: number;

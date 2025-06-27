@@ -15,7 +15,7 @@ export const GoodDetail = ({ goodId }: Props) => {
     return;
   }
 
-  const { sub_images } = data;
+  const { subImages } = data;
 
   return (
     <section className={s.container}>
@@ -24,7 +24,7 @@ export const GoodDetail = ({ goodId }: Props) => {
       </div>
       <div className={s.overviewWrapper}>
         <div className={s.thumbnailWrapper}>
-          <ThumbnailSwiper images={sub_images} />
+          <ThumbnailSwiper images={subImages} />
         </div>
         <div className={s.contentWrapper}>
           <GoodDescription good={data} />
