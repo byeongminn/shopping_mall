@@ -54,7 +54,7 @@ export const GoodDescription = ({ good }: Props) => {
           </span>
           <span className={s.won}>원</span>
           {badgeProperties.isSpecialPrice && <SpecialPrice />}
-          {delivery.isDepartureToday && <DepartureToday />}
+          {badgeProperties.departureToday && <DepartureToday />}
         </div>
       </div>
 
@@ -64,12 +64,12 @@ export const GoodDescription = ({ good }: Props) => {
           <span>배송</span>
         </div>
         <div className={s.deliveryContent}>
-          {delivery.fee.fee > 0 ? (
+          {delivery.fee > 0 ? (
             <span className={s.deliveryFee}>
-              <b>{formatNumberWithCommas(delivery.fee.fee)}원 </b>
-              {delivery.fee.freeThreshold > 0 && (
+              <b>{formatNumberWithCommas(delivery.fee)}원 </b>
+              {delivery.freeThreshold > 0 && (
                 <small>
-                  ({formatNumberWithCommas(delivery.fee.freeThreshold)}원 이상
+                  ({formatNumberWithCommas(delivery.freeThreshold)}원 이상
                   구매시 무료배송)
                 </small>
               )}
@@ -79,33 +79,34 @@ export const GoodDescription = ({ good }: Props) => {
               <b>무료배송</b>
             </span>
           )}
-          {delivery.isDepartureToday && (
+          {badgeProperties.departureToday && (
             <span className={s.deliveryTodayDeparture}>
-              {delivery.deliveryStartAt.template.text.replace("%s", "")}
-              <b style={{ color: "#35c5f0" }}>
-                {delivery.deliveryStartAt.template.values}
-              </b>
+              {badgeProperties.departureToday.description.replace(
+                "%s",
+                badgeProperties.departureToday.orderDeadline
+              )}{" "}
+              <b style={{ color: "#35c5f0" }}>오늘 출발</b>
             </span>
           )}
           <span className={s.deliveryType}>
-            {delivery.fee.type === 1 ? "일반택배" : "특수택배"}
+            {delivery.type === 1 ? "일반택배" : "특수택배"}
           </span>
           <span className={s.deliveryClaimer}>
-            {delivery.fee.isRegionalDeliveryFee && (
+            {delivery.isRegionalDeliveryFee ? (
               <span className={s.deliveryClaimer}>
                 <Check />
                 <span>지역별 차등배송비</span>
               </span>
-            )}
-            {delivery.fee.backwoodsFee && (
+            ) : null}
+            {delivery.backwoodsFee ? (
               <span className={s.deliveryClaimer}>
                 <Check />
                 <span>
                   제주도/도서산간 지역{" "}
-                  {formatNumberWithCommas(delivery.fee.backwoodsFee)}원
+                  {formatNumberWithCommas(delivery.backwoodsFee)}원
                 </span>
               </span>
-            )}
+            ) : null}
           </span>
         </div>
       </div>

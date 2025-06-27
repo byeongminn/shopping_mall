@@ -1,4 +1,14 @@
 // 상품 DTO
+export type GoodsDetailOption = {
+  id: number;
+  explain: string;
+  price: number;
+};
+
+export type GoodsDetailImage = {
+  imageUrl: string;
+};
+
 export type RawGoodDTO = {
   id: string;
   name: string;
@@ -18,7 +28,6 @@ export type RawGoodDTO = {
     departureToday?: {
       orderDeadline: string;
       description: string;
-      departureTodayExp: string;
     };
     couponBadge?: {
       displayText: string;
@@ -30,6 +39,18 @@ export type RawGoodDTO = {
     reviewCount: number;
     reviewAverage: number;
   };
+  delivery: {
+    fee: number;
+    backwoodsFee: number;
+    freeThreshold: number;
+    isRegionalDeliveryFee: boolean;
+    type: number;
+  };
+  description: string;
+  extraOptions: GoodsDetailOption[];
+  firstDepthName: string;
+  options: GoodsDetailOption[];
+  subImages: GoodsDetailImage[];
 };
 
 // 상품 DTO 포맷팅
@@ -44,40 +65,5 @@ export type Good = RawGoodDTO & {
   };
 };
 
-// 상품 상세 DTO
-export type GoodsDetailOption = {
-  id: number;
-  explain: string;
-  price: number;
-};
-
-export type GoodsDetailImage = {
-  imageUrl: string;
-};
-
-export type GoodsDetailDTO = RawGoodDTO & {
-  delivery: {
-    isDepartureToday: boolean;
-    deliveryStartAt: {
-      template: {
-        text: string;
-        values: string;
-      };
-    };
-    fee: {
-      fee: number;
-      backwoodsFee: number;
-      freeThreshold: number;
-      isRegionalDeliveryFee: boolean;
-      type: number;
-    };
-  };
-  description: string;
-  extraOptions: GoodsDetailOption[];
-  firstDepthName: string;
-  options: GoodsDetailOption[];
-  subImages: GoodsDetailImage[];
-};
-
 // 상품 상세 DTO 포맷팅
-export type GoodsDetail = GoodsDetailDTO & Good;
+export type GoodsDetail = RawGoodDTO & Good;
