@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-query";
 import { HttpResponse, http } from "msw";
 import { SearchGoods } from "@/features/search/components/SearchGoods";
-import { getMockSearchGoods } from "@/features/search/api/getMockSearchGoods";
+import { getMockSearchGoods } from "@/features/search/api/getSearchGoods.mock";
 import { getSearchGoodsURL } from "@/features/search/api/getSearchGoods";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 

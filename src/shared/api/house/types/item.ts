@@ -1,8 +1,18 @@
-export type rawGood = {
+// 상품 DTO
+export type GoodsDetailOption = {
+  id: number;
+  explain: string;
+  price: number;
+};
+
+export type GoodsDetailImage = {
+  imageUrl: string;
+};
+
+export type RawGoodDTO = {
   id: string;
   name: string;
   imageUrl: string;
-  isSoldOut: boolean;
   brand: {
     id: string;
     name: string;
@@ -15,40 +25,45 @@ export type rawGood = {
   badgeProperties: {
     isFreeDelivery: boolean;
     isSpecialPrice: boolean;
-    isDiscontinued: boolean;
-    isSelling: boolean;
-    isOverseasPurchase: boolean;
-    isRetailDelivery: boolean;
-    isThirdPartyLogistic: boolean;
     departureToday?: {
       orderDeadline: string;
       description: string;
-      departureTodayExp: string;
     };
     couponBadge?: {
       displayText: string;
       discountRatio: string;
       couponAppliedPrice: string;
     };
-    deliveryServiceCode: string;
   };
   reviewStatistic: {
     reviewCount: number;
     reviewAverage: number;
   };
-  scrapInfo: {
-    isScrap: boolean;
-    scrapCount: number;
+  delivery: {
+    fee: number;
+    backwoodsFee: number;
+    freeThreshold: number;
+    isRegionalDeliveryFee: boolean;
+    type: number;
   };
+  description: string;
+  extraOptions: GoodsDetailOption[];
+  firstDepthName: string;
+  options: GoodsDetailOption[];
+  subImages: GoodsDetailImage[];
 };
 
-export type Good = rawGood & {
-  price: rawGood["price"] & {
+// 상품 DTO 포맷팅
+export type Good = RawGoodDTO & {
+  price: RawGoodDTO["price"] & {
     originalPriceDisplayText: string;
     sellingPriceDisplayText: string;
   };
-  reviewStatistic: rawGood["reviewStatistic"] & {
+  reviewStatistic: RawGoodDTO["reviewStatistic"] & {
     reviewCountDisplayText: string;
     reviewAverageDisplayText: number;
   };
 };
+
+// 상품 상세 DTO 포맷팅
+export type GoodsDetail = RawGoodDTO & Good;
