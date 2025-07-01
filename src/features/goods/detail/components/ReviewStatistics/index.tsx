@@ -1,22 +1,18 @@
-import { numberRounded } from "@/shared/utils/data";
-import { Star } from "./Star";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import * as s from "./style.css";
+import { Star } from "@/features/goods/detail/components/ReviewStatistics/Star";
+import * as s from "@/features/goods/detail/components/ReviewStatistics/style.css";
 
 type Props = {
-  reviewAvg: number;
-  reviewCount: number;
+  reviewAverageDisplayText: number;
+  reviewCountDisplayText: string;
   isVisibleReviewCount?: boolean;
 };
 
 export const ReviewStatistics = ({
-  reviewAvg,
-  reviewCount,
+  reviewAverageDisplayText,
+  reviewCountDisplayText,
   isVisibleReviewCount = false,
 }: Props) => {
-  const roundedReviewAvg = numberRounded(reviewAvg);
-
-  const full = Math.floor(roundedReviewAvg);
+  const full = Math.floor(reviewAverageDisplayText);
   const responsive = full === 5 ? 0 : 1;
   const empty = 5 - full - responsive;
 
@@ -27,7 +23,7 @@ export const ReviewStatistics = ({
           <Star key={index} isFull />
         ))}
         {Array.from({ length: responsive }, (_, index) => (
-          <Star key={index} roundedReviewAvg={roundedReviewAvg} />
+          <Star key={index} roundedReviewAvg={reviewAverageDisplayText} />
         ))}
         {Array.from({ length: empty }, (_, index) => (
           <Star key={index} isEmpty />
@@ -35,9 +31,7 @@ export const ReviewStatistics = ({
       </div>
       {isVisibleReviewCount && (
         <div className={s.reviewCountWrpper}>
-          <p className={s.reviewCount}>
-            {formatNumberWithCommas(reviewCount)}개 리뷰
-          </p>
+          <p className={s.reviewCount}>{reviewCountDisplayText}개 리뷰</p>
         </div>
       )}
     </section>

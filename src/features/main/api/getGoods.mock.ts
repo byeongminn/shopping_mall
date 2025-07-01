@@ -1,5 +1,5 @@
 import { HttpHandler, HttpResponse, http } from "msw";
-import { getGoodsURL } from "./getGoods";
+import { getGoodsURL } from "@/features/main/api/getGoods";
 
 export const getMockGoods: HttpHandler = http.get(getGoodsURL, () => {
   return HttpResponse.json(GET_MOCK_GOODS.success);
@@ -23,21 +23,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "154,000",
         },
         imageUrl: "cloud-sofa.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "12:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 9405,
@@ -45,10 +37,46 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "9,405",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 87547,
+        delivery: {
+          fee: 3000,
+          backwoodsFee: 5000,
+          freeThreshold: 50000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/cloud-sofa.png" alt="구름 소파" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">구름처럼 포근한 소파</h2><p style="text-align: center; font-size: 18px; color: #444;">포근함의 끝판왕 <strong style="color: #000;">구름 소파</strong>로 당신의 공간을 완성하세요.</p></div>',
+        extraOptions: [
+          {
+            id: 3,
+            explain: "소파 방석 추가 (화이트)",
+            price: 49000,
+          },
+          {
+            id: 4,
+            explain: "소파 방석 추가 (그레이)",
+            price: 49000,
+          },
+          {
+            id: 5,
+            explain: "소파 방석 추가 (네이비)",
+            price: 49000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 1,
+            explain: "구름 소파(2인용)",
+            price: 154000,
+          },
+          {
+            id: 2,
+            explain: "구름 소파(3인용)",
+            price: 198000,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "2",
@@ -65,21 +93,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "155,000",
         },
         imageUrl: "bookshelf.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "12:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 33889,
@@ -87,10 +107,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "33,889",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 66832,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/bookshelf.png" alt="스파이럴 책장" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">공간을 살리는 스파이럴 디자인</h2><p style="text-align: center; font-size: 18px; color: #444;">책장이 곧 인테리어가 되는 <strong style="color: #000;">스파이럴 책장</strong>으로 집안을 한층 세련되게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 6,
+            explain: "책장 확장 선반 추가 (화이트)",
+            price: 27000,
+          },
+          {
+            id: 7,
+            explain: "책장 확장 선반 추가 (월넛)",
+            price: 29000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 3,
+            explain: "스파이럴 책장 (화이트)",
+            price: 155000,
+          },
+          {
+            id: 4,
+            explain: "스파이럴 책장 (월넛)",
+            price: 165000,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "3",
@@ -107,21 +158,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "40,600",
         },
         imageUrl: "pendant-lights.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "12:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 15116,
@@ -129,10 +172,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "15,116",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 70485,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/pendant-lights.png" alt="별빛 펜던트 조명" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">밤하늘처럼 빛나는 공간</h2><p style="text-align: center; font-size: 18px; color: #444;">감각적인 인테리어 완성을 위한 <strong style="color: #000;">별빛 펜던트 조명</strong>으로 당신의 집을 한층 밝고 세련되게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 8,
+            explain: "LED 전구 추가 (전구색)",
+            price: 8000,
+          },
+          {
+            id: 9,
+            explain: "LED 전구 추가 (주광색)",
+            price: 8000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 5,
+            explain: "별빛 펜던트 조명 (골드)",
+            price: 40600,
+          },
+          {
+            id: 6,
+            explain: "별빛 펜던트 조명 (실버)",
+            price: 42600,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "4",
@@ -149,16 +223,9 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "146,200",
         },
         imageUrl: "wood-table.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 8% 쿠폰",
             discountRatio: "8.0",
@@ -171,10 +238,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "20,126",
           reviewAverageDisplayText: 4.7,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 191348,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/wood-table.png" alt="재생 우드 테이블" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">지속 가능한 공간의 완성</h2><p style="text-align: center; font-size: 18px; color: #444;">친환경 라이프를 위한 <strong style="color: #000;">재생 우드 테이블</strong>로 집안에 자연의 따뜻함을 더해보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 10,
+            explain: "테이블 보호 패드 추가 (투명)",
+            price: 22000,
+          },
+          {
+            id: 11,
+            explain: "테이블 보호 패드 추가 (우드그레인)",
+            price: 25000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 7,
+            explain: "재생 우드 테이블 (1200mm)",
+            price: 146200,
+          },
+          {
+            id: 8,
+            explain: "재생 우드 테이블 (1500mm)",
+            price: 176200,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "5",
@@ -191,21 +289,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "112,600",
         },
         imageUrl: "meditation-chair.png",
-        isSoldOut: false,
         badgeProperties: {
-          isFreeDelivery: true,
+          isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "13:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 5896,
@@ -213,10 +303,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "5,896",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 64555,
+        delivery: {
+          fee: 3000,
+          backwoodsFee: 5000,
+          freeThreshold: 50000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/meditation-chair.png" alt="명상 의자" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">마음을 고요히 하는 공간</h2><p style="text-align: center; font-size: 18px; color: #444;">편안한 자세로 집중력을 높여주는 <strong style="color: #000;">명상 의자</strong>로 하루의 스트레스를 날려보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 12,
+            explain: "의자 커버 추가 (화이트)",
+            price: 18000,
+          },
+          {
+            id: 13,
+            explain: "의자 커버 추가 (차콜)",
+            price: 18000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 9,
+            explain: "명상 의자 (기본형)",
+            price: 112600,
+          },
+          {
+            id: 10,
+            explain: "명상 의자 (쿠션형)",
+            price: 132600,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "6",
@@ -233,16 +354,9 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "202,700",
         },
         imageUrl: "mood-light.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 10% 쿠폰",
             discountRatio: "10.0",
@@ -255,10 +369,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "23,967",
           reviewAverageDisplayText: 4.6,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 167998,
+        delivery: {
+          fee: 3500,
+          backwoodsFee: 6000,
+          freeThreshold: 100000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/mood-light.png" alt="달빛 무드등" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">은은하게 빛나는 달빛</h2><p style="text-align: center; font-size: 18px; color: #444;">로맨틱한 분위기를 연출하는 <strong style="color: #000;">달빛 무드등</strong>으로 공간을 특별하게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 14,
+            explain: "리모컨 추가",
+            price: 15000,
+          },
+          {
+            id: 15,
+            explain: "밝기 조절 키트",
+            price: 20000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 11,
+            explain: "달빛 무드등 (소형)",
+            price: 202700,
+          },
+          {
+            id: 12,
+            explain: "달빛 무드등 (대형)",
+            price: 252700,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "7",
@@ -275,21 +420,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "81,300",
         },
         imageUrl: "coffee-table.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "12:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 5% 쿠폰",
             discountRatio: "5.0",
@@ -302,10 +439,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "9,393",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 57065,
+        delivery: {
+          fee: 3000,
+          backwoodsFee: 5000,
+          freeThreshold: 80000,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/coffee-table.png" alt="모자이크 커피 테이블" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">공간에 포인트를 주는 테이블</h2><p style="text-align: center; font-size: 18px; color: #444;">아트적인 감각을 살린 <strong style="color: #000;">모자이크 커피 테이블</strong>로 거실을 스타일리시하게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 16,
+            explain: "보호 유리 추가",
+            price: 12000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 13,
+            explain: "모자이크 커피 테이블 (블랙 화이트)",
+            price: 81300,
+          },
+          {
+            id: 14,
+            explain: "모자이크 커피 테이블 (그레이 톤)",
+            price: 85300,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "8",
@@ -322,16 +485,9 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "106,700",
         },
         imageUrl: "shelf.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 10% 쿠폰",
             discountRatio: "10.0",
@@ -344,10 +500,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "16,552",
           reviewAverageDisplayText: 4.6,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 109802,
+        delivery: {
+          fee: 2500,
+          backwoodsFee: 4000,
+          freeThreshold: 100000,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/shelf.png" alt="부유 선반" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">벽 공간을 효율적으로 활용</h2><p style="text-align: center; font-size: 18px; color: #444;">깔끔하고 모던한 <strong style="color: #000;">부유 선반</strong>으로 인테리어와 수납을 동시에 해결하세요.</p></div>',
+        extraOptions: [
+          {
+            id: 17,
+            explain: "추가 브래킷 세트",
+            price: 7000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 15,
+            explain: "부유 선반 (60cm)",
+            price: 106700,
+          },
+          {
+            id: 16,
+            explain: "부유 선반 (80cm)",
+            price: 126700,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "9",
@@ -364,21 +546,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "174,000",
         },
         imageUrl: "rug.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "14:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 12428,
@@ -386,10 +560,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "12,428",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 30320,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/rug.png" alt="천연 소재 러그" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">자연의 촉감을 담은 러그</h2><p style="text-align: center; font-size: 18px; color: #444;">친환경 공간을 위한 <strong style="color: #000;">천연 소재 러그</strong>로 건강한 집을 만들어보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 18,
+            explain: "미끄럼 방지 매트 추가",
+            price: 10000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 17,
+            explain: "러그 (소형)",
+            price: 174000,
+          },
+          {
+            id: 18,
+            explain: "러그 (대형)",
+            price: 214000,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "10",
@@ -406,21 +606,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "273,900",
         },
         imageUrl: "bed-frame.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "12:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 10% 쿠폰",
             discountRatio: "10.0",
@@ -433,10 +625,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "6,937",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 74006,
+        delivery: {
+          fee: 4000,
+          backwoodsFee: 7000,
+          freeThreshold: 150000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/bed-frame.png" alt="산업풍 침대 프레임" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">트렌디한 인더스트리얼 무드</h2><p style="text-align: center; font-size: 18px; color: #444;">거친 매력의 <strong style="color: #000;">산업풍 침대 프레임</strong>으로 침실을 특별하게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 19,
+            explain: "매트리스 추가 (싱글)",
+            price: 120000,
+          },
+          {
+            id: 20,
+            explain: "매트리스 추가 (퀸)",
+            price: 180000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 19,
+            explain: "침대 프레임 (싱글)",
+            price: 273900,
+          },
+          {
+            id: 20,
+            explain: "침대 프레임 (퀸)",
+            price: 313900,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "11",
@@ -453,21 +676,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "218,900",
         },
         imageUrl: "pop-art.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "14:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 11643,
@@ -475,10 +690,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "11,643",
           reviewAverageDisplayText: 4.7,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 46988,
+        delivery: {
+          fee: 3000,
+          backwoodsFee: 5000,
+          freeThreshold: 120000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/pop-art.png" alt="팝아트 벽 장식" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">공간에 생동감을 불어넣다</h2><p style="text-align: center; font-size: 18px; color: #444;">강렬한 색채와 디자인의 <strong style="color: #000;">팝아트 벽 장식</strong>으로 집안을 갤러리처럼 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 21,
+            explain: "프레임 변경 (블랙)",
+            price: 15000,
+          },
+          {
+            id: 22,
+            explain: "프레임 변경 (골드)",
+            price: 18000,
+          },
+        ],
+        firstDepthName: "프레임 선택",
+        options: [
+          {
+            id: 21,
+            explain: "팝아트 벽 장식 (M)",
+            price: 218900,
+          },
+          {
+            id: 22,
+            explain: "팝아트 벽 장식 (L)",
+            price: 258900,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "12",
@@ -495,21 +741,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "134,300",
         },
         imageUrl: "hammock.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "15:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 10% 쿠폰",
             discountRatio: "10.0",
@@ -522,10 +760,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "12,887",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 80560,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/hammock.png" alt="공중 해먹" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">하늘에 떠 있는 휴식</h2><p style="text-align: center; font-size: 18px; color: #444;">일상의 피로를 풀어주는 <strong style="color: #000;">공중 해먹</strong>으로 여유로운 시간을 즐겨보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 23,
+            explain: "해먹 고정 스트랩 추가",
+            price: 7000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 23,
+            explain: "공중 해먹 (그린)",
+            price: 134300,
+          },
+          {
+            id: 24,
+            explain: "공중 해먹 (블루)",
+            price: 139300,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "13",
@@ -542,21 +806,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "184,700",
         },
         imageUrl: "dining-table.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "15:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 10623,
@@ -564,10 +820,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "10,623",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 41473,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/dining-table.png" alt="접이식 다이닝 테이블" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">공간을 자유롭게 변형하다</h2><p style="text-align: center; font-size: 18px; color: #444;">작은 공간에도 완벽하게 어울리는 <strong style="color: #000;">접이식 다이닝 테이블</strong>로 실용적인 인테리어를 완성하세요.</p></div>',
+        extraOptions: [
+          {
+            id: 25,
+            explain: "보호 패드 추가",
+            price: 10000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 25,
+            explain: "다이닝 테이블 (4인용)",
+            price: 184700,
+          },
+          {
+            id: 26,
+            explain: "다이닝 테이블 (6인용)",
+            price: 204700,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "14",
@@ -584,21 +866,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "238,200",
         },
         imageUrl: "wood-lamp.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "13:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 8945,
@@ -606,10 +880,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "8,945",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 48652,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/wood-lamp.png" alt="우드 스톤 램프" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">자연에서 온 빛</h2><p style="text-align: center; font-size: 18px; color: #444;">우드와 스톤의 조화를 담은 <strong style="color: #000;">우드 스톤 램프</strong>로 공간을 따뜻하게 밝혀보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 27,
+            explain: "램프 전구 추가",
+            price: 12000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 27,
+            explain: "우드 스톤 램프 (내추럴)",
+            price: 238200,
+          },
+          {
+            id: 28,
+            explain: "우드 스톤 램프 (다크 우드)",
+            price: 248200,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "15",
@@ -626,16 +926,9 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "185,600",
         },
         imageUrl: "wall-clock.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 9898,
@@ -643,10 +936,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "9,898",
           reviewAverageDisplayText: 4.7,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 88306,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/wall-clock.png" alt="무소음 벽시계" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">조용히 흐르는 시간</h2><p style="text-align: center; font-size: 18px; color: #444;">소음 없이 고요한 <strong style="color: #000;">무소음 벽시계</strong>로 공간의 품격을 높여보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 29,
+            explain: "배터리 추가",
+            price: 3000,
+          },
+        ],
+        firstDepthName: "프레임 선택",
+        options: [
+          {
+            id: 29,
+            explain: "무소음 벽시계 (블랙)",
+            price: 185600,
+          },
+          {
+            id: 30,
+            explain: "무소음 벽시계 (실버)",
+            price: 195600,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "16",
@@ -663,16 +982,9 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "44,700",
         },
         imageUrl: "bed.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 14995,
@@ -680,10 +992,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "14,995",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 115265,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/bed.png" alt="부유형 침대" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">공간에 떠 있는 듯한 느낌</h2><p style="text-align: center; font-size: 18px; color: #444;">심플하면서도 현대적인 <strong style="color: #000;">부유형 침대</strong>로 침실을 한층 세련되게 꾸며보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 31,
+            explain: "LED 조명 추가",
+            price: 25000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 31,
+            explain: "부유형 침대 (싱글)",
+            price: 44700,
+          },
+          {
+            id: 32,
+            explain: "부유형 침대 (퀸)",
+            price: 64700,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "17",
@@ -700,21 +1038,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "200,800",
         },
         imageUrl: "mirror.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "14:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 8456,
@@ -722,10 +1052,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "8,456",
           reviewAverageDisplayText: 4.7,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 40475,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/mirror.png" alt="거울 벽 장식" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">빛과 공간을 넓히다</h2><p style="text-align: center; font-size: 18px; color: #444;">세련된 <strong style="color: #000;">거울 벽 장식</strong>으로 공간에 깊이와 스타일을 더해보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 33,
+            explain: "프레임 색상 변경 (골드)",
+            price: 12000,
+          },
+        ],
+        firstDepthName: "사이즈 선택",
+        options: [
+          {
+            id: 33,
+            explain: "거울 벽 장식 (M)",
+            price: 200800,
+          },
+          {
+            id: 34,
+            explain: "거울 벽 장식 (L)",
+            price: 220800,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "18",
@@ -742,21 +1098,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "133,600",
         },
         imageUrl: "single-sofa.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: true,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "14:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 40924,
@@ -764,10 +1112,41 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "40,924",
           reviewAverageDisplayText: 4.7,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 85350,
+        delivery: {
+          fee: 0,
+          backwoodsFee: 0,
+          freeThreshold: 0,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/single-sofa.png" alt="안락 1인용 소파" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">혼자만의 아늑함</h2><p style="text-align: center; font-size: 18px; color: #444;">편안함과 스타일을 모두 갖춘 <strong style="color: #000;">안락 1인용 소파</strong>로 휴식의 질을 높여보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 35,
+            explain: "소파 커버 추가 (화이트)",
+            price: 18000,
+          },
+          {
+            id: 36,
+            explain: "소파 커버 추가 (차콜)",
+            price: 18000,
+          },
+        ],
+        firstDepthName: "색상 선택",
+        options: [
+          {
+            id: 35,
+            explain: "안락 1인용 소파 (베이지)",
+            price: 133600,
+          },
+          {
+            id: 36,
+            explain: "안락 1인용 소파 (그레이)",
+            price: 143600,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "19",
@@ -784,21 +1163,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "9,900",
         },
         imageUrl: "cutlery-set.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "15:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
           couponBadge: {
             displayText: "최대 5% 쿠폰",
             discountRatio: "5.0",
@@ -811,10 +1182,36 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "7,189",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 39844,
+        delivery: {
+          fee: 2500,
+          backwoodsFee: 4000,
+          freeThreshold: 30000,
+          isRegionalDeliveryFee: false,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/cutlery-set.png" alt="수저 세트" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">식탁의 품격을 높이다</h2><p style="text-align: center; font-size: 18px; color: #444;">고급스러운 디자인의 <strong style="color: #000;">수저 세트</strong>로 식사를 더욱 특별하게 즐겨보세요.</p></div>',
+        extraOptions: [
+          {
+            id: 37,
+            explain: "수저 케이스 추가",
+            price: 5000,
+          },
+        ],
+        firstDepthName: "구성 선택",
+        options: [
+          {
+            id: 37,
+            explain: "수저 세트 (2인용)",
+            price: 9900,
+          },
+          {
+            id: 38,
+            explain: "수저 세트 (4인용)",
+            price: 17900,
+          },
+        ],
+        subImages: [],
       },
       {
         id: "20",
@@ -831,21 +1228,13 @@ export const GET_MOCK_GOODS = {
           sellingPriceDisplayText: "62,600",
         },
         imageUrl: "pillow.png",
-        isSoldOut: false,
         badgeProperties: {
           isFreeDelivery: false,
           isSpecialPrice: true,
-          isDiscontinued: false,
-          isSelling: true,
-          isOverseasPurchase: false,
-          isRetailDelivery: false,
-          isThirdPartyLogistic: false,
           departureToday: {
             orderDeadline: "15:00",
             description: "평일 %s까지 결제시",
-            departureTodayExp: "B",
           },
-          deliveryServiceCode: "NORMAL",
         },
         reviewStatistic: {
           reviewCount: 8289,
@@ -853,12 +1242,43 @@ export const GET_MOCK_GOODS = {
           reviewCountDisplayText: "8,289",
           reviewAverageDisplayText: 4.8,
         },
-        scrapInfo: {
-          isScrap: false,
-          scrapCount: 42137,
+        delivery: {
+          fee: 3000,
+          backwoodsFee: 5000,
+          freeThreshold: 50000,
+          isRegionalDeliveryFee: true,
+          type: 1,
         },
+        description:
+          '<div style="max-width: 700px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><div style="display: flex; justify-content: center; margin-bottom: 20px;"><img src="https://shopping-mall-murex.vercel.app/images/pillow.png" alt="폭신 폭신 베개" style="max-width: 100%; height: auto;" /></div><h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">편안함이 가득한 베개</h2><p style="text-align: center; font-size: 18px; color: #444;">푹신하고 부드러운 <strong style="color: #000;">폭신 폭신 베개</strong>로 최고의 숙면을 경험하세요.</p></div>',
+        extraOptions: [
+          {
+            id: 39,
+            explain: "베개 커버 추가 (화이트)",
+            price: 10000,
+          },
+          {
+            id: 40,
+            explain: "베개 커버 추가 (그레이)",
+            price: 10000,
+          },
+        ],
+        firstDepthName: "타입 선택",
+        options: [
+          {
+            id: 39,
+            explain: "폭신 폭신 베개 (일반형)",
+            price: 62600,
+          },
+          {
+            id: 40,
+            explain: "폭신 폭신 베개 (경추형)",
+            price: 72500,
+          },
+        ],
+        subImages: [],
       },
     ],
-    totalResults: 200,
+    totalResults: 20,
   },
 };
