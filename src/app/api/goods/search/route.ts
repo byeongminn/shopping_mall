@@ -1,8 +1,8 @@
 import { NextRequest } from "next/server";
-import { mappingResponse, orderingData } from "@/app/api/goods/route";
 import { Order } from "@/features/main/api/getGoods";
 import { RawGoodDTO } from "@/shared/api/house/types/item";
 import { goods } from "@/shared/mock-data/goods";
+import { mappingGoodsResponse, orderingGoodsData } from "@/shared/utils/data";
 
 export const GET = async (request: NextRequest) => {
   try {
@@ -13,9 +13,9 @@ export const GET = async (request: NextRequest) => {
 
     const foundData = findingData(data, q);
 
-    const mappedData = mappingResponse(foundData);
+    const mappedData = mappingGoodsResponse(foundData);
 
-    const orderedData = orderingData(mappedData, order);
+    const orderedData = orderingGoodsData(mappedData, order);
 
     const pageSize = 20;
 
