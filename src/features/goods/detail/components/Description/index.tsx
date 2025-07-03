@@ -122,6 +122,7 @@ export const GoodDescription = ({ good }: Props) => {
       {/* 상품 옵션 */}
       <div className={s.optionsWrapper}>
         <GoodOptions
+          name={name}
           firstDepthName={firstDepthName}
           options={options}
           extraOptions={extraOptions}

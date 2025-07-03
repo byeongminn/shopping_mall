@@ -1,16 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 import ArrowBottom from "@/features/goods/detail/components/Options/OptionsItem/arrowBottom.svg";
+import { SelectedOption } from "@/features/goods/detail/components/Options";
 import { GoodsDetailOption } from "@/shared/api/house/types/item";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "@/features/goods/detail/components/Options/OptionsItem/style.css";
 
-type SelectedOption = {
-  value: number;
-} & GoodsDetailOption;
-
 type Props = {
   isFirst: boolean;
   firstDepthName?: string;
+  isExtraOption: boolean;
   options: GoodsDetailOption[];
   selectedOptions: SelectedOption[];
   setSelectedOptions: Dispatch<SetStateAction<SelectedOption[]>>;
@@ -19,6 +17,7 @@ type Props = {
 export const GoodOptionsItem = ({
   isFirst,
   firstDepthName,
+  isExtraOption,
   options,
   selectedOptions,
   setSelectedOptions,
@@ -33,7 +32,23 @@ export const GoodOptionsItem = ({
     ) as SelectedOption;
 
     if (!isExist) {
-      setSelectedOptions((prev) => [...prev, { ...selectedOption, value: 1 }]);
+      if (!isExtraOption) {
+        const newOption: SelectedOption = {
+          ...selectedOption,
+          type: "option",
+          quantity: 1,
+        };
+
+        setSelectedOptions((prev) => [...prev, newOption]);
+      } else {
+        const newOption: SelectedOption = {
+          ...selectedOption,
+          type: "extraOption",
+          quantity: 1,
+        };
+
+        setSelectedOptions((prev) => [...prev, newOption]);
+      }
     } else {
       alert("이미 선택한 옵션입니다.");
     }
