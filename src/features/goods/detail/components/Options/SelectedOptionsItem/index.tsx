@@ -1,24 +1,25 @@
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
 import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
 import Minus from "@/features/goods/detail/components/Options/SelectedOptionsItem/minus.svg";
 import Plus from "@/features/goods/detail/components/Options/SelectedOptionsItem/plus.svg";
-import { SelectedOption } from "@/features/goods/detail/components/Options";
+import { formatNumberWithCommas } from "@/shared/utils/format/number";
+
 import * as s from "@/features/goods/detail/components/Options/SelectedOptionsItem/style.css";
 
 type Props = {
   index: number;
   option: SelectedOption;
-  handleDecreaseClick: (index: number, selectedOption: SelectedOption) => void;
-  handleIncreaseClick: (index: number, selectedOption: SelectedOption) => void;
-  handleRemoveClick: (index: number) => void;
+  onIncreaseQuantity: (index: number, selectedOption: SelectedOption) => void;
+  onDecreaseQuantity: (index: number, selectedOption: SelectedOption) => void;
+  onRemoveOption: (index: number) => void;
 };
 
 export const GoodSelectedOptionsItem = ({
   index,
   option,
-  handleDecreaseClick,
-  handleIncreaseClick,
-  handleRemoveClick,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onRemoveOption,
 }: Props) => {
   const { explain, quantity, price, type } = option;
 
@@ -29,7 +30,7 @@ export const GoodSelectedOptionsItem = ({
           {type === "extraOption" && "추가상품 - "}
           {explain}
         </span>
-        <span className={s.icon} onClick={() => handleRemoveClick(index)}>
+        <span className={s.icon} onClick={() => onRemoveOption(index)}>
           <Remove />
         </span>
       </div>
@@ -37,14 +38,14 @@ export const GoodSelectedOptionsItem = ({
         <div className={s.amountWrapper}>
           <span
             className={s.icon}
-            onClick={() => handleDecreaseClick(index, option)}
+            onClick={() => onDecreaseQuantity(index, option)}
           >
             <Minus />
           </span>
           <span>{quantity}</span>
           <span
             className={s.icon}
-            onClick={() => handleIncreaseClick(index, option)}
+            onClick={() => onIncreaseQuantity(index, option)}
           >
             <Plus />
           </span>
