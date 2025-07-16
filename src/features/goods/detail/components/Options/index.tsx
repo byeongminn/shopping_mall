@@ -22,6 +22,7 @@ type Props = {
   onDecreaseQuantity: (index: number) => void;
   onRemoveOption: (index: number) => void;
   onCartClick: () => void;
+  onBuyClick: () => void;
 };
 
 export const GoodOptions = ({
@@ -35,6 +36,7 @@ export const GoodOptions = ({
   onDecreaseQuantity,
   onRemoveOption,
   onCartClick,
+  onBuyClick,
 }: Props) => {
   return (
     <div className={s.container}>
@@ -75,7 +77,9 @@ export const GoodOptions = ({
         <Button type="outlined" onClick={onCartClick}>
           장바구니
         </Button>
-        <Button type="filled">바로구매</Button>
+        <Button type="filled" onClick={onBuyClick}>
+          바로구매
+        </Button>
       </div>
     </div>
   );

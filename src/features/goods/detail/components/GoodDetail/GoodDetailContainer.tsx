@@ -19,10 +19,11 @@ export const GoodDetailContainer = ({ goodId }: Props) => {
     increaseQuantity,
     decreaseQuantity,
     removeOption,
+    clear,
   } = useSelectedOptions();
 
   const handleCartClick = () => {
-    if (!data) return;
+    if (!data || selectedOptions.length === 0) return;
     const newItem = {
       id: goodId,
       name: data.name,
@@ -30,6 +31,14 @@ export const GoodDetailContainer = ({ goodId }: Props) => {
     };
 
     addItem(newItem);
+    clear();
+    alert("장바구니에 담았어요.");
+  };
+
+  const handleBuyClick = () => {
+    if (!data || selectedOptions.length === 0) return;
+    clear();
+    alert("구매가 완료되었습니다!");
   };
 
   if (!data) {
@@ -52,6 +61,7 @@ export const GoodDetailContainer = ({ goodId }: Props) => {
       onDecreaseQuantity={decreaseQuantity}
       onRemoveOption={removeOption}
       onCartClick={handleCartClick}
+      onBuyClick={handleBuyClick}
     />
   );
 };

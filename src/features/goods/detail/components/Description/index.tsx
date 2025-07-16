@@ -23,6 +23,7 @@ type Props = {
   onDecreaseQuantity: (index: number) => void;
   onRemoveOption: (index: number) => void;
   onCartClick: () => void;
+  onBuyClick: () => void;
 };
 
 export const GoodDescription = ({
@@ -34,6 +35,7 @@ export const GoodDescription = ({
   onDecreaseQuantity,
   onRemoveOption,
   onCartClick,
+  onBuyClick,
 }: Props) => {
   const {
     brand,
@@ -154,6 +156,7 @@ export const GoodDescription = ({
           onDecreaseQuantity={onDecreaseQuantity}
           onRemoveOption={onRemoveOption}
           onCartClick={onCartClick}
+          onBuyClick={onBuyClick}
         />
       </div>
     </div>

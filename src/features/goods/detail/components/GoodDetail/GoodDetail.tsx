@@ -17,6 +17,7 @@ type GoodDetailProps = {
   onDecreaseQuantity: (index: number) => void;
   onRemoveOption: (index: number) => void;
   onCartClick: () => void;
+  onBuyClick: () => void;
 };
 
 export const GoodDetail = ({
@@ -28,6 +29,7 @@ export const GoodDetail = ({
   onDecreaseQuantity,
   onRemoveOption,
   onCartClick,
+  onBuyClick,
 }: GoodDetailProps) => {
   const { subImages } = data;
 
@@ -47,6 +49,7 @@ export const GoodDetail = ({
             onDecreaseQuantity={onDecreaseQuantity}
             onRemoveOption={onRemoveOption}
             onCartClick={onCartClick}
+            onBuyClick={onBuyClick}
           />
         </div>
       </div>

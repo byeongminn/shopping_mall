@@ -92,6 +92,10 @@ export const useSelectedOptions = () => {
     setSelectedOptions(newSelectedOptions);
   };
 
+  const clear = () => {
+    setSelectedOptions([]);
+  };
+
   return {
     selectedOptions,
     totalPrice,
@@ -99,5 +103,6 @@ export const useSelectedOptions = () => {
     increaseQuantity,
     decreaseQuantity,
     removeOption,
+    clear,
   };
 };
