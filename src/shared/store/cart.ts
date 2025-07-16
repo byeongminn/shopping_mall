@@ -12,6 +12,21 @@ type CartState = {
   items: CartItem[];
   addItem: (newItem: CartItem) => void;
   removeItem: (id: string) => void;
+  increaseQuantity: (
+    itemId: string,
+    optionId: number,
+    type: SelectedOption["type"]
+  ) => void;
+  decreaseQuantity: (
+    itemId: string,
+    optionId: number,
+    type: SelectedOption["type"]
+  ) => void;
+  removeOption: (
+    itemId: string,
+    optionId: number,
+    type: SelectedOption["type"]
+  ) => void;
 };
 
 export const useCartStore = create<CartState>()(
@@ -51,6 +66,72 @@ export const useCartStore = create<CartState>()(
         set({
           items: get().items.filter((item) => item.id !== id),
         });
+      },
+
+      increaseQuantity: (itemId, optionId, type) => {
+        const items = get().items;
+        const updatedItems = items.map((item) => {
+          if (item.id !== itemId) return item;
+
+          const updatedOptions = item.options.map((opt) => {
+            if (opt.id === optionId && opt.type === type) {
+              return {
+                ...opt,
+                quantity: opt.quantity < 9999 ? opt.quantity + 1 : opt.quantity,
+              };
+            }
+            return opt;
+          });
+
+          return {
+            ...item,
+            options: updatedOptions,
+          };
+        });
+
+        set({ items: updatedItems });
+      },
+
+      decreaseQuantity: (itemId, optionId, type) => {
+        const items = get().items;
+        const updatedItems = items.map((item) => {
+          if (item.id !== itemId) return item;
+
+          const updatedOptions = item.options.map((opt) => {
+            if (opt.id === optionId && opt.type === type) {
+              return {
+                ...opt,
+                quantity: opt.quantity > 1 ? opt.quantity - 1 : opt.quantity,
+              };
+            }
+            return opt;
+          });
+
+          return {
+            ...item,
+            options: updatedOptions,
+          };
+        });
+
+        set({ items: updatedItems });
+      },
+
+      removeOption: (itemId, optionId, type) => {
+        const items = get().items;
+        const updatedItems = items.map((item) => {
+          if (item.id !== itemId) return item;
+
+          const filteredOptions = item.options.filter(
+            (opt) => !(opt.id === optionId && opt.type === type)
+          );
+
+          return {
+            ...item,
+            options: filteredOptions,
+          };
+        });
+
+        set({ items: updatedItems });
       },
     }),
     {
