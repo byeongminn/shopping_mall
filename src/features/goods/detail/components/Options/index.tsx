@@ -60,11 +60,10 @@ export const GoodOptions = ({
         {selectedOptions.map((option, idx) => (
           <GoodSelectedOptionsItem
             key={option.id}
-            index={idx}
             option={option}
-            onIncreaseQuantity={onIncreaseQuantity}
-            onDecreaseQuantity={onDecreaseQuantity}
-            onRemoveOption={onRemoveOption}
+            onIncreaseQuantity={() => onIncreaseQuantity(idx)}
+            onDecreaseQuantity={() => onDecreaseQuantity(idx)}
+            onRemoveOption={() => onRemoveOption(idx)}
           />
         ))}
       </div>

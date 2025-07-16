@@ -7,15 +7,13 @@ import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "@/features/goods/detail/components/Options/SelectedOptionsItem/style.css";
 
 type Props = {
-  index: number;
   option: SelectedOption;
-  onIncreaseQuantity: (index: number, selectedOption: SelectedOption) => void;
-  onDecreaseQuantity: (index: number, selectedOption: SelectedOption) => void;
-  onRemoveOption: (index: number) => void;
+  onIncreaseQuantity: () => void;
+  onDecreaseQuantity: () => void;
+  onRemoveOption: () => void;
 };
 
 export const GoodSelectedOptionsItem = ({
-  index,
   option,
   onIncreaseQuantity,
   onDecreaseQuantity,
@@ -30,23 +28,17 @@ export const GoodSelectedOptionsItem = ({
           {type === "extraOption" && "추가상품 - "}
           {explain}
         </span>
-        <span className={s.icon} onClick={() => onRemoveOption(index)}>
+        <span className={s.icon} onClick={onRemoveOption}>
           <Remove />
         </span>
       </div>
       <div className={s.wrapper}>
         <div className={s.amountWrapper}>
-          <span
-            className={s.icon}
-            onClick={() => onDecreaseQuantity(index, option)}
-          >
+          <span className={s.icon} onClick={onDecreaseQuantity}>
             <Minus />
           </span>
           <span>{quantity}</span>
-          <span
-            className={s.icon}
-            onClick={() => onIncreaseQuantity(index, option)}
-          >
+          <span className={s.icon} onClick={onIncreaseQuantity}>
             <Plus />
           </span>
         </div>

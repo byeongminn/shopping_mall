@@ -2,13 +2,13 @@ import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type CartItem = {
+export type CartItem = {
   id: string;
   name: string;
   options: SelectedOption[];
 };
 
-type CartState = {
+export type CartState = {
   items: CartItem[];
   addItem: (newItem: CartItem) => void;
   removeItem: (id: string) => void;
@@ -27,6 +27,8 @@ type CartState = {
     optionId: number,
     type: SelectedOption["type"]
   ) => void;
+  getItemTotalPrice: (itemId: string) => number;
+  getCartTotalPrice: () => number;
 };
 
 export const useCartStore = create<CartState>()(
@@ -36,15 +38,14 @@ export const useCartStore = create<CartState>()(
 
       addItem: (newItem) => {
         const items = get().items;
-        const existingItem = items.find((item) => item.id === newItem.id);
+        const index = items.findIndex((item) => item.id === newItem.id);
 
-        if (!existingItem) {
-          // 장바구니에 없으면 새로 추가
-          set({ items: [...items, newItem] });
+        if (index === -1) {
+          set({ items: [newItem, ...items] });
           return;
         }
 
-        // 이미 존재 → 옵션 병합
+        const existingItem = items[index];
         const mergedOptions = mergeSelectedOptions(
           existingItem.options,
           newItem.options
@@ -55,11 +56,13 @@ export const useCartStore = create<CartState>()(
           options: mergedOptions,
         };
 
-        set({
-          items: items.map((item) =>
-            item.id === newItem.id ? updatedItem : item
-          ),
-        });
+        const newItems = [
+          updatedItem,
+          ...items.slice(0, index),
+          ...items.slice(index + 1),
+        ];
+
+        set({ items: newItems });
       },
 
       removeItem: (id) => {
@@ -132,6 +135,25 @@ export const useCartStore = create<CartState>()(
         });
 
         set({ items: updatedItems });
+      },
+
+      getItemTotalPrice: (itemId) => {
+        const item = get().items.find((item) => item.id === itemId);
+        if (!item) return 0;
+
+        return item.options.reduce(
+          (acc, opt) => acc + opt.price * opt.quantity,
+          0
+        );
+      },
+
+      getCartTotalPrice: () => {
+        return get().items.reduce((acc, item) => {
+          return (
+            acc +
+            item.options.reduce((sum, opt) => sum + opt.price * opt.quantity, 0)
+          );
+        }, 0);
       },
     }),
     {
