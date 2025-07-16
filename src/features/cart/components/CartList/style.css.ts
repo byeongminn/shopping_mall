@@ -2,6 +2,16 @@ import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { style } from "@vanilla-extract/css";
 
+export const emptyWrapper = style([f.flexCenterBox]);
+
+export const empty = style([
+  {
+    margin: "10rem auto",
+    fontWeight: 700,
+    fontSize: "1.25rem",
+  },
+]);
+
 export const cartWrapper = style([
   f.flex,
   {
