@@ -24,6 +24,7 @@ type CartListProps = {
     optionId: number,
     type: SelectedOption["type"]
   ) => void;
+  onBuyClick: () => void;
   itemTotalPrices: {
     id: string;
     totalPrice: number;
@@ -37,6 +38,7 @@ export const CartList = ({
   onIncreaseQuantity,
   onDecreaseQuantity,
   onRemoveOption,
+  onBuyClick,
   itemTotalPrices,
   cartTotalPrice,
 }: CartListProps) => {
@@ -85,7 +87,7 @@ export const CartList = ({
             {formatNumberWithCommas(cartTotalPrice)}원
           </span>
         </div>
-        <button className={s.purchaseButton}>
+        <button className={s.purchaseButton} onClick={onBuyClick}>
           {goods.length ?? 0}개 상품 구매하기
         </button>
       </div>

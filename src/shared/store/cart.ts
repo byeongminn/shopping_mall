@@ -27,6 +27,7 @@ export type CartState = {
     optionId: number,
     type: SelectedOption["type"]
   ) => void;
+  clear: () => void;
   getItemTotalPrice: (itemId: string) => number;
   getCartTotalPrice: () => number;
 };
@@ -135,6 +136,10 @@ export const useCartStore = create<CartState>()(
         });
 
         set({ items: updatedItems });
+      },
+
+      clear: () => {
+        set({ items: [] });
       },
 
       getItemTotalPrice: (itemId) => {

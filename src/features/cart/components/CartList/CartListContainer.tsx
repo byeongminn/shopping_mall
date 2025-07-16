@@ -10,6 +10,7 @@ export const CartListContainer = () => {
     increaseQuantity,
     decreaseQuantity,
     removeOption,
+    clear,
     getItemTotalPrice,
     getCartTotalPrice,
   } = useCartStore();
@@ -21,6 +22,12 @@ export const CartListContainer = () => {
 
   const cartTotalPrice = getCartTotalPrice();
 
+  const handleBuyClick = () => {
+    if (items.length === 0) return;
+    clear();
+    alert("구매가 완료되었습니다!");
+  };
+
   return (
     <CartList
       goods={items}
@@ -28,6 +35,7 @@ export const CartListContainer = () => {
       onIncreaseQuantity={increaseQuantity}
       onDecreaseQuantity={decreaseQuantity}
       onRemoveOption={removeOption}
+      onBuyClick={handleBuyClick}
       itemTotalPrices={itemTotalPrices}
       cartTotalPrice={cartTotalPrice}
     />
