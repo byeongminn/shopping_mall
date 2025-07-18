@@ -14,7 +14,6 @@ type Story = StoryObj<typeof GoodSelectedOptionsItem>;
 
 export const Default: Story = {
   args: {
-    index: 0,
     option: {
       id: 39,
       explain: "폭신 폭신 베개 (일반형)",
