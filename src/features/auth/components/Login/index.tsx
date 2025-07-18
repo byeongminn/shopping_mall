@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePostLogin } from "@/features/auth/hooks/usePostLogin";
+import { usePostLogin } from "@/features/auth/model/usePostLogin";
 import { LoginForm } from "@/features/auth/components/Login/LoginForm";
 import { PostLoginRequestDto } from "@/entities/auth/auth.types";
 

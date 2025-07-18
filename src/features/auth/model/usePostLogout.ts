@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { PostLogoutResponseDto } from "@/entities/auth/auth.types";
 import { postLogout } from "@/entities/auth/auth.api";
-import { useLoginStore } from "@/shared/store/login";
+import { useLoginStore } from "@/features/auth/model/useLoginStore";
 import { getMeURL } from "@/shared/api/getMe";
 
 export const usePostLogout = () => {

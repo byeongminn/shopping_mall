@@ -7,7 +7,7 @@ import {
   PostLoginResponseDto,
 } from "@/entities/auth/auth.types";
 import { postLogin } from "@/entities/auth/auth.api";
-import { useLoginStore } from "@/shared/store/login";
+import { useLoginStore } from "@/features/auth/model/useLoginStore";
 import { getMeURL } from "@/shared/api/getMe";
 
 export const usePostLogin = () => {
