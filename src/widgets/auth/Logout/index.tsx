@@ -1,5 +1,5 @@
-import { LogoutButton } from "@/features/auth/components/Logout/LogoutButton";
 import { usePostLogout } from "@/features/auth/model/usePostLogout";
+import { LogoutButton } from "@/features/auth/ui/LogoutButton";
 
 export const Logout = () => {
   const { mutate: logout } = usePostLogout();

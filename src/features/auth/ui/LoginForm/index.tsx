@@ -1,5 +1,5 @@
 import { PostLoginRequestDto } from "@/entities/auth/auth.types";
-import * as s from "@/features/auth/components/Login/LoginForm/style.css";
+import * as s from "@/features/auth/ui/LoginForm/style.css";
 
 type Props = PostLoginRequestDto & {
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;

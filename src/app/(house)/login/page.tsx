@@ -1,4 +1,4 @@
-import { Login } from "@/features/auth/components/Login";
+import { Login } from "@/widgets/auth/Login";
 import * as s from "@/app/(house)/login/style.css";
 
 export default function LoginPage() {

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { usePostLogin } from "@/features/auth/model/usePostLogin";
-import { LoginForm } from "@/features/auth/components/Login/LoginForm";
 import { PostLoginRequestDto } from "@/entities/auth/auth.types";
+import { usePostLogin } from "@/features/auth/model/usePostLogin";
+import { LoginForm } from "@/features/auth/ui/LoginForm";
 
 export const Login = () => {
   const { mutate: login } = usePostLogin();

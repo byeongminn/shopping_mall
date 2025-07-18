@@ -1,4 +1,4 @@
-import * as s from "@/features/auth/components/Logout/LogoutButton/style.css";
+import * as s from "@/features/auth/ui/LogoutButton/style.css";
 
 type Props = {
   onLogout: () => void;
