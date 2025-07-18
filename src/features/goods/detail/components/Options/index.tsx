@@ -1,98 +1,60 @@
-import { useMemo, useState } from "react";
+import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
 import { GoodOptionsItem } from "@/features/goods/detail/components/Options/OptionsItem";
 import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
 import { GoodsDetailOption } from "@/shared/api/house/types/item";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import { Button } from "@/shared/components/base/Button";
+
 import * as s from "@/features/goods/detail/components/Options/style.css";
 
 type Props = {
   firstDepthName?: string;
   options: GoodsDetailOption[];
   extraOptions?: GoodsDetailOption[];
+  selectedOptions: SelectedOption[];
+  totalPrice: number;
+  onAddOptionFromSelect: (
+    value: number,
+    options: GoodsDetailOption[],
+    isExtraOption: boolean
+  ) => void;
+  onIncreaseQuantity: (index: number) => void;
+  onDecreaseQuantity: (index: number) => void;
+  onRemoveOption: (index: number) => void;
+  onCartClick: () => void;
+  onBuyClick: () => void;
 };
-
-type SelectedOption = {
-  value: number;
-} & GoodsDetailOption;
 
 export const GoodOptions = ({
   firstDepthName = "",
   options,
   extraOptions = [],
+  selectedOptions,
+  totalPrice,
+  onAddOptionFromSelect,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onRemoveOption,
+  onCartClick,
+  onBuyClick,
 }: Props) => {
-  const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([]);
-
-  const totalPrice = useMemo(
-    () =>
-      selectedOptions.reduce((acc, curr) => acc + curr.price * curr.value, 0),
-    [selectedOptions]
-  );
-
-  const updateItemAtIndex = (index: number, newValue: SelectedOption) => {
-    const newSelectedOptions = [
-      ...selectedOptions.slice(0, index),
-      newValue,
-      ...selectedOptions.slice(index + 1),
-    ];
-
-    setSelectedOptions(newSelectedOptions);
-  };
-
-  const handleDecreaseClick = (
-    index: number,
-    selectedOption: SelectedOption
-  ) => {
-    if (selectedOption.value > 1) {
-      updateItemAtIndex(index, {
-        ...selectedOption,
-        value: selectedOption.value - 1,
-      });
-    } else {
-      alert("1~9999개까지만 입력이 가능합니다.");
-    }
-  };
-
-  const handleIncreaseClick = (
-    index: number,
-    selectedOption: SelectedOption
-  ) => {
-    if (selectedOption.value < 9999) {
-      updateItemAtIndex(index, {
-        ...selectedOption,
-        value: selectedOption.value + 1,
-      });
-    } else {
-      alert("1~9999개까지만 입력이 가능합니다.");
-    }
-  };
-
-  const handleRemoveClick = (index: number) => {
-    const newSelectedOptions = [
-      ...selectedOptions.slice(0, index),
-      ...selectedOptions.slice(index + 1),
-    ];
-
-    setSelectedOptions(newSelectedOptions);
-  };
-
   return (
     <div className={s.container}>
       <div className={s.optionsWrapper}>
         <GoodOptionsItem
           isFirst={!!firstDepthName}
           firstDepthName={firstDepthName}
+          isExtraOption={false}
           options={options}
-          selectedOptions={selectedOptions}
-          setSelectedOptions={setSelectedOptions}
+          onSelectChange={onAddOptionFromSelect}
         />
         {extraOptions.length > 0 && (
           <GoodOptionsItem
             isFirst={false}
             firstDepthName="추가상품 (선택)"
+            isExtraOption={true}
             options={extraOptions}
-            selectedOptions={selectedOptions}
-            setSelectedOptions={setSelectedOptions}
+            onSelectChange={onAddOptionFromSelect}
           />
         )}
       </div>
@@ -100,11 +62,10 @@ export const GoodOptions = ({
         {selectedOptions.map((option, idx) => (
           <GoodSelectedOptionsItem
             key={option.id}
-            index={idx}
             option={option}
-            handleDecreaseClick={handleDecreaseClick}
-            handleIncreaseClick={handleIncreaseClick}
-            handleRemoveClick={handleRemoveClick}
+            onIncreaseQuantity={() => onIncreaseQuantity(idx)}
+            onDecreaseQuantity={() => onDecreaseQuantity(idx)}
+            onRemoveOption={() => onRemoveOption(idx)}
           />
         ))}
       </div>
@@ -113,8 +74,12 @@ export const GoodOptions = ({
         <span className={s.price}>{formatNumberWithCommas(totalPrice)}원</span>
       </p>
       <div className={s.buttonWrapper}>
-        <Button type="outlined">장바구니</Button>
-        <Button type="filled">바로구매</Button>
+        <Button type="outlined" onClick={onCartClick}>
+          장바구니
+        </Button>
+        <Button type="filled" onClick={onBuyClick}>
+          바로구매
+        </Button>
       </div>
     </div>
   );
