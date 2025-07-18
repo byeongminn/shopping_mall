@@ -3,10 +3,10 @@
 import { useSearchParams } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
-  PostLoginRequest,
-  PostLoginResponse,
-  postLogin,
-} from "@/features/auth/api/postLogin";
+  PostLoginRequestDto,
+  PostLoginResponseDto,
+} from "@/entities/auth/auth.types";
+import { postLogin } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/shared/store/login";
 import { getMeURL } from "@/shared/api/getMe";
 
@@ -16,12 +16,14 @@ export const usePostLogin = () => {
 
   const { setIsLoggedIn } = useLoginStore();
 
-  return useMutation<PostLoginResponse, Error, PostLoginRequest, unknown>({
-    mutationFn: postLogin,
-    onSuccess: async () => {
-      setIsLoggedIn(true);
-      await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
-      window.location.assign(searchParams.get("redirect") || "/");
-    },
-  });
+  return useMutation<PostLoginResponseDto, Error, PostLoginRequestDto, unknown>(
+    {
+      mutationFn: postLogin,
+      onSuccess: async () => {
+        setIsLoggedIn(true);
+        await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
+        window.location.assign(searchParams.get("redirect") || "/");
+      },
+    }
+  );
 };
