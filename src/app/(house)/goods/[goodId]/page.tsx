@@ -1,6 +1,6 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { GetGoodsDetailRequestParams } from "@/features/goods/detail/api/getGoodsDetail";
-import { GoodDetail } from "@/features/goods/detail/components/GoodDetail";
+import { GoodDetailContainer } from "@/features/goods/detail/components/GoodDetail/GoodDetailContainer";
 import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 import { getQueryClient } from "@/shared/lib/react-query";
 
@@ -18,7 +18,7 @@ export default async function GoodDetailPage({ params }: Props) {
   return (
     <main>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <GoodDetail goodId={goodId} />
+        <GoodDetailContainer goodId={goodId} />
       </HydrationBoundary>
     </main>
   );

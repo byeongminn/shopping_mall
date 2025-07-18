@@ -1,8 +1,10 @@
+import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
 import { ReviewStatistics } from "@/features/goods/detail/components/ReviewStatistics";
 import { GoodOptions } from "@/features/goods/detail/components/Options";
 import Check from "@/features/goods/detail/components/Description/check.svg";
 import ArrowRight from "@/features/goods/detail/components/Description/arrowRight.svg";
 import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
+import { GoodsDetailOption } from "@/shared/api/house/types/item";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
@@ -10,9 +12,31 @@ import * as s from "@/features/goods/detail/components/Description/style.css";
 
 type Props = {
   good: GetGoodsDetailResponse;
+  selectedOptions: SelectedOption[];
+  totalPrice: number;
+  onAddOptionFromSelect: (
+    value: number,
+    options: GoodsDetailOption[],
+    isExtraOption: boolean
+  ) => void;
+  onIncreaseQuantity: (index: number) => void;
+  onDecreaseQuantity: (index: number) => void;
+  onRemoveOption: (index: number) => void;
+  onCartClick: () => void;
+  onBuyClick: () => void;
 };
 
-export const GoodDescription = ({ good }: Props) => {
+export const GoodDescription = ({
+  good,
+  selectedOptions,
+  totalPrice,
+  onAddOptionFromSelect,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onRemoveOption,
+  onCartClick,
+  onBuyClick,
+}: Props) => {
   const {
     brand,
     delivery,
@@ -125,6 +149,14 @@ export const GoodDescription = ({ good }: Props) => {
           firstDepthName={firstDepthName}
           options={options}
           extraOptions={extraOptions}
+          selectedOptions={selectedOptions}
+          totalPrice={totalPrice}
+          onAddOptionFromSelect={onAddOptionFromSelect}
+          onIncreaseQuantity={onIncreaseQuantity}
+          onDecreaseQuantity={onDecreaseQuantity}
+          onRemoveOption={onRemoveOption}
+          onCartClick={onCartClick}
+          onBuyClick={onBuyClick}
         />
       </div>
     </div>
