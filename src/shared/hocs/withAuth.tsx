@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useGetMe } from "@/shared/hooks/useGetMe";
 import { JSX, useEffect } from "react";
+import { useGetMe } from "@/features/auth/model/useGetMe";
 
 type AuthType = "public" | "guest-only" | "protected";
 

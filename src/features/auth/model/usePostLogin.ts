@@ -8,7 +8,6 @@ import {
 } from "@/entities/auth/auth.types";
 import { postLogin } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
-import { getMeURL } from "@/shared/api/getMe";
 
 export const usePostLogin = () => {
   const queryClient = useQueryClient();
@@ -21,7 +20,7 @@ export const usePostLogin = () => {
       mutationFn: postLogin,
       onSuccess: async () => {
         setIsLoggedIn(true);
-        await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
+        await queryClient.refetchQueries({ queryKey: ["getMe"] });
         window.location.assign(searchParams.get("redirect") || "/");
       },
     }

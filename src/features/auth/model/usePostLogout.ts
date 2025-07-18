@@ -4,7 +4,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { PostLogoutResponseDto } from "@/entities/auth/auth.types";
 import { postLogout } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
-import { getMeURL } from "@/shared/api/getMe";
 
 export const usePostLogout = () => {
   const queryClient = useQueryClient();
@@ -14,7 +13,7 @@ export const usePostLogout = () => {
     mutationFn: postLogout,
     onSuccess: async () => {
       setIsLoggedIn(false);
-      await queryClient.refetchQueries({ queryKey: ["getMe", getMeURL] });
+      await queryClient.refetchQueries({ queryKey: ["getMe"] });
       window.location.assign("/login");
     },
   });

@@ -4,7 +4,7 @@ import { Suspense, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { NavigationBar } from "@/shared/components/NavigationBar";
 import { NAVIGATION_BAR_HEIGHT } from "@/shared/components/NavigationBar/style.css";
-import { getMe } from "@/shared/api/getMe";
+import { getMe } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
