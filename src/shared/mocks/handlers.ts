@@ -1,10 +1,10 @@
-import { getMockGoodsDetail } from "@/features/goods/detail/api/getGoodsDetail.mock";
-import { getMockGoods } from "@/features/main/api/getGoods.mock";
-import { getMockSearchGoods } from "@/features/search/api/getSearchGoods.mock";
 import { HttpHandler } from "msw";
+import { getMockGoodList } from "@/entities/goods/__mocks__/goods.mock";
+import { getMockGoodsDetail } from "@/features/goods/detail/api/getGoodsDetail.mock";
+import { getMockSearchGoods } from "@/features/search/api/getSearchGoods.mock";
 
 export const handlers: HttpHandler[] = [
-  getMockGoods,
+  getMockGoodList,
   getMockSearchGoods,
   getMockGoodsDetail,
 ];

@@ -1,11 +1,7 @@
 import { HttpHandler, HttpResponse, http } from "msw";
 import { GOODS_API_URL } from "@/entities/goods/goods.api";
 
-export const getMockGoods: HttpHandler = http.get(GOODS_API_URL.LIST, () => {
-  return HttpResponse.json(GET_MOCK_GOODS.success);
-});
-
-export const GET_MOCK_GOODS = {
+const MOCK_GOOD_LIST = {
   success: {
     goods: [
       {
@@ -1282,3 +1278,7 @@ export const GET_MOCK_GOODS = {
     totalResults: 20,
   },
 };
+
+export const getMockGoodList: HttpHandler = http.get(GOODS_API_URL.LIST, () => {
+  return HttpResponse.json(MOCK_GOOD_LIST.success);
+});

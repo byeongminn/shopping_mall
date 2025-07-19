@@ -6,7 +6,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { MainGoods } from "@/features/main/components/MainGoods";
-import { getMockGoods } from "@/features/main/api/getGoods.mock";
+import { getMockGoodList } from "@/entities/goods/__mocks__/goods.mock";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
 const meta: Meta<typeof MainGoods> = {
@@ -47,7 +47,7 @@ type Story = StoryObj<typeof MainGoods>;
 export const Default: Story = {
   parameters: {
     msw: {
-      handlers: [getMockGoods],
+      handlers: [getMockGoodList],
     },
   },
 };
