@@ -1,6 +1,6 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
-import { goodsInfiniteQueryOptions } from "@/features/main/queries/goods";
+import { goodListInfiniteQueryOptions } from "@/features/goods/lib/goodListInfiniteQueryOptions";
 import { Filters } from "@/features/main/components/Filters";
 import { MainGoods } from "@/features/main/components/MainGoods";
 import { getQueryClient } from "@/shared/lib/react-query";
@@ -15,7 +15,9 @@ export default async function Home({ searchParams }: Props) {
 
   const queryClient = getQueryClient();
 
-  await queryClient.prefetchInfiniteQuery(goodsInfiniteQueryOptions({ order }));
+  await queryClient.prefetchInfiniteQuery(
+    goodListInfiniteQueryOptions({ order })
+  );
 
   return (
     <main>
