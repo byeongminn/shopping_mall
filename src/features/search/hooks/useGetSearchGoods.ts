@@ -4,17 +4,17 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 import {
-  GetSearchGoodsRequestParams,
-  GetSearchGoodsResponse,
-} from "@/features/search/api/getSearchGoods";
+  GetSearchGoodListRequestDto,
+  GetSearchGoodListResponseDto,
+} from "@/entities/goods/goods.types";
 import { searchGoodsInfiniteQueryOptions } from "@/features/search/queries/searchGoods";
 
-type Params = Pick<GetSearchGoodsRequestParams, "q" | "order">;
+type Params = Pick<GetSearchGoodListRequestDto, "q" | "order">;
 
 export const useGetSearchGoods = ({
   q,
   order,
 }: Params): UseInfiniteQueryResult<
-  InfiniteData<GetSearchGoodsResponse>,
+  InfiniteData<GetSearchGoodListResponseDto>,
   Error
 > => useInfiniteQuery(searchGoodsInfiniteQueryOptions({ q, order }));

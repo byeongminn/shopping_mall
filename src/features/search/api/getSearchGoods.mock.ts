@@ -1,8 +1,8 @@
 import { HttpHandler, HttpResponse, http } from "msw";
-import { getSearchGoodsURL } from "./getSearchGoods";
+import { GOODS_API_URL } from "@/entities/goods/goods.api";
 
 export const getMockSearchGoods: HttpHandler = http.get(
-  getSearchGoodsURL,
+  GOODS_API_URL.SEARCH,
   () => {
     return HttpResponse.json(GET_MOCK_SEARCH_GOODS.success);
   }

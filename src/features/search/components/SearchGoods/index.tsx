@@ -1,13 +1,13 @@
 "use client";
 
+import { GetSearchGoodListRequestDto } from "@/entities/goods/goods.types";
 import { useGetSearchGoods } from "@/features/search/hooks/useGetSearchGoods";
-import { GetSearchGoodsRequestParams } from "@/features/search/api/getSearchGoods";
 import Empty from "@/features/search/components/SearchGoods/empty.svg";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import { GoodList } from "@/features/goods/ui/GoodList";
 import * as s from "@/features/search/components/SearchGoods/style.css";
 
-type Props = Pick<GetSearchGoodsRequestParams, "q" | "order">;
+type Props = Pick<GetSearchGoodListRequestDto, "q" | "order">;
 
 export const SearchGoods = ({ q, order }: Props) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =

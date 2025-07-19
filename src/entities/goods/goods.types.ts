@@ -81,9 +81,19 @@ export type Order =
   | "reviewCount"
   | "reviewAverage";
 
+// 상품 목록 조회 DTO
 export type GetGoodListRequestDto = {
   order?: Order;
   page: number;
 };
 
 export type GetGoodListResponseDto = ListResponse<FormattedGood>;
+
+// 상품 검색 DTO
+export type GetSearchGoodListRequestDto = {
+  q: string;
+  order: Order;
+  page: number;
+};
+
+export type GetSearchGoodListResponseDto = ListResponse<FormattedGood>;

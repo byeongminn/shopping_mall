@@ -1,6 +1,6 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { GetSearchGoodListRequestDto } from "@/entities/goods/goods.types";
 import { searchGoodsInfiniteQueryOptions } from "@/features/search/queries/searchGoods";
-import { GetSearchGoodsRequestParams } from "@/features/search/api/getSearchGoods";
 import { SearchGoods } from "@/features/search/components/SearchGoods";
 import { FilterSection } from "@/widgets/goods/FilterSection";
 import { getQueryClient } from "@/shared/lib/react-query";
@@ -8,7 +8,7 @@ import * as s from "@/app/(house)/search/style.css";
 
 type Props = {
   searchParams: Promise<
-    Partial<Pick<GetSearchGoodsRequestParams, "q" | "order">>
+    Partial<Pick<GetSearchGoodListRequestDto, "q" | "order">>
   >;
 };
 

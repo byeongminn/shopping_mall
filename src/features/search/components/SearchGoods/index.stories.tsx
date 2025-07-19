@@ -6,9 +6,9 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { HttpResponse, http } from "msw";
+import { GOODS_API_URL } from "@/entities/goods/goods.api";
 import { SearchGoods } from "@/features/search/components/SearchGoods";
 import { getMockSearchGoods } from "@/features/search/api/getSearchGoods.mock";
-import { getSearchGoodsURL } from "@/features/search/api/getSearchGoods";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
 const meta: Meta<typeof SearchGoods> = {
@@ -58,7 +58,7 @@ export const Empty: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get(getSearchGoodsURL, () => {
+        http.get(GOODS_API_URL.SEARCH, () => {
           return HttpResponse.json({ goods: [], totalResults: 0 });
         }),
       ],
