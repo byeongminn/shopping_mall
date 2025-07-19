@@ -1,10 +1,10 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
 import { goodListInfiniteQueryOptions } from "@/features/goods/lib/goodListInfiniteQueryOptions";
-import { Filters } from "@/features/main/components/Filters";
-import { MainGoods } from "@/features/main/components/MainGoods";
+import { FilterSection } from "@/widgets/goods/FilterSection";
+import { GoodListSection } from "@/widgets/goods/GoodListSection";
 import { getQueryClient } from "@/shared/lib/react-query";
-import * as s from "@/app/(house)/style.css";
+import * as s from "./style.css";
 
 type Props = {
   searchParams: Promise<Partial<Pick<GetGoodListRequestDto, "order">>>;
@@ -21,21 +21,12 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <main>
-      <div
-        style={{
-          position: "fixed",
-          top: 81,
-          left: 0,
-          zIndex: 8000,
-          width: "100%",
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <Filters />
+      <div className={s.filterSection}>
+        <FilterSection />
       </div>
       <section className={s.mainGoodsSection}>
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <MainGoods order={order} />
+          <GoodListSection order={order} />
         </HydrationBoundary>
       </section>
     </main>

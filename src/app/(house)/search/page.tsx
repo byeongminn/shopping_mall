@@ -1,8 +1,8 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { searchGoodsInfiniteQueryOptions } from "@/features/search/queries/searchGoods";
 import { GetSearchGoodsRequestParams } from "@/features/search/api/getSearchGoods";
-import { Filters } from "@/features/main/components/Filters";
 import { SearchGoods } from "@/features/search/components/SearchGoods";
+import { FilterSection } from "@/widgets/goods/FilterSection";
 import { getQueryClient } from "@/shared/lib/react-query";
 import * as s from "@/app/(house)/search/style.css";
 
@@ -23,17 +23,8 @@ export default async function Search({ searchParams }: Props) {
 
   return (
     <main>
-      <div
-        style={{
-          position: "fixed",
-          top: 81,
-          left: 0,
-          zIndex: 8000,
-          width: "100%",
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <Filters />
+      <div className={s.filterSection}>
+        <FilterSection />
       </div>
       <section className={s.searchGoodsSection}>
         <HydrationBoundary state={dehydrate(queryClient)}>

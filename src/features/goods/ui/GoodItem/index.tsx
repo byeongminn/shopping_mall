@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FormattedGood } from "@/entities/goods/goods.types";
-import FreeDelivery from "@/shared/components/base/Icons/freeDelivery.svg";
-import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
-import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
-import Coupon from "@/shared/components/base/Icons/coupon.svg";
-import * as s from "./style.css";
+import {
+  CouponIcon,
+  DepartureTodayIcon,
+  FreeDeliveryIcon,
+  SpecialPriceIcon,
+} from "@/features/goods/ui/Icon";
 import { IMAGE_URL } from "@/shared/constants";
+import * as s from "./style.css";
 
 type GoodItemProps = {
   good: FormattedGood;
@@ -48,7 +50,7 @@ export const GoodItem = ({ good }: GoodItemProps) => {
           </div>
           {badgeProperties.departureToday && (
             <div className={s.departureTodayWrapper}>
-              <DepartureToday />
+              <DepartureTodayIcon />
               <p className={s.departureTodayDescription}>
                 {badgeProperties.departureToday.description.replace(
                   "%s",
@@ -58,12 +60,12 @@ export const GoodItem = ({ good }: GoodItemProps) => {
             </div>
           )}
           <div className={s.badgePropertiesWrapper}>
-            {badgeProperties.isFreeDelivery && <FreeDelivery />}
-            {badgeProperties.isSpecialPrice && <SpecialPrice />}
+            {badgeProperties.isFreeDelivery && <FreeDeliveryIcon />}
+            {badgeProperties.isSpecialPrice && <SpecialPriceIcon />}
           </div>
           {badgeProperties.couponBadge && (
             <div className={s.couponBadgeWrapper}>
-              <Coupon />
+              <CouponIcon />
               <p>{badgeProperties.couponBadge.displayText}</p>
             </div>
           )}

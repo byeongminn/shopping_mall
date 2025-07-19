@@ -7,11 +7,11 @@ import {
   FormattedGood,
   GetGoodListResponseDto,
 } from "@/entities/goods/goods.types";
-import { GoodItem } from "@/shared/components/GoodItem";
+import { GoodItem } from "@/features/goods/ui/GoodItem";
 import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
-import * as s from "@/shared/components/GoodsGrid/style.css";
+import * as s from "@/features/goods/ui/GoodList/style.css";
 
-type Props = {
+type GoodListProps = {
   goods: FormattedGood[] | undefined;
   hasNextPage: boolean;
   isFetchingNextPage: boolean;
@@ -26,13 +26,13 @@ type Props = {
   emptyContent?: React.ReactNode;
 };
 
-export const GoodsGrid = ({
+export const GoodList = ({
   goods = [],
   hasNextPage,
   isFetchingNextPage,
   fetchNextPage,
   emptyContent = null,
-}: Props) => (
+}: GoodListProps) => (
   <>
     <div className={s.wrapper({ isEmpty: !(goods.length > 0) })}>
       {goods.length > 0

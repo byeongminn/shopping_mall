@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Filters } from "@/features/main/components/Filters";
+import { FilterSection } from ".";
 
-const meta: Meta<typeof Filters> = {
-  component: Filters,
-  title: "Filters",
+const meta: Meta<typeof FilterSection> = {
+  component: FilterSection,
+  title: "FilterSection",
   tags: ["autodocs"],
   parameters: {
     nextjs: {
@@ -14,7 +14,7 @@ const meta: Meta<typeof Filters> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Filters>;
+type Story = StoryObj<typeof FilterSection>;
 
 export const Default: Story = {
   args: {},

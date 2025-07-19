@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { GoodItem } from "@/shared/components/GoodItem";
+import { GoodItem } from "@/features/goods/ui/GoodItem";
 
 const meta: Meta<typeof GoodItem> = {
   component: GoodItem,

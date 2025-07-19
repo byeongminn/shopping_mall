@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { FilterItem } from "@/features/main/components/Filters/FilterItem";
+import { FilterItem } from ".";
 
 const meta: Meta<typeof FilterItem> = {
   component: FilterItem,

@@ -2,11 +2,11 @@
 
 import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
 import { useGetGoodList } from "@/features/goods/model/useGetGoodList";
-import { GoodsGrid } from "@/shared/components/GoodsGrid";
+import { GoodList } from "@/features/goods/ui/GoodList";
 
 type Props = Pick<GetGoodListRequestDto, "order">;
 
-export const MainGoods = ({ order }: Props) => {
+export const GoodListSection = ({ order }: Props) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
     useGetGoodList({
       order,
@@ -15,7 +15,7 @@ export const MainGoods = ({ order }: Props) => {
   const flatData = data?.pages.map((page) => page.goods ?? []).flat();
 
   return (
-    <GoodsGrid
+    <GoodList
       goods={flatData}
       hasNextPage={hasNextPage}
       isFetchingNextPage={isFetchingNextPage}

@@ -5,13 +5,13 @@ import {
   QueryClientProvider,
   dehydrate,
 } from "@tanstack/react-query";
-import { MainGoods } from "@/features/main/components/MainGoods";
+import { GoodListSection } from "@/widgets/goods/GoodListSection";
 import { getMockGoodList } from "@/entities/goods/__mocks__/goods.mock";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
-const meta: Meta<typeof MainGoods> = {
-  component: MainGoods,
-  title: "MainGoods",
+const meta: Meta<typeof GoodListSection> = {
+  component: GoodListSection,
+  title: "GoodListSection",
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -42,7 +42,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => (
 
 export default meta;
 
-type Story = StoryObj<typeof MainGoods>;
+type Story = StoryObj<typeof GoodListSection>;
 
 export const Default: Story = {
   parameters: {

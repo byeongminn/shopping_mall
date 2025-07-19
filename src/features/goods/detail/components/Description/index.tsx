@@ -5,8 +5,7 @@ import Check from "@/features/goods/detail/components/Description/check.svg";
 import ArrowRight from "@/features/goods/detail/components/Description/arrowRight.svg";
 import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
 import { GoodDetailOption } from "@/entities/goods/goods.types";
-import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
-import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
+import { DepartureTodayIcon, SpecialPriceIcon } from "@/features/goods/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "@/features/goods/detail/components/Description/style.css";
 
@@ -77,8 +76,8 @@ export const GoodDescription = ({
             {price.sellingPriceDisplayText}
           </span>
           <span className={s.won}>원</span>
-          {badgeProperties.isSpecialPrice && <SpecialPrice />}
-          {badgeProperties.departureToday && <DepartureToday />}
+          {badgeProperties.isSpecialPrice && <SpecialPriceIcon />}
+          {badgeProperties.departureToday && <DepartureTodayIcon />}
         </div>
       </div>
 
