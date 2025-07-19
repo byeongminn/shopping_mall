@@ -1,10 +1,10 @@
 import { useState, useMemo } from "react";
-import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { GoodDetailOption } from "@/entities/goods/goods.types";
 
 export type SelectedOption = {
   type: "option" | "extraOption";
   quantity: number;
-} & GoodsDetailOption;
+} & GoodDetailOption;
 
 export const useSelectedOptions = () => {
   const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([]);
@@ -20,7 +20,7 @@ export const useSelectedOptions = () => {
   // 옵션 추가
   const addOptionFromSelect = (
     value: number,
-    options: GoodsDetailOption[],
+    options: GoodDetailOption[],
     isExtraOption: boolean
   ) => {
     const isExist = !!selectedOptions.find((option) => option.id === value);
@@ -32,7 +32,7 @@ export const useSelectedOptions = () => {
 
     const selectedOption = options.find(
       (option) => option.id === value
-    ) as GoodsDetailOption;
+    ) as GoodDetailOption;
 
     if (!selectedOption) {
       return;

@@ -1,10 +1,10 @@
 "use client";
 
+import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
 import { useGetGoods } from "@/features/main/hooks/useGetGoods";
-import { GetGoodsRequestParams } from "@/features/main/api/getGoods";
 import { GoodsGrid } from "@/shared/components/GoodsGrid";
 
-type Props = Pick<GetGoodsRequestParams, "order">;
+type Props = Pick<GetGoodListRequestDto, "order">;
 
 export const MainGoods = ({ order }: Props) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useGetGoods({

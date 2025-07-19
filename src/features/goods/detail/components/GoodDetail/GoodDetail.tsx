@@ -1,16 +1,19 @@
 import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
 import { ThumbnailSwiper } from "@/features/goods/detail/components/ThumbnailSwiper";
 import { GoodDescription } from "@/features/goods/detail/components/Description";
-import { GoodsDetail, GoodsDetailOption } from "@/shared/api/house/types/item";
+import {
+  GoodDetail as GoodDetailType,
+  GoodDetailOption,
+} from "@/entities/goods/goods.types";
 import * as s from "./style.css";
 
 type GoodDetailProps = {
-  data: GoodsDetail;
+  data: GoodDetailType;
   selectedOptions: SelectedOption[];
   totalPrice: number;
   onAddOptionFromSelect: (
     value: number,
-    options: GoodsDetailOption[],
+    options: GoodDetailOption[],
     isExtraOption: boolean
   ) => void;
   onIncreaseQuantity: (index: number) => void;

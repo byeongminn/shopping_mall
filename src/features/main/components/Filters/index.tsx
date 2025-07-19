@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Order } from "@/features/main/api/getGoods";
+import { Order } from "@/entities/goods/goods.types";
 import { FilterItem } from "@/features/main/components/Filters/FilterItem";
 import { getPageLink } from "@/shared/utils/link/page";
 import * as s from "./style.css";

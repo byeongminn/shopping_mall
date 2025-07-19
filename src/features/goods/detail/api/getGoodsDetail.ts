@@ -1,12 +1,12 @@
 import { api } from "@/shared/lib/axios";
 import { API_BASE_URL } from "@/shared/api/constants";
-import { GoodsDetail } from "@/shared/api/house/types/item";
+import { GoodDetail } from "@/entities/goods/goods.types";
 
 export type GetGoodsDetailRequestParams = {
   goodId: string;
 };
 
-export type GetGoodsDetailResponse = GoodsDetail;
+export type GetGoodsDetailResponse = GoodDetail;
 
 export const GetGoodsDetailURL = `${API_BASE_URL}/api/goods/detail/:goodId`;
 

@@ -3,20 +3,25 @@ import {
   InfiniteData,
   InfiniteQueryObserverResult,
 } from "@tanstack/react-query";
-import { GetGoodsResponse } from "@/features/main/api/getGoods";
+import {
+  FormattedGood,
+  GetGoodListResponseDto,
+} from "@/entities/goods/goods.types";
 import { GoodItem } from "@/shared/components/GoodItem";
-import { Good } from "@/shared/api/house/types/item";
 import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
 import * as s from "@/shared/components/GoodsGrid/style.css";
 
 type Props = {
-  goods: Good[] | undefined;
+  goods: FormattedGood[] | undefined;
   hasNextPage: boolean;
   isFetchingNextPage: boolean;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
   ) => Promise<
-    InfiniteQueryObserverResult<InfiniteData<GetGoodsResponse, unknown>, Error>
+    InfiniteQueryObserverResult<
+      InfiniteData<GetGoodListResponseDto, unknown>,
+      Error
+    >
   >;
   emptyContent?: React.ReactNode;
 };

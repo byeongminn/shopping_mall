@@ -1,21 +1,20 @@
 import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
 import { GoodOptionsItem } from "@/features/goods/detail/components/Options/OptionsItem";
 import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
-import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { GoodDetailOption } from "@/entities/goods/goods.types";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import { Button } from "@/shared/components/base/Button";
-
 import * as s from "@/features/goods/detail/components/Options/style.css";
 
 type Props = {
   firstDepthName?: string;
-  options: GoodsDetailOption[];
-  extraOptions?: GoodsDetailOption[];
+  options: GoodDetailOption[];
+  extraOptions?: GoodDetailOption[];
   selectedOptions: SelectedOption[];
   totalPrice: number;
   onAddOptionFromSelect: (
     value: number,
-    options: GoodsDetailOption[],
+    options: GoodDetailOption[],
     isExtraOption: boolean
   ) => void;
   onIncreaseQuantity: (index: number) => void;

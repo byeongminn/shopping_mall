@@ -1,7 +1,7 @@
 import { HttpHandler, HttpResponse, http } from "msw";
-import { getGoodsURL } from "@/features/main/api/getGoods";
+import { GOODS_API_URL } from "@/entities/goods/goods.api";
 
-export const getMockGoods: HttpHandler = http.get(getGoodsURL, () => {
+export const getMockGoods: HttpHandler = http.get(GOODS_API_URL.LIST, () => {
   return HttpResponse.json(GET_MOCK_GOODS.success);
 });
 

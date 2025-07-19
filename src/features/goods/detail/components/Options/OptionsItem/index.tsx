@@ -1,17 +1,16 @@
 import ArrowBottom from "@/features/goods/detail/components/Options/OptionsItem/arrowBottom.svg";
-import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { GoodDetailOption } from "@/entities/goods/goods.types";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-
 import * as s from "@/features/goods/detail/components/Options/OptionsItem/style.css";
 
 type Props = {
   isFirst: boolean;
   firstDepthName?: string;
   isExtraOption: boolean;
-  options: GoodsDetailOption[];
+  options: GoodDetailOption[];
   onSelectChange: (
     value: number,
-    options: GoodsDetailOption[],
+    options: GoodDetailOption[],
     isExtraOption: boolean
   ) => void;
 };

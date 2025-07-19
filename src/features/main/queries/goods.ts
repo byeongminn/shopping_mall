@@ -1,13 +1,14 @@
 import { infiniteQueryOptions } from "@tanstack/react-query";
-import { GetGoodsRequestParams, getGoods } from "@/features/main/api/getGoods";
+import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
+import { getGoodList } from "@/entities/goods/goods.api";
 
-type Params = Pick<GetGoodsRequestParams, "order">;
+type Params = Pick<GetGoodListRequestDto, "order">;
 
 export const goodsInfiniteQueryOptions = ({ order }: Params) =>
   infiniteQueryOptions({
     queryKey: ["goods", order],
     queryFn: async ({ pageParam = 1 }) => {
-      return await getGoods({ order, page: pageParam });
+      return await getGoodList({ order, page: pageParam });
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {

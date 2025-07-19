@@ -1,5 +1,5 @@
-import { Order } from "@/features/main/api/getGoods";
 import queryString from "query-string";
+import { Order } from "@/entities/goods/goods.types";
 
 export const getPageLink = (params: {
   seg?: string;

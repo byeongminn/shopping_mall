@@ -1,4 +1,4 @@
-import { GetGoodsRequestParams, Order } from "@/features/main/api/getGoods";
+import { GetGoodListRequestDto, Order } from "@/entities/goods/goods.types";
 import { goods } from "@/shared/mock-data/goods";
 import { mappingGoodsResponse, orderingGoodsData } from "@/shared/utils/data";
 import { NextRequest } from "next/server";
@@ -33,7 +33,7 @@ export const GET = async (request: NextRequest) => {
   }
 };
 
-const parseSearchParams = (params: URLSearchParams): GetGoodsRequestParams => {
+const parseSearchParams = (params: URLSearchParams): GetGoodListRequestDto => {
   return {
     order: (params.get("order") ?? "recommended") as Order,
     page: Number(params.get("page") ?? "1"),

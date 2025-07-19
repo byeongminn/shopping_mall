@@ -4,7 +4,7 @@ import { GoodOptions } from "@/features/goods/detail/components/Options";
 import Check from "@/features/goods/detail/components/Description/check.svg";
 import ArrowRight from "@/features/goods/detail/components/Description/arrowRight.svg";
 import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
-import { GoodsDetailOption } from "@/shared/api/house/types/item";
+import { GoodDetailOption } from "@/entities/goods/goods.types";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
@@ -16,7 +16,7 @@ type Props = {
   totalPrice: number;
   onAddOptionFromSelect: (
     value: number,
-    options: GoodsDetailOption[],
+    options: GoodDetailOption[],
     isExtraOption: boolean
   ) => void;
   onIncreaseQuantity: (index: number) => void;

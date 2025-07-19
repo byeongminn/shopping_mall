@@ -1,13 +1,13 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { GetGoodListRequestDto } from "@/entities/goods/goods.types";
 import { goodsInfiniteQueryOptions } from "@/features/main/queries/goods";
-import { GetGoodsRequestParams } from "@/features/main/api/getGoods";
 import { Filters } from "@/features/main/components/Filters";
 import { MainGoods } from "@/features/main/components/MainGoods";
 import { getQueryClient } from "@/shared/lib/react-query";
 import * as s from "@/app/(house)/style.css";
 
 type Props = {
-  searchParams: Promise<Partial<Pick<GetGoodsRequestParams, "order">>>;
+  searchParams: Promise<Partial<Pick<GetGoodListRequestDto, "order">>>;
 };
 
 export default async function Home({ searchParams }: Props) {

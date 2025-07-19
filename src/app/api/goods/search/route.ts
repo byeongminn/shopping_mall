@@ -1,6 +1,5 @@
 import { NextRequest } from "next/server";
-import { Order } from "@/features/main/api/getGoods";
-import { RawGoodDTO } from "@/shared/api/house/types/item";
+import { Order, RawGood } from "@/entities/goods/goods.types";
 import { goods } from "@/shared/mock-data/goods";
 import { mappingGoodsResponse, orderingGoodsData } from "@/shared/utils/data";
 
@@ -43,6 +42,6 @@ const parseSearchParams = (params: URLSearchParams) => {
   };
 };
 
-const findingData = (data: RawGoodDTO[], q: string) => {
+const findingData = (data: RawGood[], q: string) => {
   return data.filter((good) => good?.name?.includes(q));
 };

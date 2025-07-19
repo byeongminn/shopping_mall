@@ -1,12 +1,17 @@
-import { GetGoodsResponse, Order } from "@/features/main/api/getGoods";
-import { RawGoodDTO } from "@/shared/api/house/types/item";
+import {
+  GetGoodListResponseDto,
+  Order,
+  RawGood,
+} from "@/entities/goods/goods.types";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 
 export const numberRounded = (value: number) => {
   return Math.round(value * 10) / 10;
 };
 
-export const mappingGoodsResponse = (data: RawGoodDTO[]): GetGoodsResponse => {
+export const mappingGoodsResponse = (
+  data: RawGood[]
+): GetGoodListResponseDto => {
   const goods = data?.map((item) => {
     return {
       ...item,
@@ -36,9 +41,9 @@ export const mappingGoodsResponse = (data: RawGoodDTO[]): GetGoodsResponse => {
 };
 
 export const orderingGoodsData = (
-  data: GetGoodsResponse,
+  data: GetGoodListResponseDto,
   order: Order
-): GetGoodsResponse => {
+): GetGoodListResponseDto => {
   if (order === "priceAsc") {
     // 가격 오름차순 정렬
     const sortedData = {

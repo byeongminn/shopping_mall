@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { GetGoodsResponse, Order } from "@/features/main/api/getGoods";
+import { GetGoodListResponseDto, Order } from "@/entities/goods/goods.types";
 import { API_BASE_URL } from "@/shared/api/constants";
 import { api } from "@/shared/lib/axios";
 
@@ -9,7 +9,7 @@ export type GetSearchGoodsRequestParams = {
   page: number;
 };
 
-export type GetSearchGoodsResponse = GetGoodsResponse;
+export type GetSearchGoodsResponse = GetGoodListResponseDto;
 
 export const getSearchGoodsURL = `${API_BASE_URL}/api/goods/search`;
 

@@ -3,14 +3,14 @@ import Image from "next/image";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { GoodsDetailImage } from "@/shared/api/house/types/item";
+import { GoodDetailImage } from "@/entities/goods/goods.types";
 import { IMAGE_URL } from "@/shared/constants";
 import "swiper/css";
 import "swiper/css/pagination";
 import * as s from "./style.css";
 
 type Props = {
-  images: GoodsDetailImage[];
+  images: GoodDetailImage[];
 };
 
 export const ThumbnailSwiper = ({ images }: Props) => {

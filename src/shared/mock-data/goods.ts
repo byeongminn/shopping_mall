@@ -1,6 +1,6 @@
-import { RawGoodDTO } from "@/shared/api/house/types/item";
+import { RawGood } from "@/entities/goods/goods.types";
 
-export const goods: RawGoodDTO[] = [
+export const goods: RawGood[] = [
   {
     id: "1",
     name: "구름 소파",

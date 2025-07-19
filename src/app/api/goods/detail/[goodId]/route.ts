@@ -1,5 +1,5 @@
+import { GoodDetail, RawGood } from "@/entities/goods/goods.types";
 import { GetGoodsDetailRequestParams } from "@/features/goods/detail/api/getGoodsDetail";
-import { GoodsDetail, RawGoodDTO } from "@/shared/api/house/types/item";
 import { goods } from "@/shared/mock-data/goods";
 import { numberRounded } from "@/shared/utils/data";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
@@ -31,7 +31,7 @@ export const GET = async (_: unknown, { params }: Params) => {
   }
 };
 
-const mappingResponse = (data: RawGoodDTO): GoodsDetail => {
+const mappingResponse = (data: RawGood): GoodDetail => {
   return {
     ...data,
     price: {

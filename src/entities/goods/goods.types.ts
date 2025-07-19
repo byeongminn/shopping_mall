@@ -1,15 +1,15 @@
 // 상품 DTO
-export type GoodsDetailOption = {
+export type GoodDetailOption = {
   id: number;
   explain: string;
   price: number;
 };
 
-export type GoodsDetailImage = {
+export type GoodDetailImage = {
   imageUrl: string;
 };
 
-export type RawGoodDTO = {
+export type RawGood = {
   id: string;
   name: string;
   imageUrl: string;
@@ -47,23 +47,43 @@ export type RawGoodDTO = {
     type: number;
   };
   description: string;
-  extraOptions: GoodsDetailOption[];
+  extraOptions: GoodDetailOption[];
   firstDepthName: string;
-  options: GoodsDetailOption[];
-  subImages: GoodsDetailImage[];
+  options: GoodDetailOption[];
+  subImages: GoodDetailImage[];
 };
 
 // 상품 DTO 포맷팅
-export type Good = RawGoodDTO & {
-  price: RawGoodDTO["price"] & {
+export type FormattedGood = RawGood & {
+  price: RawGood["price"] & {
     originalPriceDisplayText: string;
     sellingPriceDisplayText: string;
   };
-  reviewStatistic: RawGoodDTO["reviewStatistic"] & {
+  reviewStatistic: RawGood["reviewStatistic"] & {
     reviewCountDisplayText: string;
     reviewAverageDisplayText: number;
   };
 };
 
 // 상품 상세 DTO 포맷팅
-export type GoodsDetail = RawGoodDTO & Good;
+export type GoodDetail = FormattedGood;
+
+export type ListResponse<T> = {
+  goods: T[];
+  totalResults: number;
+};
+
+export type Order =
+  | "recommended"
+  | "priceAsc"
+  | "priceDesc"
+  | "discountRate"
+  | "reviewCount"
+  | "reviewAverage";
+
+export type GetGoodListRequestDto = {
+  order?: Order;
+  page: number;
+};
+
+export type GetGoodListResponseDto = ListResponse<FormattedGood>;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Good } from "@/shared/api/house/types/item";
+import { FormattedGood } from "@/entities/goods/goods.types";
 import FreeDelivery from "@/shared/components/base/Icons/freeDelivery.svg";
 import SpecialPrice from "@/shared/components/base/Icons/specialPrice.svg";
 import DepartureToday from "@/shared/components/base/Icons/departureToday.svg";
@@ -8,11 +8,11 @@ import Coupon from "@/shared/components/base/Icons/coupon.svg";
 import * as s from "./style.css";
 import { IMAGE_URL } from "@/shared/constants";
 
-type Props = {
-  good: Good;
+type GoodItemProps = {
+  good: FormattedGood;
 };
 
-export const GoodItem = ({ good }: Props) => {
+export const GoodItem = ({ good }: GoodItemProps) => {
   const { id, imageUrl, name, brand, price, reviewStatistic, badgeProperties } =
     good;
 
