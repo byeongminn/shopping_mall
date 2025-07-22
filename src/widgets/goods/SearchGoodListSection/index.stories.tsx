@@ -7,13 +7,13 @@ import {
 } from "@tanstack/react-query";
 import { HttpResponse, http } from "msw";
 import { GOODS_API_URL } from "@/entities/goods/goods.api";
-import { SearchGoods } from "@/features/search/components/SearchGoods";
 import { getMockSearchGoodList } from "@/entities/goods/__mocks__/goods.mock";
+import { SearchGoodListSection } from "@/widgets/goods/SearchGoodListSection";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
-const meta: Meta<typeof SearchGoods> = {
-  component: SearchGoods,
-  title: "SearchGoods",
+const meta: Meta<typeof SearchGoodListSection> = {
+  component: SearchGoodListSection,
+  title: "SearchGoodListSection",
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -44,7 +44,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => (
 
 export default meta;
 
-type Story = StoryObj<typeof SearchGoods>;
+type Story = StoryObj<typeof SearchGoodListSection>;
 
 export const Default: Story = {
   parameters: {
