@@ -1,7 +1,7 @@
 "use client";
 
 import { GetSearchGoodListRequestDto } from "@/entities/goods/goods.types";
-import { useGetSearchGoods } from "@/features/search/hooks/useGetSearchGoods";
+import { useGetSearchGoodList } from "@/features/goods/model/useGetSearchGoodList";
 import Empty from "@/features/search/components/SearchGoods/empty.svg";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import { GoodList } from "@/features/goods/ui/GoodList";
@@ -11,7 +11,7 @@ type Props = Pick<GetSearchGoodListRequestDto, "q" | "order">;
 
 export const SearchGoods = ({ q, order }: Props) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    useGetSearchGoods({ q, order });
+    useGetSearchGoodList({ q, order });
 
   const flatData = data?.pages.map((page) => page.goods ?? []).flat();
 

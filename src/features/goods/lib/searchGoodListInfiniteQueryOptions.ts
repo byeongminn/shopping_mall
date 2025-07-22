@@ -4,7 +4,7 @@ import { getSearchGoodList } from "@/entities/goods/goods.api";
 
 type Params = Pick<GetSearchGoodListRequestDto, "q" | "order">;
 
-export const searchGoodsInfiniteQueryOptions = ({ q, order }: Params) =>
+export const searchGoodListInfiniteQueryOptions = ({ q, order }: Params) =>
   infiniteQueryOptions({
     queryKey: ["search", q, order],
     queryFn: async ({ pageParam }) =>

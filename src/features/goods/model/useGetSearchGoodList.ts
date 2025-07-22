@@ -7,14 +7,14 @@ import {
   GetSearchGoodListRequestDto,
   GetSearchGoodListResponseDto,
 } from "@/entities/goods/goods.types";
-import { searchGoodsInfiniteQueryOptions } from "@/features/search/queries/searchGoods";
+import { searchGoodListInfiniteQueryOptions } from "@/features/goods/lib/searchGoodListInfiniteQueryOptions";
 
 type Params = Pick<GetSearchGoodListRequestDto, "q" | "order">;
 
-export const useGetSearchGoods = ({
+export const useGetSearchGoodList = ({
   q,
   order,
 }: Params): UseInfiniteQueryResult<
   InfiniteData<GetSearchGoodListResponseDto>,
   Error
-> => useInfiniteQuery(searchGoodsInfiniteQueryOptions({ q, order }));
+> => useInfiniteQuery(searchGoodListInfiniteQueryOptions({ q, order }));
