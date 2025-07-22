@@ -1,13 +1,13 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import {
-  GetGoodsDetailRequestParams,
-  GetGoodsDetailResponse,
-} from "@/features/goods/detail/api/getGoodsDetail";
+  GetGoodDetailRequestDto,
+  GetGoodDetailResponseDto,
+} from "@/entities/goods/goods.types";
 import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 
-type Params = Pick<GetGoodsDetailRequestParams, "goodId">;
+type Params = Pick<GetGoodDetailRequestDto, "goodId">;
 
 export const useGetGoodsDetail = ({
   goodId,
-}: Params): UseQueryResult<GetGoodsDetailResponse, Error> =>
+}: Params): UseQueryResult<GetGoodDetailResponseDto, Error> =>
   useQuery(goodDetailQueryOptions({ goodId }));

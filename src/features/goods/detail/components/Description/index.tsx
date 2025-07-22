@@ -3,14 +3,16 @@ import { ReviewStatistics } from "@/features/goods/detail/components/ReviewStati
 import { GoodOptions } from "@/features/goods/detail/components/Options";
 import Check from "@/features/goods/detail/components/Description/check.svg";
 import ArrowRight from "@/features/goods/detail/components/Description/arrowRight.svg";
-import { GetGoodsDetailResponse } from "@/features/goods/detail/api/getGoodsDetail";
-import { GoodDetailOption } from "@/entities/goods/goods.types";
+import {
+  GetGoodDetailResponseDto,
+  GoodDetailOption,
+} from "@/entities/goods/goods.types";
 import { DepartureTodayIcon, SpecialPriceIcon } from "@/features/goods/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "@/features/goods/detail/components/Description/style.css";
 
 type Props = {
-  good: GetGoodsDetailResponse;
+  good: GetGoodDetailResponseDto;
   selectedOptions: SelectedOption[];
   totalPrice: number;
   onAddOptionFromSelect: (

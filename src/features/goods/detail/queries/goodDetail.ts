@@ -1,13 +1,11 @@
 import { queryOptions } from "@tanstack/react-query";
-import {
-  GetGoodsDetailRequestParams,
-  getGoodsDetail,
-} from "@/features/goods/detail/api/getGoodsDetail";
+import { GetGoodDetailRequestDto } from "@/entities/goods/goods.types";
+import { getGoodDetail } from "@/entities/goods/goods.api";
 
-type Params = Pick<GetGoodsDetailRequestParams, "goodId">;
+type Params = Pick<GetGoodDetailRequestDto, "goodId">;
 
 export const goodDetailQueryOptions = ({ goodId }: Params) =>
   queryOptions({
     queryKey: ["goodDetail", goodId],
-    queryFn: async () => await getGoodsDetail(goodId),
+    queryFn: async () => await getGoodDetail(goodId),
   });

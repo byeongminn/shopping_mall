@@ -65,9 +65,6 @@ export type FormattedGood = RawGood & {
   };
 };
 
-// 상품 상세 DTO 포맷팅
-export type GoodDetail = FormattedGood;
-
 export type ListResponse<T> = {
   goods: T[];
   totalResults: number;
@@ -97,3 +94,10 @@ export type GetSearchGoodListRequestDto = {
 };
 
 export type GetSearchGoodListResponseDto = ListResponse<FormattedGood>;
+
+// 상품 상세 DTO
+export type GetGoodDetailRequestDto = {
+  goodId: string;
+};
+
+export type GetGoodDetailResponseDto = FormattedGood;

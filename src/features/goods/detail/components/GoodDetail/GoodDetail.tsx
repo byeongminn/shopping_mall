@@ -2,13 +2,13 @@ import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions
 import { ThumbnailSwiper } from "@/features/goods/detail/components/ThumbnailSwiper";
 import { GoodDescription } from "@/features/goods/detail/components/Description";
 import {
-  GoodDetail as GoodDetailType,
+  GetGoodDetailResponseDto,
   GoodDetailOption,
 } from "@/entities/goods/goods.types";
 import * as s from "./style.css";
 
 type GoodDetailProps = {
-  data: GoodDetailType;
+  data: GetGoodDetailResponseDto;
   selectedOptions: SelectedOption[];
   totalPrice: number;
   onAddOptionFromSelect: (

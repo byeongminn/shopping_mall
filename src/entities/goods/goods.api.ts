@@ -2,6 +2,8 @@ import queryString from "query-string";
 import { api } from "@/shared/lib/axios";
 import { API_BASE_URL } from "@/shared/api/constants";
 import {
+  GetGoodDetailRequestDto,
+  GetGoodDetailResponseDto,
   GetGoodListRequestDto,
   GetGoodListResponseDto,
   GetSearchGoodListRequestDto,
@@ -11,6 +13,7 @@ import {
 export const GOODS_API_URL = {
   LIST: `${API_BASE_URL}/api/goods`,
   SEARCH: `${API_BASE_URL}/api/goods/search`,
+  DETAIL: `${API_BASE_URL}/api/goods/detail/:goodId`,
 };
 
 export const getGoodList = async (
@@ -31,6 +34,16 @@ export const getSearchGoodList = async (
   const searchParams = queryString.stringify(params);
 
   const url = `${GOODS_API_URL.SEARCH}?${searchParams}`;
+
+  const { data } = await api.get(url);
+
+  return data;
+};
+
+export const getGoodDetail = async (
+  goodId: GetGoodDetailRequestDto["goodId"]
+): Promise<GetGoodDetailResponseDto> => {
+  const url = GOODS_API_URL.DETAIL.replace(":goodId", goodId);
 
   const { data } = await api.get(url);
 

@@ -1,11 +1,11 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
-import { GetGoodsDetailRequestParams } from "@/features/goods/detail/api/getGoodsDetail";
+import { GetGoodDetailRequestDto } from "@/entities/goods/goods.types";
 import { GoodDetailContainer } from "@/features/goods/detail/components/GoodDetail/GoodDetailContainer";
 import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 import { getQueryClient } from "@/shared/lib/react-query";
 
 type Props = {
-  params: Promise<Pick<GetGoodsDetailRequestParams, "goodId">>;
+  params: Promise<Pick<GetGoodDetailRequestDto, "goodId">>;
 };
 
 export default async function GoodDetailPage({ params }: Props) {
