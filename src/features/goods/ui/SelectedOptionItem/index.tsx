@@ -1,10 +1,7 @@
 import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
-import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
-import Minus from "@/features/goods/detail/components/Options/SelectedOptionsItem/minus.svg";
-import Plus from "@/features/goods/detail/components/Options/SelectedOptionsItem/plus.svg";
+import { MinusIcon, PlusIcon, RemoveIcon } from "@/features/goods/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-
-import * as s from "@/features/goods/detail/components/Options/SelectedOptionsItem/style.css";
+import * as s from "@/features/goods/ui/SelectedOptionItem/style.css";
 
 type Props = {
   option: SelectedOption;
@@ -13,7 +10,7 @@ type Props = {
   onRemoveOption: () => void;
 };
 
-export const GoodSelectedOptionsItem = ({
+export const GoodSelectedOptionItem = ({
   option,
   onIncreaseQuantity,
   onDecreaseQuantity,
@@ -29,17 +26,17 @@ export const GoodSelectedOptionsItem = ({
           {explain}
         </span>
         <span className={s.icon} onClick={onRemoveOption}>
-          <Remove />
+          <RemoveIcon />
         </span>
       </div>
       <div className={s.wrapper}>
         <div className={s.amountWrapper}>
           <span className={s.icon} onClick={onDecreaseQuantity}>
-            <Minus />
+            <MinusIcon />
           </span>
           <span>{quantity}</span>
           <span className={s.icon} onClick={onIncreaseQuantity}>
-            <Plus />
+            <PlusIcon />
           </span>
         </div>
         <span className={s.price}>

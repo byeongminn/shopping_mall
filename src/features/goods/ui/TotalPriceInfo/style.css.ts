@@ -1,15 +1,5 @@
-import { f } from "@/shared/styles/functions";
 import { style } from "@vanilla-extract/css";
-
-export const container = style([f.wFull]);
-
-export const optionsWrapper = style([
-  f.flex,
-  f.directionColumn,
-  {
-    gap: "10px",
-  },
-]);
+import { f } from "@/shared/styles/functions";
 
 export const priceWrapper = style([
   f.flex,
@@ -33,13 +23,5 @@ export const price = style([
   {
     fontSize: "20px",
     lineHeight: "28px",
-  },
-]);
-
-export const buttonWrapper = style([
-  f.flex,
-  {
-    marginTop: "12px",
-    gap: "6px",
   },
 ]);

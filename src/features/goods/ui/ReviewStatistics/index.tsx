@@ -1,5 +1,5 @@
-import { Star } from "@/features/goods/detail/components/ReviewStatistics/Star";
-import * as s from "@/features/goods/detail/components/ReviewStatistics/style.css";
+import { Star } from "@/features/goods/ui/Star";
+import * as s from "./style.css";
 
 type Props = {
   reviewAverageDisplayText: number;

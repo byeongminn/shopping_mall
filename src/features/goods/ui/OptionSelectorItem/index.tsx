@@ -1,7 +1,7 @@
-import ArrowBottom from "@/features/goods/detail/components/Options/OptionsItem/arrowBottom.svg";
 import { GoodDetailOption } from "@/entities/goods/goods.types";
+import { ArrowBottomIcon } from "@/features/goods/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import * as s from "@/features/goods/detail/components/Options/OptionsItem/style.css";
+import * as s from "./style.css";
 
 type Props = {
   isFirst: boolean;
@@ -15,7 +15,7 @@ type Props = {
   ) => void;
 };
 
-export const GoodOptionsItem = ({
+export const OptionSelectorItem = ({
   isFirst,
   firstDepthName,
   isExtraOption,
@@ -37,13 +37,12 @@ export const GoodOptionsItem = ({
         </option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
-            {option.explain}({formatNumberWithCommas(option.price)}
-            원)
+            {option.explain}({formatNumberWithCommas(option.price)}원)
           </option>
         ))}
       </select>
       <span className={s.arrowWrapper({ isFirst })}>
-        <ArrowBottom />
+        <ArrowBottomIcon />
       </span>
     </div>
   );

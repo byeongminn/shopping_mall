@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { GoodSelectedOptionsItem } from ".";
 import { fn } from "@storybook/test";
+import { GoodSelectedOptionItem } from ".";
 
-const meta: Meta<typeof GoodSelectedOptionsItem> = {
-  component: GoodSelectedOptionsItem,
-  title: "GoodSelectedOptionsItem",
+const meta: Meta<typeof GoodSelectedOptionItem> = {
+  component: GoodSelectedOptionItem,
+  title: "GoodSelectedOptionItem",
   tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof GoodSelectedOptionsItem>;
+type Story = StoryObj<typeof GoodSelectedOptionItem>;
 
 export const Default: Story = {
   args: {

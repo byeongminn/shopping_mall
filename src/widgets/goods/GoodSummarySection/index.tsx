@@ -1,54 +1,21 @@
-import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
-import { ReviewStatistics } from "@/features/goods/detail/components/ReviewStatistics";
-import { GoodOptions } from "@/features/goods/detail/components/Options";
-import Check from "@/features/goods/detail/components/Description/check.svg";
-import ArrowRight from "@/features/goods/detail/components/Description/arrowRight.svg";
+import { GetGoodDetailResponseDto } from "@/entities/goods/goods.types";
 import {
-  GetGoodDetailResponseDto,
-  GoodDetailOption,
-} from "@/entities/goods/goods.types";
-import { DepartureTodayIcon, SpecialPriceIcon } from "@/features/goods/ui/Icon";
+  ArrowRightIcon,
+  CheckIcon,
+  DepartureTodayIcon,
+  SpecialPriceIcon,
+} from "@/features/goods/ui/Icon";
+import { ReviewStatistics } from "@/features/goods/ui/ReviewStatistics";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
-import * as s from "@/features/goods/detail/components/Description/style.css";
+import * as s from "./style.css";
 
 type Props = {
   good: GetGoodDetailResponseDto;
-  selectedOptions: SelectedOption[];
-  totalPrice: number;
-  onAddOptionFromSelect: (
-    value: number,
-    options: GoodDetailOption[],
-    isExtraOption: boolean
-  ) => void;
-  onIncreaseQuantity: (index: number) => void;
-  onDecreaseQuantity: (index: number) => void;
-  onRemoveOption: (index: number) => void;
-  onCartClick: () => void;
-  onBuyClick: () => void;
 };
 
-export const GoodDescription = ({
-  good,
-  selectedOptions,
-  totalPrice,
-  onAddOptionFromSelect,
-  onIncreaseQuantity,
-  onDecreaseQuantity,
-  onRemoveOption,
-  onCartClick,
-  onBuyClick,
-}: Props) => {
-  const {
-    brand,
-    delivery,
-    extraOptions,
-    firstDepthName,
-    badgeProperties,
-    name,
-    options,
-    price,
-    reviewStatistic,
-  } = good;
+export const GoodSummarySection = ({ good }: Props) => {
+  const { brand, delivery, badgeProperties, name, price, reviewStatistic } =
+    good;
 
   return (
     <div>
@@ -119,13 +86,13 @@ export const GoodDescription = ({
           <span className={s.deliveryClaimer}>
             {delivery.isRegionalDeliveryFee ? (
               <span className={s.deliveryClaimer}>
-                <Check />
+                <CheckIcon />
                 <span>지역별 차등배송비</span>
               </span>
             ) : null}
             {delivery.backwoodsFee ? (
               <span className={s.deliveryClaimer}>
-                <Check />
+                <CheckIcon />
                 <span>
                   제주도/도서산간 지역{" "}
                   {formatNumberWithCommas(delivery.backwoodsFee)}원
@@ -139,26 +106,9 @@ export const GoodDescription = ({
       {/* 브랜드 */}
       <div className={s.brandWrapper}>
         <span className={s.brand}>
-          {brand.name} <ArrowRight />
+          {brand.name} <ArrowRightIcon />
         </span>
         <span className={s.brandDescription}>브랜드</span>
-      </div>
-
-      {/* 상품 옵션 */}
-      <div className={s.optionsWrapper}>
-        <GoodOptions
-          firstDepthName={firstDepthName}
-          options={options}
-          extraOptions={extraOptions}
-          selectedOptions={selectedOptions}
-          totalPrice={totalPrice}
-          onAddOptionFromSelect={onAddOptionFromSelect}
-          onIncreaseQuantity={onIncreaseQuantity}
-          onDecreaseQuantity={onDecreaseQuantity}
-          onRemoveOption={onRemoveOption}
-          onCartClick={onCartClick}
-          onBuyClick={onBuyClick}
-        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
+import { globalStyle, style } from "@vanilla-extract/css";
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
 import { GOOD_DETAIL_WIDTH } from "@/shared/styles/globals.css";
-import { globalStyle, style } from "@vanilla-extract/css";
 
 export const container = style([
   {
@@ -21,34 +21,6 @@ export const container = style([
     },
     sm: {
       width: "calc(100% - 30px)",
-    },
-  }),
-]);
-
-export const breadcrumbWrapper = style([
-  responsiveStyle({
-    md: {
-      marginTop: "20px",
-      padding: 0,
-    },
-    sm: {
-      marginTop: 0,
-      padding: "12px 15px",
-    },
-  }),
-]);
-
-export const breadcrumb = style([
-  {
-    color: "#757575",
-    lineHeight: 1.2,
-  },
-  responsiveStyle({
-    md: {
-      fontSize: "15px",
-    },
-    sm: {
-      fontSize: "13px",
     },
   }),
 ]);

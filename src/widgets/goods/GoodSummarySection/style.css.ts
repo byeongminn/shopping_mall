@@ -155,9 +155,3 @@ export const brandDescription = style([
     color: "#828C94",
   },
 ]);
-
-export const optionsWrapper = style([
-  {
-    marginTop: "10px",
-  },
-]);

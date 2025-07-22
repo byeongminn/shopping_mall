@@ -1,10 +1,10 @@
-import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
+import Link from "next/link";
 import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
-import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
+import { GoodSelectedOptionItem } from "@/features/goods/ui/SelectedOptionItem";
+import { RemoveIcon } from "@/features/goods/ui/Icon";
 import { CartItem } from "@/shared/store/cart";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "./style.css";
-import Link from "next/link";
 
 type CartListProps = {
   goods: CartItem[];
@@ -54,11 +54,11 @@ export const CartList = ({
               className={s.removeItemButton}
               onClick={() => onRemoveItem(id)}
             >
-              <Remove />
+              <RemoveIcon />
             </button>
             <ul>
               {options.map((opt) => (
-                <GoodSelectedOptionsItem
+                <GoodSelectedOptionItem
                   key={opt.id}
                   option={opt}
                   onIncreaseQuantity={() =>
