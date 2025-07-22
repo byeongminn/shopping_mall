@@ -8,7 +8,7 @@ import {
 import { HttpResponse, http } from "msw";
 import { GOODS_API_URL } from "@/entities/goods/goods.api";
 import { SearchGoods } from "@/features/search/components/SearchGoods";
-import { getMockSearchGoods } from "@/features/search/api/getSearchGoods.mock";
+import { getMockSearchGoodList } from "@/entities/goods/__mocks__/goods.mock";
 import { MSWProvider } from "@/shared/components/MSWProvider";
 
 const meta: Meta<typeof SearchGoods> = {
@@ -49,7 +49,7 @@ type Story = StoryObj<typeof SearchGoods>;
 export const Default: Story = {
   parameters: {
     msw: {
-      handlers: [getMockSearchGoods],
+      handlers: [getMockSearchGoodList],
     },
   },
 };
