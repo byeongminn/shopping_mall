@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
+import { SelectedOption } from "@/shared/types/selectedOption";
 import { MinusIcon, PlusIcon, RemoveIcon } from "@/features/goods/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";
 import * as s from "@/features/goods/ui/SelectedOptionItem/style.css";

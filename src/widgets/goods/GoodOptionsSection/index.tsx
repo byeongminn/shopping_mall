@@ -1,7 +1,7 @@
 import { GoodDetailOption } from "@/entities/goods/goods.types";
+import { SelectedOption } from "@/shared/types/selectedOption";
 import { OptionSelectorList } from "@/features/goods/ui/OptionSelectorList";
 import { SelectedOptionList } from "@/features/goods/ui/SelectedOptionList";
-import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import * as s from "./style.css";
 
 type Props = {
