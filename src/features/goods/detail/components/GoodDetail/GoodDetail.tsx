@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import { ThumbnailSwiper } from "@/features/goods/detail/components/ThumbnailSwiper";
 import { GoodDescription } from "@/features/goods/detail/components/Description";
 import {

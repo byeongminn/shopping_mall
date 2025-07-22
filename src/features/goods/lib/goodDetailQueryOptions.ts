@@ -7,5 +7,5 @@ type Params = Pick<GetGoodDetailRequestDto, "goodId">;
 export const goodDetailQueryOptions = ({ goodId }: Params) =>
   queryOptions({
     queryKey: ["goodDetail", goodId],
-    queryFn: async () => await getGoodDetail(goodId),
+    queryFn: () => getGoodDetail(goodId),
   });

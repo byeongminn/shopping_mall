@@ -1,7 +1,7 @@
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { GetGoodDetailRequestDto } from "@/entities/goods/goods.types";
+import { goodDetailQueryOptions } from "@/features/goods/lib/goodDetailQueryOptions";
 import { GoodDetailContainer } from "@/features/goods/detail/components/GoodDetail/GoodDetailContainer";
-import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
 import { getQueryClient } from "@/shared/lib/react-query";
 
 type Props = {

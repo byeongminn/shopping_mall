@@ -3,11 +3,11 @@ import {
   GetGoodDetailRequestDto,
   GetGoodDetailResponseDto,
 } from "@/entities/goods/goods.types";
-import { goodDetailQueryOptions } from "@/features/goods/detail/queries/goodDetail";
+import { goodDetailQueryOptions } from "@/features/goods/lib/goodDetailQueryOptions";
 
 type Params = Pick<GetGoodDetailRequestDto, "goodId">;
 
-export const useGetGoodsDetail = ({
+export const useGetGoodDetail = ({
   goodId,
 }: Params): UseQueryResult<GetGoodDetailResponseDto, Error> =>
   useQuery(goodDetailQueryOptions({ goodId }));

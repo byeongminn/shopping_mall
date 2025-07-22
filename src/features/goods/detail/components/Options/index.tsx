@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import { GoodOptionsItem } from "@/features/goods/detail/components/Options/OptionsItem";
 import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
 import { GoodDetailOption } from "@/entities/goods/goods.types";

@@ -1,5 +1,5 @@
 import { GoodSelectedOptionsItem } from "@/features/goods/detail/components/Options/SelectedOptionsItem";
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
 import { CartItem } from "@/shared/store/cart";
 import { formatNumberWithCommas } from "@/shared/utils/format/number";

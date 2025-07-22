@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import Remove from "@/features/goods/detail/components/Options/SelectedOptionsItem/remove.svg";
 import Minus from "@/features/goods/detail/components/Options/SelectedOptionsItem/minus.svg";
 import Plus from "@/features/goods/detail/components/Options/SelectedOptionsItem/plus.svg";

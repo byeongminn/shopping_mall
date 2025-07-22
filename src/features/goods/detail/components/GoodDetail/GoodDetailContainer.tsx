@@ -1,16 +1,16 @@
 "use client";
 
 import { GetGoodDetailRequestDto } from "@/entities/goods/goods.types";
-import { useSelectedOptions } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { useSelectedOptions } from "@/features/goods/model/useSelectedOptions";
 import { GoodDetail } from "@/features/goods/detail/components/GoodDetail/GoodDetail";
-import { useGetGoodsDetail } from "@/features/goods/detail/hooks/useGetGoodsDetail";
+import { useGetGoodDetail } from "@/features/goods/model/useGetGoodDetail";
 import { useCartStore } from "@/shared/store/cart";
 import * as s from "./style.css";
 
 type Props = Pick<GetGoodDetailRequestDto, "goodId">;
 
 export const GoodDetailContainer = ({ goodId }: Props) => {
-  const { data } = useGetGoodsDetail({ goodId });
+  const { data } = useGetGoodDetail({ goodId });
   const { addItem } = useCartStore();
   const {
     selectedOptions,

@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import { ReviewStatistics } from "@/features/goods/detail/components/ReviewStatistics";
 import { GoodOptions } from "@/features/goods/detail/components/Options";
 import Check from "@/features/goods/detail/components/Description/check.svg";

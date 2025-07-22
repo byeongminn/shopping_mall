@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/features/goods/detail/hooks/useSelectedOptions";
+import { SelectedOption } from "@/features/goods/model/useSelectedOptions";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
