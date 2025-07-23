@@ -1,12 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { SelectedOption } from "@/entities/goods/goods.types";
-
-export type CartItem = {
-  id: string;
-  name: string;
-  options: SelectedOption[];
-};
+import { SelectedOption } from "@/entities/goods/@x/cart";
+import { CartItem } from "@/entities/cart/cart.types";
 
 export type CartState = {
   items: CartItem[];
