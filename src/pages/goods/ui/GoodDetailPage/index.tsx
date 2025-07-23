@@ -13,7 +13,7 @@ import * as s from "./style.css";
 
 type Props = Pick<GetGoodDetailRequestDto, "goodId">;
 
-export const GoodDetailSection = ({ goodId }: Props) => {
+export const GoodDetailPage = ({ goodId }: Props) => {
   const { data } = useGetGoodDetail({ goodId });
   const { addItem } = useCartStore();
   const {
@@ -56,33 +56,35 @@ export const GoodDetailSection = ({ goodId }: Props) => {
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.overviewWrapper}>
-        <div className={s.thumbnailWrapper}>
-          <GoodImageSection images={data.subImages} />
+    <main>
+      <div className={s.container}>
+        <div className={s.overviewWrapper}>
+          <div className={s.thumbnailWrapper}>
+            <GoodImageSection images={data.subImages} />
+          </div>
+          <div className={s.contentWrapper}>
+            <GoodSummarySection good={data} />
+            <GoodOptionsSection
+              firstDepthName={data.firstDepthName || ""}
+              options={data.options || []}
+              extraOptions={data.extraOptions || []}
+              onAddOptionFromSelect={addOptionFromSelect}
+              selectedOptions={selectedOptions}
+              onIncreaseQuantity={increaseQuantity}
+              onDecreaseQuantity={decreaseQuantity}
+              onRemoveOption={removeOption}
+            />
+            <TotalPriceInfo totalPrice={totalPrice} />
+            <ActionPanel
+              onCartClick={handleCartClick}
+              onBuyClick={handleBuyClick}
+            />
+          </div>
         </div>
-        <div className={s.contentWrapper}>
-          <GoodSummarySection good={data} />
-          <GoodOptionsSection
-            firstDepthName={data.firstDepthName || ""}
-            options={data.options || []}
-            extraOptions={data.extraOptions || []}
-            onAddOptionFromSelect={addOptionFromSelect}
-            selectedOptions={selectedOptions}
-            onIncreaseQuantity={increaseQuantity}
-            onDecreaseQuantity={decreaseQuantity}
-            onRemoveOption={removeOption}
-          />
-          <TotalPriceInfo totalPrice={totalPrice} />
-          <ActionPanel
-            onCartClick={handleCartClick}
-            onBuyClick={handleBuyClick}
-          />
+        <div className={s.descriptionWrapper}>
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
       </div>
-      <div className={s.descriptionWrapper}>
-        <div dangerouslySetInnerHTML={{ __html: data.description }} />
-      </div>
-    </div>
+    </main>
   );
 };
