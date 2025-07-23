@@ -1,10 +1,9 @@
-"use client";
-
 import { useCartStore } from "@/features/cart/model/useCartStore";
-import { CartList } from "./CartList";
+import { CartList } from "@/features/cart/ui/CartList";
+import { CartSummary } from "@/features/cart/ui/CartSummary";
 import * as s from "./style.css";
 
-export const CartListContainer = () => {
+export const CartPage = () => {
   const {
     items,
     removeItem,
@@ -38,15 +37,20 @@ export const CartListContainer = () => {
   }
 
   return (
-    <CartList
-      goods={items}
-      onRemoveItem={removeItem}
-      onIncreaseQuantity={increaseQuantity}
-      onDecreaseQuantity={decreaseQuantity}
-      onRemoveOption={removeOption}
-      onBuyClick={handleBuyClick}
-      itemTotalPrices={itemTotalPrices}
-      cartTotalPrice={cartTotalPrice}
-    />
+    <div className={s.wrapper}>
+      <CartList
+        goods={items}
+        itemTotalPrices={itemTotalPrices}
+        onRemoveItem={removeItem}
+        onIncreaseQuantity={increaseQuantity}
+        onDecreaseQuantity={decreaseQuantity}
+        onRemoveOption={removeOption}
+      />
+      <CartSummary
+        goods={items}
+        cartTotalPrice={cartTotalPrice}
+        onBuyClick={handleBuyClick}
+      />
+    </div>
   );
 };
