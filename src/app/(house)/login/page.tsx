@@ -1,12 +1,5 @@
-import { Login } from "@/widgets/auth/Login";
-import * as s from "@/app/(house)/login/style.css";
+import { LoginPage } from "@/pages/auth/ui/LoginPage";
 
-export default function LoginPage() {
-  return (
-    <main>
-      <section className={s.loginSection}>
-        <Login />
-      </section>
-    </main>
-  );
+export default function Page() {
+  return <LoginPage />;
 }
