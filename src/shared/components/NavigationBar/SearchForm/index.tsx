@@ -7,7 +7,7 @@ import * as s from "./style.css";
 
 export const SearchForm = () => {
   const searchParams = useSearchParams();
-  const initialSearchValue = searchParams.get("q") ?? "";
+  const initialSearchValue = searchParams?.get("q") ?? "";
 
   const router = useRouter();
 

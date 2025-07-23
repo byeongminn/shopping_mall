@@ -1,7 +1,7 @@
 "use client";
 
 import { withAuth } from "@/shared/hocs/withAuth";
-import { CartPage } from "@/pages/cart/ui/CartPage";
+import { CartPage } from "@/views/cart/ui/CartPage";
 
 function Page() {
   return <CartPage />;

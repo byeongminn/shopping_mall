@@ -21,7 +21,7 @@ export const usePostLogin = () => {
       onSuccess: async () => {
         setIsLoggedIn(true);
         await queryClient.refetchQueries({ queryKey: ["getMe"] });
-        window.location.assign(searchParams.get("redirect") || "/");
+        window.location.assign(searchParams?.get("redirect") || "/");
       },
     }
   );

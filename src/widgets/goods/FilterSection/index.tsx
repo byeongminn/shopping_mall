@@ -18,7 +18,7 @@ const ORDER_TYPO: Record<Order, string> = {
 export const FilterSection = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const orderParam: Order = (searchParams.get("order") ??
+  const orderParam: Order = (searchParams?.get("order") ??
     "recommended") as Order;
 
   const filterItems = Object.entries(ORDER_TYPO);
