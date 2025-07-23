@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
-import { GoodDetailOption } from "@/entities/goods/goods.types";
-import { SelectedOption } from "@/shared/types/selectedOption";
+import { GoodDetailOption, SelectedOption } from "@/entities/goods/goods.types";
 
 export const useSelectedOptions = () => {
   const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([]);

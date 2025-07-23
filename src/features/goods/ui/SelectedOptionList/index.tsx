@@ -1,4 +1,4 @@
-import { SelectedOption } from "@/shared/types/selectedOption";
+import { SelectedOption } from "@/entities/goods/goods.types";
 import { GoodSelectedOptionItem } from "@/features/goods/ui/SelectedOptionItem";
 
 type Props = {

@@ -5,6 +5,11 @@ export type GoodDetailOption = {
   price: number;
 };
 
+export type SelectedOption = {
+  type: "option" | "extraOption";
+  quantity: number;
+} & GoodDetailOption;
+
 export type GoodDetailImage = {
   imageUrl: string;
 };

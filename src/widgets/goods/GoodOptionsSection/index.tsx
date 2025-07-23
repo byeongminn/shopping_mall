@@ -1,5 +1,4 @@
-import { GoodDetailOption } from "@/entities/goods/goods.types";
-import { SelectedOption } from "@/shared/types/selectedOption";
+import { GoodDetailOption, SelectedOption } from "@/entities/goods/goods.types";
 import { OptionSelectorList } from "@/features/goods/ui/OptionSelectorList";
 import { SelectedOptionList } from "@/features/goods/ui/SelectedOptionList";
 import * as s from "./style.css";

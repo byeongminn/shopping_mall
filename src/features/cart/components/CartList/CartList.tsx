@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SelectedOption } from "@/shared/types/selectedOption";
+import { SelectedOption } from "@/entities/goods/goods.types";
 import { GoodSelectedOptionItem } from "@/features/goods/ui/SelectedOptionItem";
 import { RemoveIcon } from "@/features/goods/ui/Icon";
 import { CartItem } from "@/shared/store/cart";

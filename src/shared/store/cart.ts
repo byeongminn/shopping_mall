@@ -1,6 +1,6 @@
-import { SelectedOption } from "@/shared/types/selectedOption";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { SelectedOption } from "@/entities/goods/goods.types";
 
 export type CartItem = {
   id: string;
