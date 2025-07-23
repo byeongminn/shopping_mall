@@ -1,8 +1,10 @@
 import { style } from "@vanilla-extract/css";
-import { ORDER_FILTER_HEIGHT } from "@/widgets/goods/FilterSection/style.css";
 import { f } from "@/shared/styles/functions";
 import { responsiveStyle } from "@/shared/styles/functions/layout.css";
-import { CONTENT_WIDTH } from "@/shared/styles/globals.css";
+import {
+  CONTENT_WIDTH,
+  ORDER_FILTER_HEIGHT,
+} from "@/shared/styles/globals.css";
 
 export const filterSection = style([
   {
@@ -15,7 +17,7 @@ export const filterSection = style([
   },
 ]);
 
-export const mainGoodsSection = style([
+export const goodListSection = style([
   f.wFull,
   {
     margin: "0 auto",
