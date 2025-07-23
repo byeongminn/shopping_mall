@@ -37,20 +37,24 @@ export const CartPage = () => {
   }
 
   return (
-    <div className={s.wrapper}>
-      <CartList
-        goods={items}
-        itemTotalPrices={itemTotalPrices}
-        onRemoveItem={removeItem}
-        onIncreaseQuantity={increaseQuantity}
-        onDecreaseQuantity={decreaseQuantity}
-        onRemoveOption={removeOption}
-      />
-      <CartSummary
-        goods={items}
-        cartTotalPrice={cartTotalPrice}
-        onBuyClick={handleBuyClick}
-      />
-    </div>
+    <main>
+      <section className={s.cartSection}>
+        <div className={s.wrapper}>
+          <CartList
+            goods={items}
+            itemTotalPrices={itemTotalPrices}
+            onRemoveItem={removeItem}
+            onIncreaseQuantity={increaseQuantity}
+            onDecreaseQuantity={decreaseQuantity}
+            onRemoveOption={removeOption}
+          />
+          <CartSummary
+            goods={items}
+            cartTotalPrice={cartTotalPrice}
+            onBuyClick={handleBuyClick}
+          />
+        </div>
+      </section>
+    </main>
   );
 };
