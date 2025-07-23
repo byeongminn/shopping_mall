@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "@/shared/store/cart";
+import { useCartStore } from "@/features/cart/model/useCartStore";
 import { CartList } from "./CartList";
 import * as s from "./style.css";
 

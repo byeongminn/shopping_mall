@@ -3,7 +3,7 @@
 import { GetGoodDetailRequestDto } from "@/entities/goods/goods.types";
 import { useGetGoodDetail } from "@/features/goods/model/useGetGoodDetail";
 import { useSelectedOptions } from "@/features/goods/model/useSelectedOptions";
-import { useCartStore } from "@/shared/store/cart";
+import { useCartStore } from "@/features/cart/model/useCartStore";
 import { TotalPriceInfo } from "@/features/goods/ui/TotalPriceInfo";
 import { ActionPanel } from "@/features/goods/ui/ActionPanel";
 import { GoodImageSection } from "@/widgets/goods/GoodImageSection";
