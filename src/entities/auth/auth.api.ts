@@ -1,5 +1,4 @@
-import { api } from "@/shared/lib/axios";
-import { API_BASE_URL } from "@/shared/api/constants";
+import { request } from "@/shared/lib/axios/request";
 import {
   GetMeResponseDto,
   PostLoginRequestDto,
@@ -8,24 +7,21 @@ import {
 } from "./auth.types";
 
 const AUTH_API_URL = {
-  LOGIN: `${API_BASE_URL}/api/auth/login`,
-  LOGOUT: `${API_BASE_URL}/api/auth/logout`,
-  ME: `${API_BASE_URL}/api/auth/me`,
+  LOGIN: "/auth/login",
+  LOGOUT: "/auth/logout",
+  ME: "/auth/me",
 };
 
-export const postLogin = async (
+export const postLogin = (
   payload: PostLoginRequestDto
 ): Promise<PostLoginResponseDto> => {
-  const { data } = await api.post(AUTH_API_URL.LOGIN, payload);
-  return data;
+  return request.post(AUTH_API_URL.LOGIN, payload);
 };
 
-export const postLogout = async (): Promise<PostLogoutResponseDto> => {
-  const { data } = await api.post(AUTH_API_URL.LOGOUT);
-  return data;
+export const postLogout = (): Promise<PostLogoutResponseDto> => {
+  return request.post(AUTH_API_URL.LOGOUT);
 };
 
-export const getMe = async (): Promise<GetMeResponseDto> => {
-  const { data } = await api.get(AUTH_API_URL.ME);
-  return data;
+export const getMe = (): Promise<GetMeResponseDto> => {
+  return request.get(AUTH_API_URL.ME);
 };
