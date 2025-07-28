@@ -1,6 +1,6 @@
 import { GoodDetailOption } from "@/entities/goods/goods.types";
 import { ArrowBottomIcon } from "@/features/goods/ui/Icon";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";
 
 type Props = {

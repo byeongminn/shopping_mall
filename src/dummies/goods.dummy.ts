@@ -1,6 +1,58 @@
-import { RawGood } from "@/entities/goods/goods.types";
+type DummyGoodDetailOption = {
+  id: number;
+  explain: string;
+  price: number;
+};
 
-export const goods: RawGood[] = [
+type DummyGoodDetailImage = {
+  imageUrl: string;
+};
+
+type DummyGood = {
+  id: string;
+  name: string;
+  imageUrl: string;
+  brand: {
+    id: string;
+    name: string;
+  };
+  price: {
+    originalPrice: string;
+    sellingPrice: string;
+    discountRate: string;
+  };
+  badgeProperties: {
+    isFreeDelivery: boolean;
+    isSpecialPrice: boolean;
+    departureToday?: {
+      orderDeadline: string;
+      description: string;
+    };
+    couponBadge?: {
+      displayText: string;
+      discountRatio: string;
+      couponAppliedPrice: string;
+    };
+  };
+  reviewStatistic: {
+    reviewCount: number;
+    reviewAverage: number;
+  };
+  delivery: {
+    fee: number;
+    backwoodsFee: number;
+    freeThreshold: number;
+    isRegionalDeliveryFee: boolean;
+    type: number;
+  };
+  description: string;
+  extraOptions: DummyGoodDetailOption[];
+  firstDepthName: string;
+  options: DummyGoodDetailOption[];
+  subImages: DummyGoodDetailImage[];
+};
+
+export const goods: DummyGood[] = [
   {
     id: "1",
     name: "구름 소파",

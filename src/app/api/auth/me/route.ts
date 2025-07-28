@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { getSession } from "@/shared/lib/session";
-import { ACCESS_TOKEN } from "@/shared/lib/constants";
+import { getSession } from "@/shared/server/session";
+import { ACCESS_TOKEN } from "@/shared/constants/client";
 
 export const GET = async () => {
   try {

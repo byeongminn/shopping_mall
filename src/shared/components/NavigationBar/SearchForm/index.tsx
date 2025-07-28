@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import Search from "./search.svg";
-import { getSearchPageLink } from "@/shared/utils/link/page";
+import { getPageLink } from "@/shared/lib/query-string/router";
 import * as s from "./style.css";
 
 export const SearchForm = () => {
@@ -19,7 +19,7 @@ export const SearchForm = () => {
     const queryValue = queryInput?.value ?? "";
 
     if (queryValue !== "") {
-      router.push(getSearchPageLink({ q: queryValue }));
+      router.push(getPageLink({ seg: "/search", q: queryValue }));
     }
   };
 

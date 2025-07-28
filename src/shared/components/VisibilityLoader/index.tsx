@@ -1,7 +1,7 @@
 import {
   UseIntersectionObserverProps,
   useIntersectionObserver,
-} from "@/shared/hooks/useIntersectionObserver";
+} from "@/shared/lib/intersection-observer/useIntersectionObserver";
 import { Spinner } from "../base/Spinner";
 import * as s from "./style.css";
 

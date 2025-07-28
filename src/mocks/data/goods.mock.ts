@@ -1,7 +1,4 @@
-import { HttpHandler, HttpResponse, http } from "msw";
-import { GOODS_API_URL } from "@/entities/goods/goods.api";
-
-const MOCK_GOOD_LIST = {
+export const MOCK_GOOD_LIST = {
   success: {
     goods: [
       {
@@ -1279,7 +1276,7 @@ const MOCK_GOOD_LIST = {
   },
 };
 
-const MOCK_SEARCH_GOOD_LIST = {
+export const MOCK_SEARCH_GOOD_LIST = {
   success: {
     goods: [
       {
@@ -1380,7 +1377,7 @@ const MOCK_SEARCH_GOOD_LIST = {
   },
 };
 
-const MOCK_GOOD_DETAIL = {
+export const MOCK_GOOD_DETAIL = {
   success: {
     id: "20",
     name: "폭신 폭신 베개",
@@ -1433,21 +1430,3 @@ const MOCK_GOOD_DETAIL = {
     ],
   },
 };
-
-export const getMockGoodList: HttpHandler = http.get(GOODS_API_URL.LIST, () => {
-  return HttpResponse.json(MOCK_GOOD_LIST.success);
-});
-
-export const getMockSearchGoodList: HttpHandler = http.get(
-  GOODS_API_URL.SEARCH,
-  () => {
-    return HttpResponse.json(MOCK_SEARCH_GOOD_LIST.success);
-  }
-);
-
-export const getMockGoodDetail: HttpHandler = http.get(
-  GOODS_API_URL.DETAIL,
-  () => {
-    return HttpResponse.json(MOCK_GOOD_DETAIL.success);
-  }
-);

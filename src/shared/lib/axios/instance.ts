@@ -1,9 +1,9 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { handleError } from "./errorHandler";
-import { ENV } from "@/shared/config/env";
+import { API_BASE_URL } from "@/shared/constants/client";
 
 export const api: AxiosInstance = axios.create({
-  baseURL: `${ENV.BASE_URL}/api`,
+  baseURL: `${API_BASE_URL}/api`,
   withCredentials: true,
 });
 

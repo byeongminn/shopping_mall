@@ -3,13 +3,10 @@ import {
   Order,
   RawGood,
 } from "@/entities/goods/goods.types";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { formatNumberWithCommas } from "@/shared/utils/format";
+import { roundToOneDecimalPlace } from "@/shared/utils/math";
 
-export const numberRounded = (value: number) => {
-  return Math.round(value * 10) / 10;
-};
-
-export const mappingGoodsResponse = (
+export const mappingGoodListResponse = (
   data: RawGood[]
 ): GetGoodListResponseDto => {
   const goods = data?.map((item) => {
@@ -29,7 +26,7 @@ export const mappingGoodsResponse = (
         reviewCountDisplayText:
           formatNumberWithCommas(item.reviewStatistic.reviewCount) ?? "0",
         reviewAverageDisplayText:
-          numberRounded(item.reviewStatistic.reviewAverage) ?? 0,
+          roundToOneDecimalPlace(item.reviewStatistic.reviewAverage) ?? 0,
       },
     };
   });
@@ -40,7 +37,7 @@ export const mappingGoodsResponse = (
   };
 };
 
-export const orderingGoodsData = (
+export const orderingGoodListData = (
   data: GetGoodListResponseDto,
   order: Order
 ): GetGoodListResponseDto => {

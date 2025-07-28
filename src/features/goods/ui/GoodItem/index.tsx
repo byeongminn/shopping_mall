@@ -7,7 +7,7 @@ import {
   FreeDeliveryIcon,
   SpecialPriceIcon,
 } from "@/features/goods/ui/Icon";
-import { IMAGE_URL } from "@/shared/constants";
+import { IMAGE_URL } from "@/shared/constants/client";
 import * as s from "./style.css";
 
 type GoodItemProps = {

@@ -1,8 +1,8 @@
 "use client";
 
-import { isMocking } from "@/shared/constants";
-import { initMocking } from "@/shared/mocks";
 import { useEffect, useState } from "react";
+import { initMocking } from "@/mocks";
+import { isMocking } from "@/shared/constants/client";
 
 export const MSWProvider = ({ children }: { children: React.ReactNode }) => {
   const [isReady, setIsReady] = useState(!isMocking());

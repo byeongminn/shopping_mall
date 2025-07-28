@@ -5,7 +5,7 @@ import { useGetSearchGoodList } from "@/features/goods/model/useGetSearchGoodLis
 import { GoodList } from "@/features/goods/ui/GoodList";
 import { EmptyIcon } from "@/features/goods/ui/Icon";
 import { FilterSection } from "@/widgets/goods/FilterSection";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";
 
 type Props = Pick<GetSearchGoodListRequestDto, "q" | "order">;

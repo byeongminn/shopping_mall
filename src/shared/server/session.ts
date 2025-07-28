@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
-import { ACCESS_TOKEN } from "@/shared/lib/constants";
-import { reissueAccessToken, verifyJwt } from "@/shared/lib/auth";
+import { reissueAccessToken, verifyJwt } from "@/shared/server/auth";
+import { ACCESS_TOKEN } from "@/shared/constants/client";
 
 export const getSession = async () => {
   const cookieStore = await cookies();

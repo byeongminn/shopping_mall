@@ -1,5 +1,5 @@
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/lib/constants";
 import { NextResponse } from "next/server";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/constants/client";
 
 export const POST = async () => {
   const response = NextResponse.json({ success: true });

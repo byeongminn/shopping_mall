@@ -3,7 +3,7 @@ import { RefObject } from "react";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { IMAGE_URL } from "@/shared/constants";
+import { IMAGE_URL } from "@/shared/constants/client";
 
 import "swiper/css";
 import "swiper/css/pagination";

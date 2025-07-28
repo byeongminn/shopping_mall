@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { reissueAccessToken } from "@/shared/lib/auth";
-import { ACCESS_TOKEN } from "@/shared/lib/constants";
+import { reissueAccessToken } from "@/shared/server/auth";
+import { ACCESS_TOKEN } from "@/shared/constants/client";
 
 export const POST = async () => {
   try {

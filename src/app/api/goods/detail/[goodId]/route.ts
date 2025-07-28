@@ -3,9 +3,9 @@ import {
   GetGoodDetailResponseDto,
   RawGood,
 } from "@/entities/goods/goods.types";
-import { goods } from "@/shared/mock-data/goods";
-import { numberRounded } from "@/shared/utils/data";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { goods } from "@/dummies/goods.dummy";
+import { formatNumberWithCommas } from "@/shared/utils/format";
+import { roundToOneDecimalPlace } from "@/shared/utils/math";
 
 type Params = {
   params: Promise<Pick<GetGoodDetailRequestDto, "goodId">>;
@@ -51,7 +51,7 @@ const mappingResponse = (data: RawGood): GetGoodDetailResponseDto => {
       reviewCountDisplayText:
         formatNumberWithCommas(data.reviewStatistic.reviewCount) ?? 0,
       reviewAverageDisplayText:
-        numberRounded(data.reviewStatistic.reviewAverage) ?? 0,
+        roundToOneDecimalPlace(data.reviewStatistic.reviewAverage) ?? 0,
     },
     subImages: [
       {

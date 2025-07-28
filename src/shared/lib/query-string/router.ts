@@ -1,10 +1,9 @@
 import queryString from "query-string";
-import { Order } from "@/entities/goods/goods.types";
 
 export const getPageLink = (params: {
   seg?: string;
   q?: string;
-  order?: Order;
+  order?: string;
 }) => {
   const parsedParams = queryString.parse(location.search);
 
@@ -15,6 +14,3 @@ export const getPageLink = (params: {
     parsedParams
   )}`;
 };
-
-export const getSearchPageLink = (params: { q: string; order?: Order }) =>
-  getPageLink({ seg: "/search", q: params.q, order: params.order });

@@ -1,7 +1,10 @@
-import { GetGoodListRequestDto, Order } from "@/entities/goods/goods.types";
-import { goods } from "@/shared/mock-data/goods";
-import { mappingGoodsResponse, orderingGoodsData } from "@/shared/utils/data";
 import { NextRequest } from "next/server";
+import { GetGoodListRequestDto, Order } from "@/entities/goods/goods.types";
+import {
+  mappingGoodListResponse,
+  orderingGoodListData,
+} from "@/features/goods/lib/goodListUtils";
+import { goods } from "@/dummies/goods.dummy";
 
 export const GET = async (request: NextRequest) => {
   try {
@@ -11,9 +14,9 @@ export const GET = async (request: NextRequest) => {
 
     const data = goods;
 
-    const mappedData = mappingGoodsResponse(data);
+    const mappedData = mappingGoodListResponse(data);
 
-    const orderedData = orderingGoodsData(mappedData, order as Order);
+    const orderedData = orderingGoodListData(mappedData, order as Order);
 
     const pageSize = 20;
 

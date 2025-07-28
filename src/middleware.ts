@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { jwtVerify } from "jose";
-import { signToken } from "@/shared/lib/auth";
-import { ACCESS_TOKEN, REFRESH_TOKEN, SECRET } from "@/shared/lib/constants";
+import { signToken } from "@/shared/server/auth";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/constants/client";
+import { SECRET } from "@/shared/constants/server";
 
 // 로그인 페이지로 리다이렉트
 const redirectToLogin = (request: NextRequest) => {

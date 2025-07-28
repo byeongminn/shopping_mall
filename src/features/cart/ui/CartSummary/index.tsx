@@ -1,5 +1,5 @@
 import { CartItem } from "@/entities/cart/cart.types";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";
 
 type Props = {

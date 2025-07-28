@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { type JWTPayload, SignJWT, jwtVerify } from "jose";
-import { REFRESH_TOKEN, SECRET } from "@/shared/lib/constants";
+import { REFRESH_TOKEN } from "@/shared/constants/client";
+import { SECRET } from "@/shared/constants/server";
 
 export const signToken = async (payload: JWTPayload, expiresIn: string) => {
   return await new SignJWT(payload)

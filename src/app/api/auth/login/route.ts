@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { signToken } from "@/shared/lib/auth";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/lib/constants";
+import { signToken } from "@/shared/server/auth";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@/shared/constants/client";
 
 export const POST = async (request: NextRequest) => {
   try {

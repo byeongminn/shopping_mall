@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Order } from "@/entities/goods/goods.types";
 import { FilterItem } from "@/features/goods/ui/FilterItem";
-import { getPageLink } from "@/shared/utils/link/page";
+import { getPageLink } from "@/shared/lib/query-string/router";
 import * as s from "./style.css";
 
 const ORDER_TYPO: Record<Order, string> = {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { MSWProvider } from "./providers/MSWProvider";
+import { QueryProvider } from "./providers/QueryProvider";
 import "@/shared/styles";
-import { QueryProvider } from "@/shared/components/QueryProvider";
-import { MSWProvider } from "@/shared/components/MSWProvider";
 
 export const metadata: Metadata = {
   title: "내일의집",
