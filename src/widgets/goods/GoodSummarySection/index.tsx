@@ -4,7 +4,7 @@ import {
   CheckIcon,
   DepartureTodayIcon,
   SpecialPriceIcon,
-} from "@/features/goods/ui/Icon";
+} from "@/shared/ui/Icon";
 import { ReviewStatistics } from "@/features/goods/ui/ReviewStatistics";
 import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";

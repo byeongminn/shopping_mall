@@ -8,8 +8,8 @@ import {
   GetGoodListResponseDto,
 } from "@/entities/goods/goods.types";
 import { GoodItem } from "@/features/goods/ui/GoodItem";
-import { VisibilityLoader } from "@/shared/components/VisibilityLoader";
-import * as s from "@/features/goods/ui/GoodList/style.css";
+import { VisibilityLoader } from "@/shared/ui/VisibilityLoader";
+import * as s from "./style.css";
 
 type GoodListProps = {
   goods: FormattedGood[] | undefined;

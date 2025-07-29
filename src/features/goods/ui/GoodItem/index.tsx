@@ -6,7 +6,7 @@ import {
   DepartureTodayIcon,
   FreeDeliveryIcon,
   SpecialPriceIcon,
-} from "@/features/goods/ui/Icon";
+} from "@/shared/ui/Icon";
 import { IMAGE_URL } from "@/shared/constants/client";
 import * as s from "./style.css";
 

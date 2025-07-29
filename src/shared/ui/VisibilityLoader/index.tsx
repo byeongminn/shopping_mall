@@ -2,7 +2,7 @@ import {
   UseIntersectionObserverProps,
   useIntersectionObserver,
 } from "@/shared/lib/intersection-observer/useIntersectionObserver";
-import { Spinner } from "../base/Spinner";
+import { Spinner } from "@/shared/ui/Spinner";
 import * as s from "./style.css";
 
 type Props = {

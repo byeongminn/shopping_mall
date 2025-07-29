@@ -3,7 +3,7 @@
 import { GetSearchGoodListRequestDto } from "@/entities/goods/goods.types";
 import { useGetSearchGoodList } from "@/features/goods/model/useGetSearchGoodList";
 import { GoodList } from "@/features/goods/ui/GoodList";
-import { EmptyIcon } from "@/features/goods/ui/Icon";
+import { EmptyIcon } from "@/shared/ui/Icon";
 import { FilterSection } from "@/widgets/goods/FilterSection";
 import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";

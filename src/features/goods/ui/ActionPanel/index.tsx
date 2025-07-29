@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components/base/Button";
+import { Button } from "@/shared/ui/Button";
 import * as s from "./style.css";
 
 type Props = {

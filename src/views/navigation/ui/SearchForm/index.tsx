@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import Search from "./search.svg";
 import { getPageLink } from "@/shared/lib/query-string/router";
+import { SearchIcon } from "@/shared/ui/Icon";
 import * as s from "./style.css";
 
 export const SearchForm = () => {
@@ -26,7 +26,7 @@ export const SearchForm = () => {
   return (
     <form className={s.wrapper} onSubmit={handleSubmit}>
       <span className={s.search}>
-        <Search />
+        <SearchIcon />
       </span>
       <input
         className={s.input}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SelectedOption } from "@/entities/goods/@x/cart";
 import { CartItem as CartItemType } from "@/entities/cart/cart.types";
-import { RemoveIcon } from "@/features/goods/ui/Icon";
+import { RemoveIcon } from "@/shared/ui/Icon";
 import { GoodSelectedOptionItem } from "@/features/goods/ui/SelectedOptionItem";
 import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";

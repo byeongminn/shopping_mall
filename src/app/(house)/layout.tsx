@@ -2,8 +2,8 @@
 
 import { Suspense, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { NavigationBar } from "@/shared/components/NavigationBar";
-import { NAVIGATION_BAR_HEIGHT } from "@/shared/components/NavigationBar/style.css";
+import { NavigationBar } from "@/views/navigation/ui/NavigationBar";
+import { NAVIGATION_BAR_HEIGHT } from "@/views/navigation/ui/NavigationBar/style.css";
 import { getMe } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
 

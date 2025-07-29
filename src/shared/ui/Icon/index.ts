@@ -9,3 +9,4 @@ export { default as ArrowBottomIcon } from "./arrowBottom.svg";
 export { default as MinusIcon } from "./minus.svg";
 export { default as PlusIcon } from "./plus.svg";
 export { default as RemoveIcon } from "./remove.svg";
+export { default as SearchIcon } from "./search.svg";

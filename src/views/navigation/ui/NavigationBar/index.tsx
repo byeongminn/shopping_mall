@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "@/shared/components/NavigationBar/logo.svg";
-import { SearchForm } from "@/shared/components/NavigationBar/SearchForm";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
 import { Logout } from "@/widgets/auth/Logout";
+import { SearchForm } from "@/views/navigation/ui/SearchForm";
+import Logo from "@/shared/assets/logo.svg";
 import * as s from "./style.css";
 
 export const NavigationBar = () => {

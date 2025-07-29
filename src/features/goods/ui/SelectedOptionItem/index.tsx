@@ -1,5 +1,5 @@
 import { SelectedOption } from "@/entities/goods/goods.types";
-import { MinusIcon, PlusIcon, RemoveIcon } from "@/features/goods/ui/Icon";
+import { MinusIcon, PlusIcon, RemoveIcon } from "@/shared/ui/Icon";
 import { formatNumberWithCommas } from "@/shared/utils/format";
 import * as s from "./style.css";
 
