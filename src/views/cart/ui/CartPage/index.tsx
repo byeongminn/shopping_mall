@@ -1,9 +1,12 @@
+"use client";
+
+import { withAuth } from "@/features/auth/lib/withAuth";
 import { useCartStore } from "@/features/cart/model/useCartStore";
 import { CartList } from "@/features/cart/ui/CartList";
 import { CartSummary } from "@/features/cart/ui/CartSummary";
 import * as s from "./style.css";
 
-export const CartPage = () => {
+const CartPage = () => {
   const {
     items,
     removeItem,
@@ -58,3 +61,5 @@ export const CartPage = () => {
     </main>
   );
 };
+
+export default withAuth(CartPage, "protected");

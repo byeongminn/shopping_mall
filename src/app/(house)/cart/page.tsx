@@ -1,10 +1,5 @@
-"use client";
+import CartPage from "@/views/cart/ui/CartPage";
 
-import { withAuth } from "@/shared/hocs/withAuth";
-import { CartPage } from "@/views/cart/ui/CartPage";
-
-function Page() {
+export default function Page() {
   return <CartPage />;
 }
-
-export default withAuth(Page, "protected");
