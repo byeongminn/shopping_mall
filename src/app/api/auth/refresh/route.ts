@@ -17,7 +17,7 @@ export const POST = async () => {
   } catch (error) {
     // refreshToken 값이 존재하지 않습니다.
     // refreshToken 값이 만료되었습니다.
-    console.error((error as Error).message);
+    console.warn((error as Error).message);
 
     return NextResponse.json(
       { success: false, message: (error as Error).message },
