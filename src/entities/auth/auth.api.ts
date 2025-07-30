@@ -1,6 +1,5 @@
 import { request } from "@/shared/lib/axios/request";
 import {
-  GetMeResponseDto,
   PostLoginRequestDto,
   PostLoginResponseDto,
   PostLogoutResponseDto,
@@ -20,8 +19,4 @@ export const postLogin = (
 
 export const postLogout = (): Promise<PostLogoutResponseDto> => {
   return request.post(AUTH_API_URL.LOGOUT);
-};
-
-export const getMe = (): Promise<GetMeResponseDto> => {
-  return request.get(AUTH_API_URL.ME);
 };

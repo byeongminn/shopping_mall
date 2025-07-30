@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import {
   PostLoginRequestDto,
   PostLoginResponseDto,
@@ -10,7 +10,6 @@ import { postLogin } from "@/entities/auth/auth.api";
 import { useLoginStore } from "@/features/auth/model/useLoginStore";
 
 export const usePostLogin = () => {
-  const queryClient = useQueryClient();
   const searchParams = useSearchParams();
 
   const { setIsLoggedIn } = useLoginStore();
@@ -20,7 +19,6 @@ export const usePostLogin = () => {
       mutationFn: postLogin,
       onSuccess: async () => {
         setIsLoggedIn(true);
-        await queryClient.refetchQueries({ queryKey: ["getMe"] });
         window.location.assign(searchParams?.get("redirect") || "/");
       },
     }

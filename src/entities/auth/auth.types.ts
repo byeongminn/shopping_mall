@@ -1,5 +1,3 @@
-import { type JWTPayload } from "jose";
-
 export type PostLoginRequestDto = {
   email: string;
   password: string;
@@ -11,9 +9,4 @@ export type PostLoginResponseDto = {
 
 export type PostLogoutResponseDto = {
   success: boolean;
-};
-
-export type GetMeResponseDto = {
-  isLoggedIn: boolean;
-  user?: JWTPayload;
 };
