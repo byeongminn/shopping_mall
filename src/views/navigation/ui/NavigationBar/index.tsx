@@ -1,14 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { useLoginStore } from "@/features/auth/model/useLoginStore";
 import { Logout } from "@/widgets/auth/Logout";
 import { SearchForm } from "@/views/navigation/ui/SearchForm";
+import { getSession } from "@/shared/server/session";
 import Logo from "@/shared/assets/logo.svg";
 import * as s from "./style.css";
 
-export const NavigationBar = () => {
-  const { isLoggedIn } = useLoginStore();
+export const NavigationBar = async () => {
+  const session = await getSession();
+  const isLoggedIn = !!session?.user;
 
   return (
     <nav className={s.container}>
