@@ -3,11 +3,10 @@
 import { useState } from "react";
 import { PostLoginRequestDto } from "@/entities/auth/auth.types";
 import { usePostLogin } from "@/features/auth/model/usePostLogin";
-import { withAuth } from "@/features/auth/lib/withAuth";
 import { LoginForm } from "@/features/auth/ui/LoginForm";
 import * as s from "./style.css";
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const { mutate: login } = usePostLogin();
 
   const [email, setEmail] = useState<PostLoginRequestDto["email"]>("");
@@ -40,5 +39,3 @@ const LoginPage = () => {
     </main>
   );
 };
-
-export default withAuth(LoginPage, "guest-only");
