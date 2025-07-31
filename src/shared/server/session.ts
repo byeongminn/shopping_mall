@@ -7,10 +7,7 @@ export const getSession = async () => {
 
   if (!accessToken) return null;
 
-  try {
-    const payload = await verifyJwt(ACCESS_TOKEN, accessToken);
-    return payload ? { user: payload } : null;
-  } catch {
-    return null;
-  }
+  const payload = await verifyJwt(accessToken, ACCESS_TOKEN);
+
+  return payload ? { user: payload } : null;
 };

@@ -17,8 +17,13 @@ export const handleError = async (error: AxiosError) => {
   if (isUnauthorized && !originalRequest._retry && !isLoginRequest) {
     originalRequest._retry = true;
     try {
-      await api.post("/auth/refresh");
-      window.location.reload();
+      const { data } = await api.post("/auth/refresh");
+
+      if (!data?.success) {
+        window.location.href = "/login";
+        return;
+      }
+
       return api(originalRequest);
     } catch {
       window.location.href = "/login";
