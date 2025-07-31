@@ -1,0 +1,49 @@
+import { GoodDetailOption } from "@/entities/goods/goods.types";
+import { ArrowBottomIcon } from "@/shared/ui/Icon";
+import { formatNumberWithCommas } from "@/shared/utils/format";
+import * as s from "./style.css";
+
+type Props = {
+  isFirst: boolean;
+  firstDepthName?: string;
+  isExtraOption: boolean;
+  options: GoodDetailOption[];
+  onSelectChange: (
+    value: number,
+    options: GoodDetailOption[],
+    isExtraOption: boolean
+  ) => void;
+};
+
+export const OptionSelectorItem = ({
+  isFirst,
+  firstDepthName,
+  isExtraOption,
+  options,
+  onSelectChange,
+}: Props) => {
+  return (
+    <div className={s.container}>
+      <select
+        className={s.selectWrapper({ isFirst })}
+        value={-1}
+        onChange={(e) =>
+          onSelectChange(Number(e.target.value), options, isExtraOption)
+        }
+        aria-label={firstDepthName}
+      >
+        <option value={-1} disabled>
+          {firstDepthName}
+        </option>
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.explain}({formatNumberWithCommas(option.price)}원)
+          </option>
+        ))}
+      </select>
+      <span className={s.arrowWrapper({ isFirst })}>
+        <ArrowBottomIcon />
+      </span>
+    </div>
+  );
+};

@@ -1,11 +1,14 @@
-import { GetGoodsDetailRequestParams } from "@/features/goods/detail/api/getGoodsDetail";
-import { GoodsDetail, RawGoodDTO } from "@/shared/api/house/types/item";
-import { goods } from "@/shared/mock-data/goods";
-import { numberRounded } from "@/shared/utils/data";
-import { formatNumberWithCommas } from "@/shared/utils/format/number";
+import {
+  GetGoodDetailRequestDto,
+  GetGoodDetailResponseDto,
+  RawGood,
+} from "@/entities/goods/goods.types";
+import { goods } from "@/dummies/goods.dummy";
+import { formatNumberWithCommas } from "@/shared/utils/format";
+import { roundToOneDecimalPlace } from "@/shared/utils/math";
 
 type Params = {
-  params: Promise<Pick<GetGoodsDetailRequestParams, "goodId">>;
+  params: Promise<Pick<GetGoodDetailRequestDto, "goodId">>;
 };
 
 export const GET = async (_: unknown, { params }: Params) => {
@@ -31,7 +34,7 @@ export const GET = async (_: unknown, { params }: Params) => {
   }
 };
 
-const mappingResponse = (data: RawGoodDTO): GoodsDetail => {
+const mappingResponse = (data: RawGood): GetGoodDetailResponseDto => {
   return {
     ...data,
     price: {
@@ -48,7 +51,7 @@ const mappingResponse = (data: RawGoodDTO): GoodsDetail => {
       reviewCountDisplayText:
         formatNumberWithCommas(data.reviewStatistic.reviewCount) ?? 0,
       reviewAverageDisplayText:
-        numberRounded(data.reviewStatistic.reviewAverage) ?? 0,
+        roundToOneDecimalPlace(data.reviewStatistic.reviewAverage) ?? 0,
     },
     subImages: [
       {

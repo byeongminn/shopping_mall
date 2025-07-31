@@ -1,8 +1,10 @@
 import { NextRequest } from "next/server";
-import { Order } from "@/features/main/api/getGoods";
-import { RawGoodDTO } from "@/shared/api/house/types/item";
-import { goods } from "@/shared/mock-data/goods";
-import { mappingGoodsResponse, orderingGoodsData } from "@/shared/utils/data";
+import { Order, RawGood } from "@/entities/goods/goods.types";
+import {
+  mappingGoodListResponse,
+  orderingGoodListData,
+} from "@/features/goods/lib/goodListUtils";
+import { goods } from "@/dummies/goods.dummy";
 
 export const GET = async (request: NextRequest) => {
   try {
@@ -13,9 +15,9 @@ export const GET = async (request: NextRequest) => {
 
     const foundData = findingData(data, q);
 
-    const mappedData = mappingGoodsResponse(foundData);
+    const mappedData = mappingGoodListResponse(foundData);
 
-    const orderedData = orderingGoodsData(mappedData, order);
+    const orderedData = orderingGoodListData(mappedData, order);
 
     const pageSize = 20;
 
@@ -43,6 +45,6 @@ const parseSearchParams = (params: URLSearchParams) => {
   };
 };
 
-const findingData = (data: RawGoodDTO[], q: string) => {
+const findingData = (data: RawGood[], q: string) => {
   return data.filter((good) => good?.name?.includes(q));
 };

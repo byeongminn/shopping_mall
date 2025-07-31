@@ -4,6 +4,8 @@ export const CONTENT_WIDTH = "1256px";
 
 export const GOOD_DETAIL_WIDTH = "1136px";
 
+export const ORDER_FILTER_HEIGHT = 70;
+
 globalStyle("*", {
   boxSizing: "border-box",
   margin: 0,

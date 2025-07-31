@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { MSWProvider } from "./providers/MSWProvider";
+import { QueryProvider } from "./providers/QueryProvider";
 import "@/shared/styles";
-import { QueryProvider } from "@/shared/components/QueryProvider";
-import { MSWProvider } from "@/shared/components/MSWProvider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "내일의집",
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <MSWProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <Suspense>{children}</Suspense>
+          </QueryProvider>
         </MSWProvider>
       </body>
     </html>
