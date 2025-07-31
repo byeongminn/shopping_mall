@@ -11,23 +11,27 @@ export const signToken = async (payload: JWTPayload, expiresIn: string) => {
     .sign(SECRET);
 };
 
-export const verifyJwt = async (name: string, token: string) => {
+export const verifyJwt = async (
+  token: string | undefined = "",
+  name: string
+) => {
   try {
     const { payload } = await jwtVerify(token, SECRET);
 
     return payload;
   } catch {
-    throw new Error(`${name} 값이 만료되었습니다.`);
+    console.log(`${name}이 만료되었거나 유효하지 않는 토큰입니다.`);
   }
 };
 
 export const reissueAccessToken = async () => {
   const refreshToken = (await cookies()).get(REFRESH_TOKEN)?.value;
 
-  if (!refreshToken)
-    throw new Error(`${REFRESH_TOKEN} 값이 존재하지 않습니다.`);
+  if (!refreshToken) return null;
 
-  const payload = await verifyJwt(REFRESH_TOKEN, refreshToken);
+  const payload = await verifyJwt(refreshToken, REFRESH_TOKEN);
+
+  if (!payload || !payload.email) return null;
 
   return await signToken({ email: payload.email }, "15m");
 };
