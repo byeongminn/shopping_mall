@@ -3,25 +3,21 @@ import { reissueAccessToken } from "@/shared/server/auth";
 import { ACCESS_TOKEN } from "@/shared/constants/client";
 
 export const POST = async () => {
-  try {
-    const newAccessToken = await reissueAccessToken();
+  const newAccessToken = await reissueAccessToken();
 
-    const response = NextResponse.json({ success: true });
-
-    response.cookies.set(ACCESS_TOKEN, newAccessToken, {
-      httpOnly: true,
-      path: "/",
-    });
-
-    return response;
-  } catch (error) {
-    // refreshToken 값이 존재하지 않습니다.
-    // refreshToken 값이 만료되었습니다.
-    console.warn((error as Error).message);
-
+  if (!newAccessToken) {
     return NextResponse.json(
-      { success: false, message: (error as Error).message },
+      { success: false, message: "access token 재발급에 실패했습니다." },
       { status: 200 }
     );
   }
+
+  const response = NextResponse.json({ success: true });
+
+  response.cookies.set(ACCESS_TOKEN, newAccessToken, {
+    httpOnly: true,
+    path: "/",
+  });
+
+  return response;
 };

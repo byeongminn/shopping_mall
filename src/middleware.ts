@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { verifyJwt } from "@/shared/server/auth";
 import { ACCESS_TOKEN } from "@/shared/constants/client";
 
 const GUEST_PATHS = ["/login"];
@@ -6,6 +7,7 @@ const PROTECTED_PATHS = ["/cart"];
 
 export const middleware = async (request: NextRequest) => {
   const accessToken = request.cookies.get(ACCESS_TOKEN)?.value;
+  const session = await verifyJwt(accessToken, ACCESS_TOKEN);
 
   const pathname = request.nextUrl.pathname;
   const isGuestPath = GUEST_PATHS.some((path) => pathname.startsWith(path));
@@ -13,11 +15,11 @@ export const middleware = async (request: NextRequest) => {
     pathname.startsWith(path)
   );
 
-  if (isGuestPath && accessToken) {
+  if (isGuestPath && session?.email) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  if (isProtectedPath && !accessToken) {
+  if (isProtectedPath && !session?.email) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
