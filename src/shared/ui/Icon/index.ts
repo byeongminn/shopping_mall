@@ -1,0 +1,12 @@
+export { default as DepartureTodayIcon } from "./departureToday.svg";
+export { default as FreeDeliveryIcon } from "./freeDelivery.svg";
+export { default as SpecialPriceIcon } from "./specialPrice.svg";
+export { default as CouponIcon } from "./coupon.svg";
+export { default as EmptyIcon } from "./empty.svg";
+export { default as CheckIcon } from "./check.svg";
+export { default as ArrowRightIcon } from "./arrowRight.svg";
+export { default as ArrowBottomIcon } from "./arrowBottom.svg";
+export { default as MinusIcon } from "./minus.svg";
+export { default as PlusIcon } from "./plus.svg";
+export { default as RemoveIcon } from "./remove.svg";
+export { default as SearchIcon } from "./search.svg";
