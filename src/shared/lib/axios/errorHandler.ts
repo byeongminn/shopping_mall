@@ -18,6 +18,7 @@ export const handleError = async (error: AxiosError) => {
     originalRequest._retry = true;
     try {
       await api.post("/auth/refresh");
+      window.location.reload();
       return api(originalRequest);
     } catch {
       window.location.href = "/login";
